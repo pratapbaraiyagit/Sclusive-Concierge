@@ -1,0 +1,363 @@
+/* src/index.css */
+
+/* --- Font Imports from Google Fonts --- */
+/* For "The Seasons" - if it's a Google Font or similar. If it's a custom font, you'll need @font-face rules. */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+/* A good alternative if "The Seasons" isn't standard, or replace with actual "The Seasons" if you have it */
+/* For "Poppins" */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --- Custom Variables (Updated based on your Brand Guide) --- */
+:root {
+  --primary-color-dark-green: #142F2E;
+  /* Primary */
+  --primary-color-gold: #F8CD4D;
+  /* Primary / Accent */
+
+  --secondary-color-white: #FFFFFF;
+  /* Secondary */
+  --secondary-color-light-teal: #8EABA9;
+  /* Secondary */
+
+  /* Text colors derived from main palette */
+  --dark-text-color: var(--primary-color-dark-green);
+  --light-text-color: var(--secondary-color-white);
+  --muted-text-color: #6c757d;
+  /* Standard Bootstrap muted, adjust if needed */
+}
+
+/* --- General Body Styles --- */
+body {
+  font-family: 'Poppins', sans-serif;
+  /* Poppins for body text */
+  line-height: 1.6;
+  color: var(--dark-text-color);
+  overflow-x: hidden;
+  /* Prevent horizontal scroll on smaller screens */
+}
+
+/* --- Global Overrides for Bootstrap Buttons to use new colors --- */
+.btn-primary-custom {
+  background-color: var(--primary-color-gold);
+  border-color: var(--primary-color-gold);
+  color: var(--primary-color-dark-green);
+  /* Text on gold should be dark green */
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover,
+.btn-primary-custom:focus {
+  background-color: #e0b43e;
+  /* Slightly darker gold for hover, manually picked */
+  border-color: #e0b43e;
+  color: var(--primary-color-dark-green);
+  opacity: 0.9;
+  /* Simpler hover effect */
+}
+
+.btn-outline-light {
+  /* For buttons on dark backgrounds */
+  border-color: var(--light-text-color);
+  color: var(--light-text-color);
+}
+
+.btn-outline-light:hover {
+  background-color: var(--light-text-color);
+  color: var(--primary-color-dark-green);
+  /* Text should be dark when hovered */
+}
+
+.btn-outline-dark {
+  /* For buttons on light backgrounds */
+  border-color: var(--primary-color-dark-green);
+  color: var(--primary-color-dark-green);
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--primary-color-dark-green);
+  color: var(--secondary-color-white);
+}
+
+.btn-link {
+  color: var(--primary-color-gold);
+  /* Link color as gold */
+}
+
+.btn-link:hover {
+  color: #e0b43e;
+  /* Slightly darker gold for hover */
+}
+
+
+/* --- Section Backgrounds --- */
+.bg-dark-section {
+  background-color: var(--primary-color-dark-green) !important;
+}
+
+.bg-secondary-light {
+  /* Using the light teal secondary color */
+  background-color: var(--secondary-color-light-teal) !important;
+}
+
+/* --- Headings --- */
+.section-heading {
+  font-family: 'The Seasons', 'Playfair Display', serif;
+  /* Primary font for titles */
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--dark-text-color);
+}
+
+/* Responsive font sizes for headings */
+@media (max-width: 991.98px) {
+  .section-heading {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .section-heading {
+    font-size: 1.8rem;
+  }
+}
+
+/* --- Hero Section Specifics --- */
+.hero-section {
+  min-height: 80vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--light-text-color);
+  /* Hero text is light */
+}
+
+.hero-image-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Updated overlay to use primary dark green with transparency */
+.overlay,
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(20, 47, 46, 0.5);
+  /* Dark green overlay */
+  z-index: 0;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Adjust hero text sizes for smaller screens */
+.hero-section h1 {
+  font-family: 'The Seasons', 'Playfair Display', serif;
+  /* Primary font for titles */
+  font-size: 3.5rem;
+}
+
+@media (max-width: 991.98px) {
+  .hero-section h1 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-section p.lead {
+    font-size: 1rem;
+  }
+}
+
+/* --- Card specific styles --- */
+.card {
+  border-radius: 0.5rem;
+}
+
+.card-body {
+  background-color: var(--secondary-color-white);
+  /* Cards background */
+}
+
+.card-text,
+.card-title {
+  color: var(--dark-text-color);
+}
+
+.card-title.text-primary-custom {
+  /* For specific card titles using accent */
+  color: var(--primary-color-gold) !important;
+}
+
+/* Testimonial specific */
+.testimonial-item blockquote {
+  font-family: 'The Seasons', 'Playfair Display', serif;
+  /* Elegant font for quotes */
+  font-style: italic;
+  font-size: 1.5rem;
+}
+
+/* --- Accent Colors for text and icons --- */
+.text-primary-custom {
+  /* Changed from old primary-custom to be consistent with new palette */
+  color: var(--primary-color-gold) !important;
+}
+
+.text-accent-color {
+  /* For links or highlighted text */
+  color: var(--primary-color-gold) !important;
+}
+
+.text-light-text-color {
+  /* For text on dark backgrounds like footer */
+  color: var(--light-text-color) !important;
+}
+
+
+/* --- Animations (Existing animations are fine) --- */
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnimation 1s ease-in-out forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.img-fade-in {
+  opacity: 0;
+  animation: imgFadeInAnimation 1.5s ease-in-out forwards;
+}
+
+@keyframes imgFadeInAnimation {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hover-effect {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.img-hover-zoom {
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform .5s ease;
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.1);
+}
+
+/* Dashboard Navigation */
+.dashboard-nav .nav-link {
+  background-color: var(--secondary-color-white);
+  color: var(--dark-text-color);
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.dashboard-nav .nav-link.active {
+  background-color: var(--primary-color-gold) !important;
+  color: var(--primary-color-dark-green) !important;
+  font-weight: 600;
+}
+
+.dashboard-nav .nav-link:hover:not(.active) {
+  background-color: var(--secondary-color-light-teal);
+  color: var(--primary-color-dark-green);
+}
+
+/* Ensuring text colors are consistent with new palette */
+.text-muted {
+  color: var(--muted-text-color) !important;
+  /* Bootstrap's default muted, can be overridden */
+}
+
+/* Accessibility for link hover states */
+a.text-dark:hover {
+  color: var(--primary-color-gold) !important;
+}
+
+/* Custom Nav.Link styles for Header */
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--light-text-color);
+  /* Default text color for header links */
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: var(--primary-color-gold);
+  /* Gold color on hover for header links */
+}
+
+.navbar-dark .navbar-brand {
+  color: var(--light-text-color);
+  /* Ensure brand text is white if applicable */
+}
+
+.navbar-dark .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23f8cd4d' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.btn-secondary-custom {
+  background-color: var(--primary-color-dark-green);
+  border-color: var(--primary-color-dark-green);
+  color: var(--secondary-color-white);
+  /* White text on dark green */
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary-custom:hover,
+.btn-secondary-custom:focus {
+  background-color: #0d2120;
+  /* Slightly darker green */
+  border-color: #0d2120;
+  color: var(--secondary-color-white);
+  opacity: 0.9;
+}

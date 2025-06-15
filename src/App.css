@@ -1,0 +1,11 @@
+/* src/App.css */
+/* Add any specific styles for App component or general layout here */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}

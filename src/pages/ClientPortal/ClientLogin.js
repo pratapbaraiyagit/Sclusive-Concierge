@@ -1,0 +1,741 @@
+// src/pages/ClientPortal/ClientLogin.js
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
+
+// Login Page Component
+const ClientLogin = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [showRequestAccess, setShowRequestAccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    if (!formData.email || !formData.password) {
+      setError("Please enter both email and password");
+      return;
+    }
+
+    try {
+      setError("");
+      setLoading(true);
+      await login(formData.email, formData.password);
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Login error:", error);
+      setError("Failed to log in. Please check your credentials.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const styles = {
+    container: {
+      maxWidth: "500px",
+      margin: "0 auto",
+      padding: "0 20px",
+    },
+    card: {
+      backgroundColor: "#8EABA9",
+      borderRadius: "20px",
+      boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
+      padding: "3rem",
+      textAlign: "center",
+      border: "1px solid rgba(248, 205, 77, 0.2)",
+    },
+    formGroup: {
+      marginBottom: "1.5rem",
+      textAlign: "left",
+    },
+    formLabel: {
+      display: "block",
+      marginBottom: "0.5rem",
+      color: "#142F2E",
+      fontWeight: "600",
+      fontSize: "14px",
+    },
+    formControl: {
+      width: "100%",
+      padding: "14px 18px",
+      border: "2px solid rgba(255,255,255,0.3)",
+      borderRadius: "10px",
+      fontSize: "16px",
+      fontFamily: "Poppins, sans-serif",
+      transition: "all 0.3s ease",
+      backgroundColor: "rgba(255,255,255,0.9)",
+      color: "#142F2E",
+      boxSizing: "border-box",
+    },
+    btn: {
+      display: "inline-block",
+      padding: "14px 30px",
+      borderRadius: "50px",
+      textDecoration: "none",
+      fontWeight: "600",
+      fontSize: "16px",
+      textAlign: "center",
+      transition: "all 0.3s ease",
+      border: "none",
+      cursor: "pointer",
+    },
+    btnPrimary: {
+      backgroundColor: "#F8CD4D",
+      color: "#142F2E",
+    },
+    link: {
+      color: "#142F2E",
+      textDecoration: "none",
+      fontSize: "14px",
+      transition: "color 0.3s ease",
+      cursor: "pointer",
+    },
+    error: {
+      color: "#dc3545",
+      fontSize: "14px",
+      marginBottom: "1rem",
+      padding: "8px",
+      backgroundColor: "rgba(220, 53, 69, 0.1)",
+      borderRadius: "4px",
+      border: "1px solid rgba(220, 53, 69, 0.2)",
+    },
+  };
+
+  // Show Forgot Password if clicked
+  if (showForgotPassword) {
+    return <ForgotPassword onBack={() => setShowForgotPassword(false)} />;
+  }
+
+  // Show Request Access if clicked
+  if (showRequestAccess) {
+    return <RequestAccess onBack={() => setShowRequestAccess(false)} />;
+  }
+
+  return (
+    <div
+      style={{
+        fontFamily: "Poppins, sans-serif",
+        minHeight: "100vh",
+        backgroundColor: "#142F2E",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "2rem 0",
+      }}
+    >
+      <div style={styles.container}>
+        <div style={styles.card}>
+          <div style={{ marginBottom: "2rem" }}>
+            <h2
+              style={{
+                color: "#142F2E",
+                fontFamily: "serif",
+                fontSize: "2.5rem",
+                fontWeight: "700",
+                marginBottom: "1rem",
+              }}
+            >
+              Client Portal Login
+            </h2>
+            <p
+              style={{
+                color: "#142F2E",
+                marginBottom: 0,
+                fontSize: "16px",
+              }}
+            >
+              Access your exclusive lifestyle management dashboard.
+            </p>
+          </div>
+
+          {error && <div style={styles.error}>{error}</div>}
+
+          <form onSubmit={handleLogin}>
+            <div style={styles.formGroup}>
+              <label style={styles.formLabel}>Email address</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="Enter email"
+                required
+                style={styles.formControl}
+                onFocus={(e) => {
+                  e.target.style.borderColor = "#F8CD4D";
+                  e.target.style.backgroundColor = "#FFFFFF";
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = "rgba(255,255,255,0.3)";
+                  e.target.style.backgroundColor = "rgba(255,255,255,0.9)";
+                }}
+              />
+            </div>
+
+            <div style={styles.formGroup}>
+              <label style={styles.formLabel}>Password</label>
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                placeholder="Password"
+                required
+                style={styles.formControl}
+                onFocus={(e) => {
+                  e.target.style.borderColor = "#F8CD4D";
+                  e.target.style.backgroundColor = "#FFFFFF";
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = "rgba(255,255,255,0.3)";
+                  e.target.style.backgroundColor = "rgba(255,255,255,0.9)";
+                }}
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              style={{
+                ...styles.btn,
+                ...styles.btnPrimary,
+                width: "100%",
+                marginBottom: "2rem",
+                opacity: loading ? 0.7 : 1,
+              }}
+              onMouseEnter={(e) => {
+                if (!loading) {
+                  e.target.style.backgroundColor = "#e0b43e";
+                  e.target.style.transform = "translateY(-2px)";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!loading) {
+                  e.target.style.backgroundColor = "#F8CD4D";
+                  e.target.style.transform = "translateY(0)";
+                }
+              }}
+            >
+              {loading ? "Logging in..." : "Login"}
+            </button>
+          </form>
+
+          <div style={{ textAlign: "center" }}>
+            <span
+              onClick={() => setShowForgotPassword(true)}
+              style={{
+                ...styles.link,
+                display: "block",
+                marginBottom: "1rem",
+              }}
+              onMouseEnter={(e) => (e.target.style.color = "#F8CD4D")}
+              onMouseLeave={(e) => (e.target.style.color = "#142F2E")}
+            >
+              Forgot Password?
+            </span>
+            <span
+              onClick={() => setShowRequestAccess(true)}
+              style={styles.link}
+              onMouseEnter={(e) => (e.target.style.color = "#F8CD4D")}
+              onMouseLeave={(e) => (e.target.style.color = "#142F2E")}
+            >
+              Request Access
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Forgot Password Component
+const ForgotPassword = ({ onBack }) => {
+  const [email, setEmail] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const { resetPassword } = useAuth();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      setError("");
+      setLoading(true);
+      await resetPassword(email);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Password reset error:", error);
+      setError(
+        "Failed to send password reset email. Please check your email address."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const styles = {
+    container: {
+      maxWidth: "500px",
+      margin: "0 auto",
+      padding: "0 20px",
+    },
+    card: {
+      backgroundColor: "#8EABA9",
+      borderRadius: "20px",
+      boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
+      padding: "3rem",
+      textAlign: "center",
+    },
+    formGroup: {
+      marginBottom: "1.5rem",
+      textAlign: "left",
+    },
+    formControl: {
+      width: "100%",
+      padding: "14px 18px",
+      border: "2px solid rgba(255,255,255,0.3)",
+      borderRadius: "10px",
+      fontSize: "16px",
+      fontFamily: "Poppins, sans-serif",
+      backgroundColor: "rgba(255,255,255,0.9)",
+      color: "#142F2E",
+      boxSizing: "border-box",
+    },
+    btn: {
+      padding: "14px 30px",
+      borderRadius: "50px",
+      fontWeight: "600",
+      fontSize: "16px",
+      border: "none",
+      cursor: "pointer",
+      transition: "all 0.3s ease",
+    },
+    error: {
+      color: "#dc3545",
+      fontSize: "14px",
+      marginBottom: "1rem",
+      padding: "8px",
+      backgroundColor: "rgba(220, 53, 69, 0.1)",
+      borderRadius: "4px",
+      border: "1px solid rgba(220, 53, 69, 0.2)",
+    },
+  };
+
+  return (
+    <div
+      style={{
+        fontFamily: "Poppins, sans-serif",
+        minHeight: "100vh",
+        backgroundColor: "#142F2E",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "2rem 0",
+      }}
+    >
+      <div style={styles.container}>
+        <div style={styles.card}>
+          <h2
+            style={{
+              color: "#142F2E",
+              fontFamily: "serif",
+              fontSize: "2.2rem",
+              fontWeight: "700",
+              marginBottom: "1rem",
+            }}
+          >
+            Forgot Password?
+          </h2>
+
+          {!isSubmitted ? (
+            <>
+              <p style={{ color: "#142F2E", marginBottom: "2rem" }}>
+                Enter your email address and we'll send you a link to reset your
+                password.
+              </p>
+
+              {error && <div style={styles.error}>{error}</div>}
+
+              <form onSubmit={handleSubmit}>
+                <div style={styles.formGroup}>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email address"
+                    required
+                    style={styles.formControl}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  style={{
+                    ...styles.btn,
+                    backgroundColor: "#F8CD4D",
+                    color: "#142F2E",
+                    width: "100%",
+                    marginBottom: "1rem",
+                    opacity: loading ? 0.7 : 1,
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!loading) {
+                      e.target.style.backgroundColor = "#e0b43e";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!loading) {
+                      e.target.style.backgroundColor = "#F8CD4D";
+                    }
+                  }}
+                >
+                  {loading ? "Sending..." : "Send Reset Link"}
+                </button>
+              </form>
+            </>
+          ) : (
+            <div>
+              <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>✅</div>
+              <p style={{ color: "#142F2E", marginBottom: "2rem" }}>
+                Reset link sent! Please check your email for further
+                instructions.
+              </p>
+            </div>
+          )}
+
+          <button
+            onClick={onBack}
+            style={{
+              ...styles.btn,
+              backgroundColor: "transparent",
+              color: "#142F2E",
+              border: "2px solid #142F2E",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = "#142F2E";
+              e.target.style.color = "#FFFFFF";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = "transparent";
+              e.target.style.color = "#142F2E";
+            }}
+          >
+            Back to Login
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Request Access Component
+const RequestAccess = ({ onBack }) => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    phone: "",
+    company: "",
+    message: "",
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const { signup } = useAuth();
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      setError("Password must be at least 6 characters long");
+      return;
+    }
+
+    try {
+      setError("");
+      setLoading(true);
+      await signup(formData.email, formData.password, formData);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Signup error:", error);
+      if (error.code === "auth/email-already-in-use") {
+        setError("An account with this email already exists");
+      } else {
+        setError("Failed to create account. Please try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const styles = {
+    container: {
+      maxWidth: "600px",
+      margin: "0 auto",
+      padding: "0 20px",
+    },
+    card: {
+      backgroundColor: "#8EABA9",
+      borderRadius: "20px",
+      boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
+      padding: "3rem",
+    },
+    formGroup: {
+      marginBottom: "1.5rem",
+    },
+    formControl: {
+      width: "100%",
+      padding: "14px 18px",
+      border: "2px solid rgba(255,255,255,0.3)",
+      borderRadius: "10px",
+      fontSize: "16px",
+      fontFamily: "Poppins, sans-serif",
+      backgroundColor: "rgba(255,255,255,0.9)",
+      color: "#142F2E",
+      boxSizing: "border-box",
+    },
+    btn: {
+      padding: "14px 30px",
+      borderRadius: "50px",
+      fontWeight: "600",
+      fontSize: "16px",
+      border: "none",
+      cursor: "pointer",
+      transition: "all 0.3s ease",
+    },
+    error: {
+      color: "#dc3545",
+      fontSize: "14px",
+      marginBottom: "1rem",
+      padding: "8px",
+      backgroundColor: "rgba(220, 53, 69, 0.1)",
+      borderRadius: "4px",
+      border: "1px solid rgba(220, 53, 69, 0.2)",
+    },
+  };
+
+  return (
+    <div
+      style={{
+        fontFamily: "Poppins, sans-serif",
+        minHeight: "100vh",
+        backgroundColor: "#142F2E",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "2rem 0",
+      }}
+    >
+      <div style={styles.container}>
+        <div style={styles.card}>
+          <h2
+            style={{
+              color: "#142F2E",
+              fontFamily: "serif",
+              fontSize: "2.2rem",
+              fontWeight: "700",
+              marginBottom: "1rem",
+              textAlign: "center",
+            }}
+          >
+            Request Access
+          </h2>
+
+          {!isSubmitted ? (
+            <>
+              <p
+                style={{
+                  color: "#142F2E",
+                  marginBottom: "2rem",
+                  textAlign: "center",
+                }}
+              >
+                Complete the form below to request access to our exclusive
+                client portal.
+              </p>
+
+              {error && <div style={styles.error}>{error}</div>}
+
+              <form onSubmit={handleSubmit}>
+                <div style={styles.formGroup}>
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    placeholder="Full Name *"
+                    required
+                    style={styles.formControl}
+                  />
+                </div>
+
+                <div style={styles.formGroup}>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Email Address *"
+                    required
+                    style={styles.formControl}
+                  />
+                </div>
+
+                <div style={styles.formGroup}>
+                  <input
+                    type="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
+                    placeholder="Password *"
+                    required
+                    style={styles.formControl}
+                  />
+                </div>
+
+                <div style={styles.formGroup}>
+                  <input
+                    type="password"
+                    name="confirmPassword"
+                    value={formData.confirmPassword}
+                    onChange={handleInputChange}
+                    placeholder="Confirm Password *"
+                    required
+                    style={styles.formControl}
+                  />
+                </div>
+
+                <div style={styles.formGroup}>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="Phone Number"
+                    style={styles.formControl}
+                  />
+                </div>
+
+                <div style={styles.formGroup}>
+                  <input
+                    type="text"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    placeholder="Company (Optional)"
+                    style={styles.formControl}
+                  />
+                </div>
+
+                <div style={styles.formGroup}>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Tell us about your concierge needs..."
+                    rows={4}
+                    style={{
+                      ...styles.formControl,
+                      resize: "vertical",
+                    }}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  style={{
+                    ...styles.btn,
+                    backgroundColor: "#F8CD4D",
+                    color: "#142F2E",
+                    width: "100%",
+                    marginBottom: "1rem",
+                    opacity: loading ? 0.7 : 1,
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!loading) {
+                      e.target.style.backgroundColor = "#e0b43e";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!loading) {
+                      e.target.style.backgroundColor = "#F8CD4D";
+                    }
+                  }}
+                >
+                  {loading ? "Creating Account..." : "Submit Request"}
+                </button>
+              </form>
+            </>
+          ) : (
+            <div style={{ textAlign: "center" }}>
+              <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>🎉</div>
+              <p style={{ color: "#142F2E", marginBottom: "2rem" }}>
+                Your account has been created successfully! You can now log in
+                to access your dashboard.
+              </p>
+            </div>
+          )}
+
+          <button
+            onClick={onBack}
+            style={{
+              ...styles.btn,
+              backgroundColor: "transparent",
+              color: "#142F2E",
+              border: "2px solid #142F2E",
+              display: "block",
+              margin: "0 auto",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = "#142F2E";
+              e.target.style.color = "#FFFFFF";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = "transparent";
+              e.target.style.color = "#142F2E";
+            }}
+          >
+            Back to Login
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ClientLogin;
