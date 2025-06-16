@@ -258,7 +258,7 @@ const ContactPage = () => {
                   discuss your specific requirements.
                 </p>
                 <a href="tel:+22461354724" className="contact-card-button">
-                  Call Now
+                  Speak to an Advisor
                 </a>
               </div>
             </div>
