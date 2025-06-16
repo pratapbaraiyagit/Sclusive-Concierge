@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ServicesPage.css"; // Import the CSS file
 
 // Updated premium images
@@ -14,6 +14,17 @@ const corporateConciergeImg =
   "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
 
 const ServicesPage = () => {
+  // State to track which services are expanded
+  const [expandedServices, setExpandedServices] = useState({});
+
+  // Function to toggle service expansion
+  const toggleServiceExpansion = (serviceTitle) => {
+    setExpandedServices((prev) => ({
+      ...prev,
+      [serviceTitle]: !prev[serviceTitle],
+    }));
+  };
+
   const servicesContent = [
     {
       image: lifestyleManagementImg,
@@ -127,44 +138,56 @@ const ServicesPage = () => {
                     </p>
 
                     {/* Features List */}
-                    {service.title === "Lifestyle Management" && (
-                      <div className="services-features">
-                        <h4 className="services-features-title">
-                          What's Included:
-                        </h4>
-                        <ul className="services-features-list">
-                          {service.subPoints.slice(0, 3).map((point, i) => (
-                            <li key={i} className="services-features-item">
-                              {point}
-                            </li>
-                          ))}
-                          {service.subPoints.length > 3 && (
-                            <li className="services-features-more">
-                              + {service.subPoints.length - 3} more services
-                            </li>
-                          )}
-                        </ul>
-                      </div>
-                    )}
-                    {service.title === "Luxury Travel & Stay" && (
-                      <div className="services-features">
-                        <h4 className="services-features-title">
-                          What's Included:
-                        </h4>
-                        <ul className="services-features-list">
-                          {service.subPoints.slice(0, 3).map((point, i) => (
-                            <li key={i} className="services-features-item">
-                              {point}
-                            </li>
-                          ))}
-                          {service.subPoints.length > 3 && (
-                            <li className="services-features-more">
-                              + {service.subPoints.length - 3} more services
-                            </li>
-                          )}
-                        </ul>
-                      </div>
-                    )}
+                    {(service.title === "Lifestyle Management" ||
+                      service.title === "Luxury Travel & Stay") &&
+                      service.subPoints.length > 0 && (
+                        <div className="services-features">
+                          <h4 className="services-features-title">
+                            What's Included:
+                          </h4>
+                          <ul className="services-features-list">
+                            {/* Always show first 3 items */}
+                            {service.subPoints.slice(0, 3).map((point, i) => (
+                              <li key={i} className="services-features-item">
+                                {point}
+                              </li>
+                            ))}
+
+                            {/* Show remaining items if expanded */}
+                            {expandedServices[service.title] &&
+                              service.subPoints.slice(3).map((point, i) => (
+                                <li
+                                  key={i + 3}
+                                  className="services-features-item"
+                                >
+                                  {point}
+                                </li>
+                              ))}
+
+                            {/* Show/Hide toggle button */}
+                            {service.subPoints.length > 3 && (
+                              <li
+                                className="services-features-more"
+                                onClick={() =>
+                                  toggleServiceExpansion(service.title)
+                                }
+                                style={{
+                                  cursor: "pointer",
+                                  color: "#2d5a5a",
+                                  fontWeight: "500",
+                                  textDecoration: "underline",
+                                }}
+                              >
+                                {expandedServices[service.title]
+                                  ? "- Show less"
+                                  : `+ ${
+                                      service.subPoints.length - 3
+                                    } more services`}
+                              </li>
+                            )}
+                          </ul>
+                        </div>
+                      )}
 
                     {/* Spacer for cards without features */}
                     {(service.title === "Event Planning" ||
