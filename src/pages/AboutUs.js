@@ -110,7 +110,7 @@ const AboutUs = () => {
           <div className="about-row">
             <div className="about-col-full">
               <h2 className="section-title-medium">
-                Founder's <span className="hero-highlight">Vision</span>
+                Our <span className="hero-highlight">Vision</span>
               </h2>
               <div className="mb-4">
                 <img
@@ -125,7 +125,7 @@ const AboutUs = () => {
                 extraordinary."
               </blockquote>
               <footer className="quote-author">
-                — Founder & CEO of S'CLUSIVE
+                — The Co-Founders of S'CLUSIVE
               </footer>
             </div>
           </div>
