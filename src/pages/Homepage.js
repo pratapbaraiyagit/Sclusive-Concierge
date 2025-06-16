@@ -145,7 +145,7 @@ const Homepage = () => {
         <div className="responsive-container">
           <h2 className="section-title-large text-black">Signature Services</h2>
 
-          <div className="services-grid">
+          <div className="services-grid_home">
             {[
               "Personal Shopping",
               "Event Planning & VIP Event Access",
