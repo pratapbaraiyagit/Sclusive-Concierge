@@ -125,7 +125,7 @@ const AboutUs = () => {
                 extraordinary."
               </blockquote>
               <footer className="quote-author">
-                — The Co-Founders of S'CLUSIVE
+                — The Co-Founders of S'clusive
               </footer>
             </div>
           </div>
