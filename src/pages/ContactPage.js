@@ -191,7 +191,7 @@ const ContactPage = () => {
                     <div className="contact-info-item">
                       <FaWhatsapp size={16} />
                       <a
-                        href="https://wa.me/+22461354724"
+                        href="https://wa.me/+224613543724"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="contact-info-link"
@@ -201,7 +201,7 @@ const ContactPage = () => {
                     </div>
                     <div className="contact-info-item">
                       <FaPhone size={16} />
-                      <a href="tel:+22461354724" className="contact-info-link">
+                      <a href="tel:+224613543724" className="contact-info-link">
                         +224 613 54 37 24
                       </a>
                     </div>
@@ -257,7 +257,7 @@ const ContactPage = () => {
                   Speak directly with our concierge team. Schedule a call to
                   discuss your specific requirements.
                 </p>
-                <a href="tel:+22461354724" className="contact-card-button">
+                <a href="tel:+224613543724" className="contact-card-button">
                   Speak to an Advisor
                 </a>
               </div>
