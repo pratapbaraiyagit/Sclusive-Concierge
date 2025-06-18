@@ -292,10 +292,10 @@ const MembershipPage = () => {
               Need help choosing the right membership tier?
             </p>
             <a
-              href="#contact"
+              href="tel:+224613543724"
               className="membership-btn membership-btn-outline membership-btn-medium mt-4"
             >
-              Compare All Tiers
+              Speak to an Advisor
             </a>
           </div>
         </div>
@@ -342,7 +342,7 @@ const MembershipPage = () => {
                 Start Your Application
               </a>
               <a
-                href="tel:+22461354724"
+                href="tel:+224613543724"
                 className="membership-btn membership-btn-outline membership-btn-large"
               >
                 Speak with an Advisor
