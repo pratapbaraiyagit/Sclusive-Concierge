@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./ServicesPage.css"; // Import the CSS file
+import { Link } from "react-router-dom";
 
 // Updated premium images
 const servicesHero =
@@ -253,10 +254,10 @@ const ServicesPage = () => {
               transform your vision into an unforgettable reality.
             </p>
             <div className="services-cta-buttons">
-              <a href="#contact" className="services-btn">
+              <Link to="/contact" className="services-btn">
                 Start Your Request
-              </a>
-              <a href="tel:+22461354724" className="services-btn-outline">
+              </Link>
+              <a href="tel:+224613543724" className="services-btn-outline">
                 Speak to an Advisor
               </a>
             </div>
