@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
+// Import icons from react-icons (specifically from the Font Awesome set)
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // FaEye for show, FaEyeSlash for hide
+
 // Login Page Component
 const ClientLogin = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +16,7 @@ const ClientLogin = () => {
   const [showRequestAccess, setShowRequestAccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // State for password visibility
 
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -63,6 +67,7 @@ const ClientLogin = () => {
     formGroup: {
       marginBottom: "1.5rem",
       textAlign: "left",
+      position: "relative", // Crucial for positioning the icon
     },
     formLabel: {
       display: "block",
@@ -114,6 +119,26 @@ const ClientLogin = () => {
       backgroundColor: "rgba(220, 53, 69, 0.1)",
       borderRadius: "4px",
       border: "1px solid rgba(220, 53, 69, 0.2)",
+    },
+    // Style for the password toggle icon button
+    passwordToggle: {
+      position: "absolute",
+      right: "15px",
+      // top: "50%", // This can sometimes be tricky with labels, adjust if needed
+      top: "calc(60% + 5px)", // Adjust this if the label pushes it down, e.g., 5px below center
+      transform: "translateY(-50%)", // Center vertically based on its own height
+      cursor: "pointer",
+      color: "#142F2E",
+      fontSize: "18px", // Adjust icon size
+      background: "none",
+      border: "none",
+      padding: 0,
+      height: "auto",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      lineHeight: 1,
+      zIndex: 10,
     },
   };
 
@@ -191,7 +216,7 @@ const ClientLogin = () => {
             <div style={styles.formGroup}>
               <label style={styles.formLabel}>Password</label>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"} // Dynamic type
                 name="password"
                 value={formData.password}
                 onChange={handleInputChange}
@@ -207,6 +232,15 @@ const ClientLogin = () => {
                   e.target.style.backgroundColor = "rgba(255,255,255,0.9)";
                 }}
               />
+              <button
+                type="button"
+                style={styles.passwordToggle}
+                onClick={() => setShowPassword(!showPassword)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {/* Use FaEye or FaEyeSlash based on showPassword state */}
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
             </div>
 
             <button
@@ -461,6 +495,8 @@ const RequestAccess = ({ onBack }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [showPasswordRA, setShowPasswordRA] = useState(false); // State for Request Access password visibility
+  const [showConfirmPasswordRA, setShowConfirmPasswordRA] = useState(false); // State for Request Access confirm password visibility
 
   const { signup } = useAuth();
 
@@ -516,6 +552,7 @@ const RequestAccess = ({ onBack }) => {
     },
     formGroup: {
       marginBottom: "1.5rem",
+      position: "relative", // Crucial for positioning the icon
     },
     formControl: {
       width: "100%",
@@ -545,6 +582,26 @@ const RequestAccess = ({ onBack }) => {
       backgroundColor: "rgba(220, 53, 69, 0.1)",
       borderRadius: "4px",
       border: "1px solid rgba(220, 53, 69, 0.2)",
+    },
+    // Style for the password toggle icon button
+    passwordToggle: {
+      position: "absolute",
+      right: "15px",
+      // top: "50%", // This can sometimes be tricky with labels, adjust if needed
+      top: "calc(50% + 5px)", // Adjusted to align better with input field
+      transform: "translateY(-50%)", // Center vertically based on its own height
+      cursor: "pointer",
+      color: "#142F2E",
+      fontSize: "18px", // Adjust icon size
+      background: "none",
+      border: "none",
+      padding: 0,
+      height: "auto",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      lineHeight: 1,
+      zIndex: 10,
     },
   };
 
@@ -617,7 +674,7 @@ const RequestAccess = ({ onBack }) => {
 
                 <div style={styles.formGroup}>
                   <input
-                    type="password"
+                    type={showPasswordRA ? "text" : "password"} // Dynamic type
                     name="password"
                     value={formData.password}
                     onChange={handleInputChange}
@@ -625,11 +682,22 @@ const RequestAccess = ({ onBack }) => {
                     required
                     style={styles.formControl}
                   />
+                  <button
+                    type="button"
+                    style={styles.passwordToggle}
+                    onClick={() => setShowPasswordRA(!showPasswordRA)}
+                    aria-label={
+                      showPasswordRA ? "Hide password" : "Show password"
+                    }
+                  >
+                    {/* Use FaEye or FaEyeSlash based on showPasswordRA state */}
+                    {showPasswordRA ? <FaEyeSlash /> : <FaEye />}
+                  </button>
                 </div>
 
                 <div style={styles.formGroup}>
                   <input
-                    type="password"
+                    type={showConfirmPasswordRA ? "text" : "password"} // Dynamic type
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleInputChange}
@@ -637,6 +705,21 @@ const RequestAccess = ({ onBack }) => {
                     required
                     style={styles.formControl}
                   />
+                  <button
+                    type="button"
+                    style={styles.passwordToggle}
+                    onClick={() =>
+                      setShowConfirmPasswordRA(!showConfirmPasswordRA)
+                    }
+                    aria-label={
+                      showConfirmPasswordRA
+                        ? "Hide confirm password"
+                        : "Show confirm password"
+                    }
+                  >
+                    {/* Use FaEye or FaEyeSlash based on showConfirmPasswordRA state */}
+                    {showConfirmPasswordRA ? <FaEyeSlash /> : <FaEye />}
+                  </button>
                 </div>
 
                 <div style={styles.formGroup}>
