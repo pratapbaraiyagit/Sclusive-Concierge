@@ -138,7 +138,7 @@ const MembershipPage = () => {
                 View Membership Tiers
               </a>
               <Link
-                to={"/contact"}
+                to="/contact"
                 className="membership-btn membership-btn-glass membership-btn-large"
               >
                 Contact Us
@@ -273,8 +273,8 @@ const MembershipPage = () => {
                   ))}
                 </ul>
 
-                <a
-                  href="#contact"
+                <Link
+                  to="/contact"
                   className={`membership-btn membership-btn-full ${
                     tier.popular
                       ? "membership-btn-primary"
@@ -282,7 +282,7 @@ const MembershipPage = () => {
                   }`}
                 >
                   {tier.buttonText}
-                </a>
+                </Link>
               </div>
             ))}
           </div>
@@ -335,12 +335,12 @@ const MembershipPage = () => {
               with a single step.
             </p>
             <div className="membership-cta-buttons">
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="membership-btn membership-btn-primary membership-btn-large"
               >
                 Start Your Application
-              </a>
+              </Link>
               <a
                 href="tel:+224613543724"
                 className="membership-btn membership-btn-outline membership-btn-large"
