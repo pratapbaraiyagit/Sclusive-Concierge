@@ -200,9 +200,9 @@ const ServicesPage = () => {
 
                     {/* CTA Button - Fixed at bottom */}
                     <div className="services-card-cta">
-                      <a href="#contact" className="services-card-btn">
+                      <Link to="/contact" className="services-card-btn">
                         Learn More →
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
