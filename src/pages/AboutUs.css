@@ -41,7 +41,7 @@
 }
 
 .hero-title-about {
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(3rem, 6vw, 4.5rem);
   font-weight: bold;
   margin-bottom: 1.5rem;
@@ -84,7 +84,7 @@
 /* Typography */
 .section-title-about {
   color: #142f2e;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 2rem;
@@ -93,7 +93,7 @@
 
 .section-title-medium {
   color: #142f2e;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(2.5rem, 5vw, 3rem);
   font-weight: 700;
   margin-bottom: 2rem;
@@ -162,7 +162,7 @@
 
 /* Quote Styles */
 .founder-quote {
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-style: italic;
   font-size: 1.4rem;
   color: #142f2e;
@@ -276,7 +276,7 @@
 
 .cta-title {
   color: #ffffff;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   margin-bottom: 1.5rem;
 }
