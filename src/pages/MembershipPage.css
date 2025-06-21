@@ -57,7 +57,7 @@
 }
 
 .membership-hero-title {
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(3rem, 6vw, 4.5rem);
   font-weight: bold;
   margin-bottom: 1.5rem;
@@ -104,7 +104,7 @@
 /* Typography */
 .membership-section-title {
   color: #142f2e;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -130,7 +130,7 @@
 
 .membership-testimonial-title {
   color: #f8cd4d;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   margin-bottom: 2rem;
@@ -157,7 +157,7 @@
 
 .membership-cta-title {
   color: #142f2e;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -327,7 +327,7 @@
   font-weight: bold;
   margin-bottom: 0.5rem;
   font-size: 2rem;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
 }
 
 .membership-tier-subtitle {
@@ -344,7 +344,7 @@
 .membership-tier-price-amount {
   color: #f8cd4d;
   font-weight: bold;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
 }
 
 .membership-tier-price-period {
