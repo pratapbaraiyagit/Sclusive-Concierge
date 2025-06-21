@@ -14,6 +14,7 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { db } from "../../firebase/config";
+import "./ClientDashboard.css";
 
 const ClientDashboard = () => {
   const [activeTab, setActiveTab] = useState("requests");
@@ -32,6 +33,7 @@ const ClientDashboard = () => {
   const [newRequestData, setNewRequestData] = useState({
     type: "",
     details: "",
+    attachment: null,
   });
   const [showNewRequestForm, setShowNewRequestForm] = useState(false);
 
@@ -139,6 +141,13 @@ const ClientDashboard = () => {
     return unsubscribe;
   };
 
+  const handleFileChange = (e) => {
+    setNewRequestData((prev) => ({
+      ...prev,
+      attachment: e.target.files[0],
+    }));
+  };
+
   const handleLogout = async () => {
     try {
       await logout();
@@ -164,7 +173,7 @@ const ClientDashboard = () => {
         updatedAt: new Date(),
       });
 
-      setNewRequestData({ type: "", details: "" });
+      setNewRequestData({ type: "", details: "", attachment: null });
       setShowNewRequestForm(false);
       alert("Request submitted successfully!");
     } catch (error) {
@@ -234,153 +243,28 @@ const ClientDashboard = () => {
     }
   };
 
-  const styles = {
-    container: {
-      maxWidth: "1200px",
-      margin: "0 auto",
-      padding: "0 20px",
-    },
-    row: {
-      display: "flex",
-      flexWrap: "wrap",
-      margin: "0 -15px",
-    },
-    col3: {
-      flex: "0 0 25%",
-      padding: "0 15px",
-      minWidth: "250px",
-    },
-    col9: {
-      flex: "0 0 75%",
-      padding: "0 15px",
-      minWidth: "500px",
-    },
-    nav: {
-      backgroundColor: "#FFFFFF",
-      borderRadius: "12px",
-      boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
-      padding: "1rem",
-      marginBottom: "2rem",
-    },
-    navItem: {
-      display: "block",
-      padding: "12px 16px",
-      marginBottom: "8px",
-      borderRadius: "8px",
-      textDecoration: "none",
-      color: "#142F2E",
-      backgroundColor: "#FFFFFF",
-      border: "1px solid #e9ecef",
-      transition: "all 0.3s ease",
-      cursor: "pointer",
-      fontSize: "14px",
-      fontWeight: "500",
-      width: "100%",
-      textAlign: "left",
-    },
-    navItemActive: {
-      backgroundColor: "#F8CD4D",
-      color: "#142F2E",
-      fontWeight: "600",
-      border: "1px solid #F8CD4D",
-    },
-    card: {
-      backgroundColor: "#FFFFFF",
-      borderRadius: "12px",
-      boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
-      padding: "2rem",
-      marginBottom: "2rem",
-    },
-    btn: {
-      display: "inline-block",
-      padding: "10px 20px",
-      borderRadius: "50px",
-      textDecoration: "none",
-      fontWeight: "600",
-      fontSize: "14px",
-      textAlign: "center",
-      transition: "all 0.3s ease",
-      border: "none",
-      cursor: "pointer",
-    },
-    btnPrimary: {
-      backgroundColor: "#F8CD4D",
-      color: "#142F2E",
-    },
-    btnOutline: {
-      backgroundColor: "transparent",
-      color: "#142F2E",
-      border: "2px solid #142F2E",
-    },
-    listItem: {
-      backgroundColor: "#f8f9fa",
-      border: "1px solid #e9ecef",
-      borderRadius: "8px",
-      padding: "1rem",
-      marginBottom: "1rem",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      flexWrap: "wrap",
-    },
-    formControl: {
-      width: "100%",
-      padding: "10px 12px",
-      border: "2px solid #e9ecef",
-      borderRadius: "6px",
-      fontSize: "14px",
-      fontFamily: "Poppins, sans-serif",
-      marginBottom: "1rem",
-      boxSizing: "border-box",
-    },
-    textarea: {
-      minHeight: "100px",
-      resize: "vertical",
-    },
-  };
-
   const renderTabContent = () => {
     switch (activeTab) {
       case "requests":
         return (
-          <div style={styles.card}>
-            <h2 style={{ color: "#F8CD4D", marginBottom: "1rem" }}>
-              My Requests
-            </h2>
-            <p style={{ color: "#142F2E", marginBottom: "1.5rem" }}>
+          <div className="card">
+            <h2 className="card-title">My Requests</h2>
+            <p className="card-description">
               Submit and track your service needs with your lifestyle manager.
             </p>
 
             {!showNewRequestForm ? (
               <button
                 onClick={() => setShowNewRequestForm(true)}
-                style={{
-                  ...styles.btn,
-                  ...styles.btnPrimary,
-                  marginBottom: "2rem",
-                }}
-                onMouseEnter={(e) =>
-                  (e.target.style.backgroundColor = "#e0b43e")
-                }
-                onMouseLeave={(e) =>
-                  (e.target.style.backgroundColor = "#F8CD4D")
-                }
+                className="btn btn-primary"
+                style={{ marginBottom: "2rem" }}
               >
                 Submit New Request
               </button>
             ) : (
-              <div
-                style={{
-                  marginBottom: "2rem",
-                  padding: "1rem",
-                  backgroundColor: "#f8f9fa",
-                  borderRadius: "8px",
-                }}
-              >
-                <h4 style={{ color: "#142F2E", marginBottom: "1rem" }}>
-                  New Request
-                </h4>
-                <div style={{ marginBottom: "1rem" }}>
+              <div className="new-request-form">
+                <h4 className="new-request-title">New Request</h4>
+                <div>
                   <select
                     value={newRequestData.type}
                     onChange={(e) =>
@@ -389,7 +273,7 @@ const ClientDashboard = () => {
                         type: e.target.value,
                       })
                     }
-                    style={styles.formControl}
+                    className="form-control"
                   >
                     <option value="">Select Request Type *</option>
                     <option value="Travel Booking">Travel Booking</option>
@@ -402,7 +286,7 @@ const ClientDashboard = () => {
                     <option value="Other">Other</option>
                   </select>
                 </div>
-                <div style={{ marginBottom: "1rem" }}>
+                <div>
                   <textarea
                     value={newRequestData.details}
                     onChange={(e) =>
@@ -413,22 +297,39 @@ const ClientDashboard = () => {
                     }
                     placeholder="Describe your request in detail..."
                     rows={4}
-                    style={{ ...styles.formControl, resize: "vertical" }}
+                    className="form-control textarea"
                   />
                 </div>
-                <div style={{ display: "flex", gap: "1rem" }}>
+                <div>
+                  <label className="form-label">Attach File (Optional)</label>
+                  <input
+                    type="file"
+                    name="attachment"
+                    onChange={handleFileChange}
+                    accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                    className="form-control file-input"
+                  />
+                  <small className="form-help-text">
+                    Max file size 5MB (PDF, JPG, PNG, DOC)
+                  </small>
+                </div>
+                <div className="form-actions">
                   <button
                     onClick={handleNewRequest}
-                    style={{ ...styles.btn, ...styles.btnPrimary }}
+                    className="btn btn-primary"
                   >
                     Submit Request
                   </button>
                   <button
                     onClick={() => {
                       setShowNewRequestForm(false);
-                      setNewRequestData({ type: "", details: "" });
+                      setNewRequestData({
+                        type: "",
+                        details: "",
+                        attachment: null,
+                      });
                     }}
-                    style={{ ...styles.btn, ...styles.btnOutline }}
+                    className="btn btn-outlines"
                   >
                     Cancel
                   </button>
@@ -441,33 +342,17 @@ const ClientDashboard = () => {
             ) : requests.length > 0 ? (
               <div>
                 {requests.map((req) => (
-                  <div key={req.id} style={styles.listItem}>
-                    <div>
-                      <h5 style={{ color: "#142F2E", marginBottom: "0.5rem" }}>
-                        {req.type}
-                      </h5>
-                      <small
-                        style={{
-                          color: "#6c757d",
-                          display: "block",
-                          marginBottom: "0.5rem",
-                        }}
-                      >
-                        {req.details}
-                      </small>
-                      <small style={{ color: "#6c757d" }}>
+                  <div key={req.id} className="list-item">
+                    <div className="list-item-content">
+                      <h5>{req.type}</h5>
+                      <small className="list-item-details">{req.details}</small>
+                      <small className="list-item-date">
                         Created: {formatDate(req.createdAt)}
                       </small>
                     </div>
                     <span
-                      style={{
-                        backgroundColor: getStatusColor(req.status),
-                        color: "#FFFFFF",
-                        padding: "4px 12px",
-                        borderRadius: "20px",
-                        fontSize: "12px",
-                        fontWeight: "600",
-                      }}
+                      className="status-badge"
+                      style={{ backgroundColor: getStatusColor(req.status) }}
                     >
                       {req.status}
                     </span>
@@ -482,42 +367,28 @@ const ClientDashboard = () => {
 
       case "itineraries":
         return (
-          <div style={styles.card}>
-            <h2 style={{ color: "#F8CD4D", marginBottom: "1rem" }}>
-              Itineraries
-            </h2>
-            <p style={{ color: "#142F2E", marginBottom: "1.5rem" }}>
+          <div className="card">
+            <h2 className="card-title">Itineraries</h2>
+            <p className="card-description">
               View your upcoming bookings and detailed travel plans.
             </p>
             {itineraries.length > 0 ? (
               <div>
                 {itineraries.map((itinerary) => (
-                  <div key={itinerary.id} style={styles.listItem}>
-                    <div>
-                      <h5 style={{ color: "#142F2E", marginBottom: "0.5rem" }}>
-                        {itinerary.title}
-                      </h5>
-                      <small
-                        style={{
-                          color: "#6c757d",
-                          display: "block",
-                          marginBottom: "0.5rem",
-                        }}
-                      >
+                  <div key={itinerary.id} className="list-item">
+                    <div className="list-item-content">
+                      <h5>{itinerary.title}</h5>
+                      <small className="list-item-details">
                         Dates: {itinerary.dates}
                       </small>
-                      <small style={{ color: "#6c757d" }}>
+                      <small className="list-item-date">
                         Created: {formatDate(itinerary.createdAt)}
                       </small>
                     </div>
                     <span
+                      className="status-badge"
                       style={{
                         backgroundColor: getStatusColor(itinerary.status),
-                        color: "#FFFFFF",
-                        padding: "4px 12px",
-                        borderRadius: "20px",
-                        fontSize: "12px",
-                        fontWeight: "600",
                       }}
                     >
                       {itinerary.status}
@@ -533,23 +404,19 @@ const ClientDashboard = () => {
 
       case "privileges":
         return (
-          <div style={styles.card}>
-            <h2 style={{ color: "#F8CD4D", marginBottom: "1rem" }}>
-              Privileges
-            </h2>
-            <p style={{ color: "#142F2E", marginBottom: "1.5rem" }}>
+          <div className="card">
+            <h2 className="card-title">Privileges</h2>
+            <p className="card-description">
               Explore your current perks and exclusive offers as a S'CLUSIVE
               member.
             </p>
             {privileges.length > 0 ? (
               <div>
                 {privileges.map((priv) => (
-                  <div key={priv.id} style={styles.listItem}>
-                    <div>
-                      <h5 style={{ color: "#142F2E", marginBottom: "0.5rem" }}>
-                        {priv.title}
-                      </h5>
-                      <small style={{ color: "#6c757d" }}>
+                  <div key={priv.id} className="list-item">
+                    <div className="list-item-content">
+                      <h5>{priv.title}</h5>
+                      <small className="list-item-details">
                         {priv.description}
                       </small>
                     </div>
@@ -566,59 +433,33 @@ const ClientDashboard = () => {
 
       case "messaging":
         return (
-          <div style={styles.card}>
-            <h2 style={{ color: "#F8CD4D", marginBottom: "1rem" }}>
-              Messaging
-            </h2>
-            <p style={{ color: "#142F2E", marginBottom: "1.5rem" }}>
+          <div className="card">
+            <h2 className="card-title">Messaging</h2>
+            <p className="card-description">
               Direct chat with your dedicated lifestyle manager.
             </p>
-            <div
-              style={{
-                border: "2px solid #e9ecef",
-                borderRadius: "8px",
-                padding: "1.5rem",
-                minHeight: "200px",
-                backgroundColor: "#f8f9fa",
-                marginBottom: "1rem",
-                maxHeight: "300px",
-                overflowY: "auto",
-              }}
-            >
+            <div className="messages-container">
               {messages.length > 0 ? (
                 <div>
                   {messages.map((msg) => (
                     <div
                       key={msg.id}
-                      style={{
-                        marginBottom: "1rem",
-                        padding: "0.5rem",
-                        backgroundColor:
-                          msg.sender === "client" ? "#e3f2fd" : "#fff3e0",
-                        borderRadius: "8px",
-                        borderLeft: `4px solid ${
-                          msg.sender === "client" ? "#2196f3" : "#ff9800"
-                        }`,
-                      }}
+                      className={`message-item ${
+                        msg.sender === "client"
+                          ? "message-client"
+                          : "message-support"
+                      }`}
                     >
-                      <small style={{ color: "#6c757d", fontSize: "12px" }}>
+                      <small className="message-header">
                         {msg.sender === "client" ? "You" : "Support"} -{" "}
                         {formatDate(msg.createdAt)}
                       </small>
-                      <p style={{ margin: "0.5rem 0 0 0", color: "#142F2E" }}>
-                        {msg.message}
-                      </p>
+                      <p className="message-content">{msg.message}</p>
                     </div>
                   ))}
                 </div>
               ) : (
-                <p
-                  style={{
-                    color: "#6c757d",
-                    textAlign: "center",
-                    marginTop: "4rem",
-                  }}
-                >
+                <p className="no-messages">
                   No messages yet. Start a conversation with your lifestyle
                   manager.
                 </p>
@@ -629,19 +470,10 @@ const ClientDashboard = () => {
                 value={messageText}
                 onChange={(e) => setMessageText(e.target.value)}
                 placeholder="Type your message..."
-                style={{
-                  ...styles.formControl,
-                  ...styles.textarea,
-                }}
+                className="form-control textarea"
               />
               <button
-                style={{ ...styles.btn, ...styles.btnPrimary, width: "100%" }}
-                onMouseEnter={(e) =>
-                  (e.target.style.backgroundColor = "#e0b43e")
-                }
-                onMouseLeave={(e) =>
-                  (e.target.style.backgroundColor = "#F8CD4D")
-                }
+                className="btn btn-primary btn-full-width"
                 onClick={handleSendMessage}
               >
                 Send Message
@@ -652,106 +484,56 @@ const ClientDashboard = () => {
 
       case "account":
         return (
-          <div style={styles.card}>
-            <h2 style={{ color: "#F8CD4D", marginBottom: "1rem" }}>
-              Account Settings
-            </h2>
-            <p style={{ color: "#142F2E", marginBottom: "1.5rem" }}>
+          <div className="card">
+            <h2 className="card-title">Account Settings</h2>
+            <p className="card-description">
               Manage your personal information and preferences.
             </p>
             <div>
-              <div style={{ marginBottom: "1rem" }}>
-                <label
-                  style={{
-                    display: "block",
-                    color: "#142F2E",
-                    fontWeight: "600",
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  Full Name
-                </label>
+              <div>
+                <label className="form-label">Full Name</label>
                 <input
                   type="text"
                   value={accountData.name}
                   onChange={(e) => handleAccountUpdate("name", e.target.value)}
-                  style={styles.formControl}
+                  className="form-control"
                 />
               </div>
-              <div style={{ marginBottom: "1rem" }}>
-                <label
-                  style={{
-                    display: "block",
-                    color: "#142F2E",
-                    fontWeight: "600",
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  Email
-                </label>
+              <div>
+                <label className="form-label">Email</label>
                 <input
                   type="email"
                   value={accountData.email}
                   onChange={(e) => handleAccountUpdate("email", e.target.value)}
-                  style={styles.formControl}
+                  className="form-control"
                   disabled
                 />
-                <small style={{ color: "#6c757d" }}>
+                <small className="form-help-text">
                   Email cannot be changed. Contact support if you need to update
                   your email.
                 </small>
               </div>
-              <div style={{ marginBottom: "1rem" }}>
-                <label
-                  style={{
-                    display: "block",
-                    color: "#142F2E",
-                    fontWeight: "600",
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  Phone
-                </label>
+              <div>
+                <label className="form-label">Phone</label>
                 <input
                   type="tel"
                   value={accountData.phone}
                   onChange={(e) => handleAccountUpdate("phone", e.target.value)}
-                  style={styles.formControl}
+                  className="form-control"
                 />
               </div>
               <div style={{ marginBottom: "2rem" }}>
-                <label
-                  style={{
-                    display: "block",
-                    color: "#142F2E",
-                    fontWeight: "600",
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  Preferences
-                </label>
+                <label className="form-label">Preferences</label>
                 <textarea
                   value={accountData.preferences}
                   onChange={(e) =>
                     handleAccountUpdate("preferences", e.target.value)
                   }
                   placeholder="Tell us about your preferences (dietary restrictions, seating preferences, etc.)"
-                  style={{
-                    ...styles.formControl,
-                    ...styles.textarea,
-                  }}
+                  className="form-control textarea"
                 />
               </div>
-              <button
-                style={{ ...styles.btn, ...styles.btnPrimary }}
-                onMouseEnter={(e) =>
-                  (e.target.style.backgroundColor = "#e0b43e")
-                }
-                onMouseLeave={(e) =>
-                  (e.target.style.backgroundColor = "#F8CD4D")
-                }
-                onClick={saveAccountChanges}
-              >
+              <button className="btn btn-primary" onClick={saveAccountChanges}>
                 Save Changes
               </button>
             </div>
@@ -764,58 +546,23 @@ const ClientDashboard = () => {
   };
 
   return (
-    <div
-      style={{
-        fontFamily: "Poppins, sans-serif",
-        backgroundColor: "#8EABA9",
-        minHeight: "100vh",
-        padding: "2rem 0",
-      }}
-    >
-      <div style={styles.container}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: "2rem",
-          }}
-        >
-          <h1
-            style={{
-              color: "#142F2E",
-              fontFamily: "serif",
-              fontSize: "clamp(2rem, 4vw, 2.5rem)",
-              fontWeight: "700",
-              margin: 0,
-            }}
-          >
+    <div className="dashboard-container">
+      <div className="container">
+        <div className="header">
+          <h1 className="header-title">
             Welcome, {accountData.name || "Valued Member"}!
           </h1>
           <button
             onClick={handleLogout}
-            style={{
-              ...styles.btn,
-              ...styles.btnOutline,
-              padding: "8px 16px",
-              fontSize: "14px",
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.backgroundColor = "#142F2E";
-              e.target.style.color = "#FFFFFF";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.backgroundColor = "transparent";
-              e.target.style.color = "#142F2E";
-            }}
+            className="btn btn-outlines logout-btn"
           >
             Logout
           </button>
         </div>
 
-        <div style={styles.row}>
-          <div style={styles.col3}>
-            <nav style={styles.nav}>
+        <div className="row">
+          <div className="col-3">
+            <nav className="navs">
               {[
                 { key: "requests", label: "My Requests" },
                 { key: "itineraries", label: "Itineraries" },
@@ -826,22 +573,9 @@ const ClientDashboard = () => {
                 <button
                   key={item.key}
                   onClick={() => setActiveTab(item.key)}
-                  style={{
-                    ...styles.navItem,
-                    ...(activeTab === item.key ? styles.navItemActive : {}),
-                  }}
-                  onMouseEnter={(e) => {
-                    if (activeTab !== item.key) {
-                      e.target.style.backgroundColor = "#8EABA9";
-                      e.target.style.color = "#142F2E";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (activeTab !== item.key) {
-                      e.target.style.backgroundColor = "#FFFFFF";
-                      e.target.style.color = "#142F2E";
-                    }
-                  }}
+                  className={`navs-item ${
+                    activeTab === item.key ? "navs-item-active" : ""
+                  }`}
                 >
                   {item.label}
                 </button>
@@ -849,7 +583,7 @@ const ClientDashboard = () => {
             </nav>
           </div>
 
-          <div style={styles.col9}>{renderTabContent()}</div>
+          <div className="col-9">{renderTabContent()}</div>
         </div>
       </div>
     </div>
