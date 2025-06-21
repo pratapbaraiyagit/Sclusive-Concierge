@@ -101,7 +101,7 @@
   margin-bottom: 1.5rem;
 }
 
-.btn {
+.btnd {
   display: inline-block;
   padding: 10px 20px;
   border-radius: 50px;
@@ -114,27 +114,27 @@
   cursor: pointer;
 }
 
-.btn-primary {
+.btnd-primary {
   background-color: #f8cd4d;
   color: #142f2e;
 }
 
-.btn-primary:hover {
+.btnd-primary:hover {
   background-color: #e0b43e;
 }
 
-.btn-outlines {
+.btnd-outlines {
   background-color: transparent;
   color: #142f2e;
   border: 2px solid #142f2e;
 }
 
-.btn-outlines:hover {
+.btnd-outlines:hover {
   background-color: #142f2e;
   color: #ffffff;
 }
 
-.logout-btn {
+.logout-btnd {
   padding: 8px 16px;
   font-size: 14px;
 }
@@ -314,7 +314,7 @@
   transform: translateY(-1px);
 }
 
-.btn-full-width {
+.btnd-full-width {
   width: 100%;
 }
 
@@ -378,12 +378,12 @@
     flex-direction: column;
   }
 
-  .btn {
+  .btnd {
     width: 100%;
     margin-bottom: 0.5rem;
   }
 
-  .logout-btn {
+  .logout-btnd {
     width: auto;
     margin-bottom: 0;
   }
@@ -439,7 +439,7 @@
     padding: 0.75rem;
   }
 
-  .btn {
+  .btnd {
     padding: 12px 20px;
     font-size: 16px;
   }
@@ -468,7 +468,7 @@
   }
 
   .navs,
-  .btn {
+  .btnd {
     display: none;
   }
 
@@ -497,7 +497,7 @@
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   .navs-item,
-  .btn {
+  .btnd {
     transition: none;
   }
 }
