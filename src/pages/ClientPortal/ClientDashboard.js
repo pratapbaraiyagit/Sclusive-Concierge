@@ -256,7 +256,7 @@ const ClientDashboard = () => {
             {!showNewRequestForm ? (
               <button
                 onClick={() => setShowNewRequestForm(true)}
-                className="btn btn-primary"
+                className="btnd btnd-primary"
                 style={{ marginBottom: "2rem" }}
               >
                 Submit New Request
@@ -316,7 +316,7 @@ const ClientDashboard = () => {
                 <div className="form-actions">
                   <button
                     onClick={handleNewRequest}
-                    className="btn btn-primary"
+                    className="btnd btnd-primary"
                   >
                     Submit Request
                   </button>
@@ -329,7 +329,7 @@ const ClientDashboard = () => {
                         attachment: null,
                       });
                     }}
-                    className="btn btn-outlines"
+                    className="btnd btnd-outlines"
                   >
                     Cancel
                   </button>
@@ -473,7 +473,7 @@ const ClientDashboard = () => {
                 className="form-control textarea"
               />
               <button
-                className="btn btn-primary btn-full-width"
+                className="btnd btnd-primary btnd-full-width"
                 onClick={handleSendMessage}
               >
                 Send Message
@@ -533,7 +533,10 @@ const ClientDashboard = () => {
                   className="form-control textarea"
                 />
               </div>
-              <button className="btn btn-primary" onClick={saveAccountChanges}>
+              <button
+                className="btnd btnd-primary"
+                onClick={saveAccountChanges}
+              >
                 Save Changes
               </button>
             </div>
@@ -554,7 +557,7 @@ const ClientDashboard = () => {
           </h1>
           <button
             onClick={handleLogout}
-            className="btn btn-outlines logout-btn"
+            className="btnd btnd-outlines logout-btnd"
           >
             Logout
           </button>
