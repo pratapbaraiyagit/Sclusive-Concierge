@@ -2,21 +2,21 @@
 
 /* --- Font Imports from Google Fonts --- */
 /* For "The Seasons" - if it's a Google Font or similar. If it's a custom font, you'll need @font-face rules. */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
 /* A good alternative if "The Seasons" isn't standard, or replace with actual "The Seasons" if you have it */
 /* For "Poppins" */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 /* --- Custom Variables (Updated based on your Brand Guide) --- */
 :root {
-  --primary-color-dark-green: #142F2E;
+  --primary-color-dark-green: #142f2e;
   /* Primary */
-  --primary-color-gold: #F8CD4D;
+  --primary-color-gold: #f8cd4d;
   /* Primary / Accent */
 
-  --secondary-color-white: #FFFFFF;
+  --secondary-color-white: #ffffff;
   /* Secondary */
-  --secondary-color-light-teal: #8EABA9;
+  --secondary-color-light-teal: #8eaba9;
   /* Secondary */
 
   /* Text colors derived from main palette */
@@ -28,7 +28,7 @@
 
 /* --- General Body Styles --- */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   /* Poppins for body text */
   line-height: 1.6;
   color: var(--dark-text-color);
@@ -89,7 +89,6 @@ body {
   /* Slightly darker gold for hover */
 }
 
-
 /* --- Section Backgrounds --- */
 .bg-dark-section {
   background-color: var(--primary-color-dark-green) !important;
@@ -102,7 +101,7 @@ body {
 
 /* --- Headings --- */
 .section-heading {
-  font-family: 'The Seasons', 'Playfair Display', serif;
+  font-family: Poppins, sans-serif;
   /* Primary font for titles */
   font-size: 2.8rem;
   font-weight: 700;
@@ -167,7 +166,7 @@ body {
 
 /* Adjust hero text sizes for smaller screens */
 .hero-section h1 {
-  font-family: 'The Seasons', 'Playfair Display', serif;
+  font-family: Poppins, sans-serif;
   /* Primary font for titles */
   font-size: 3.5rem;
 }
@@ -210,7 +209,7 @@ body {
 
 /* Testimonial specific */
 .testimonial-item blockquote {
-  font-family: 'The Seasons', 'Playfair Display', serif;
+  font-family: Poppins, sans-serif;
   /* Elegant font for quotes */
   font-style: italic;
   font-size: 1.5rem;
@@ -231,7 +230,6 @@ body {
   /* For text on dark backgrounds like footer */
   color: var(--light-text-color) !important;
 }
-
 
 /* --- Animations (Existing animations are fine) --- */
 .fade-in {
@@ -282,7 +280,7 @@ body {
 }
 
 .img-hover-zoom img {
-  transition: transform .5s ease;
+  transition: transform 0.5s ease;
 }
 
 .img-hover-zoom:hover img {
