@@ -103,7 +103,7 @@
 }
 
 .hero-title {
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(1.5rem, 4vw, 3rem) !important;
   font-weight: bold;
   margin-bottom: 2rem;
@@ -147,13 +147,13 @@
 
 /* Typography */
 .section-title {
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(2rem, 4vw, 2.5rem);
   margin-bottom: 1.5rem;
 }
 
 .section-title-large {
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(2.2rem, 4vw, 2.8rem);
   font-weight: 700;
   text-align: center;
@@ -301,7 +301,7 @@
   font-size: 1.1rem; /* Reduced from 1.4rem */
   line-height: 1.3;
   margin: 0;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   transition: color 0.3s ease;
 }
 
@@ -353,7 +353,7 @@
 
 .form-title {
   color: #142f2e;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 700;
   margin-bottom: 1rem;
