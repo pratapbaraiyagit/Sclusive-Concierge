@@ -34,7 +34,7 @@
 }
 
 .contact-hero-title {
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(3rem, 6vw, 4.5rem);
   font-weight: bold;
   margin-bottom: 1.5rem;
@@ -71,7 +71,7 @@
 /* Typography */
 .contact-section-title {
   color: #142f2e;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(2.5rem, 5vw, 3rem);
   font-weight: 700;
   margin-bottom: 1rem;
@@ -88,7 +88,7 @@
 
 .contact-cta-title {
   color: #ffffff;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   margin-bottom: 1.5rem;
   text-align: center;
@@ -144,7 +144,7 @@
 
 .contact-form-title {
   color: #142f2e;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 600;
   margin-bottom: 1rem;
@@ -267,7 +267,7 @@
 
 .contact-overlay-title {
   color: #142f2e;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: 1.5rem;
   margin-bottom: 1rem;
   font-weight: 700;
