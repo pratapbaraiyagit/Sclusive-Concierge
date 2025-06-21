@@ -21,7 +21,7 @@
 }
 
 .services-hero-title {
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(3rem, 6vw, 4.5rem);
   font-weight: bold;
   margin-bottom: 1.5rem;
@@ -66,7 +66,7 @@
 /* Typography */
 .services-section-title {
   color: #142f2e;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -75,7 +75,7 @@
 
 .services-section-title-medium {
   color: #142f2e;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(2.5rem, 5vw, 3rem);
   font-weight: 700;
   margin-bottom: 2rem;
@@ -92,7 +92,7 @@
 
 .services-cta-title {
   color: #ffffff;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   margin-bottom: 1.5rem;
   text-align: center;
@@ -202,7 +202,7 @@
   font-size: 1.6rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
 }
 
 .services-card-description {
@@ -306,7 +306,7 @@
   color: #f8cd4d;
   font-size: 2.5rem;
   font-weight: bold;
-  font-family: serif;
+  font-family: Poppins, sans-serif;
   margin-bottom: 0.5rem;
 }
 
