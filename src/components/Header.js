@@ -50,7 +50,7 @@ const Header = () => {
             {currentUser ? (
               <Nav.Link
                 onClick={() => navigate("/dashboard")}
-                className="btn btn-primary-custom ms-lg-3 hover-effect"
+                className="btn btn-primary-custom hover-effect d-block w-auto mx-0 text-start ms-lg-3"
                 style={{ cursor: "pointer" }}
               >
                 Dashboard
@@ -59,7 +59,7 @@ const Header = () => {
               <Nav.Link
                 as={Link}
                 to="/portal"
-                className="btn btn-primary-custom ms-lg-3 hover-effect"
+                className="btn btn-primary-custom hover-effect d-block w-auto mx-0 text-start ms-lg-3"
               >
                 Client Portal
               </Nav.Link>
