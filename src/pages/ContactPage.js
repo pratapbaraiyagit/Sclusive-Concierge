@@ -222,8 +222,8 @@ const ContactPage = () => {
         <div className="contact-container">
           <div className="text-center mb-3">
             <h2 className="contact-section-title">
-              Prefer to Connect{" "}
-              <span className="contact-highlight">Directly</span>?
+              Do you want to get quick{" "}
+              <span className="contact-highlight">assistance</span>?
             </h2>
             <p className="contact-section-description">
               Choose your preferred method of communication for immediate
@@ -271,16 +271,16 @@ const ContactPage = () => {
         <div className="contact-container">
           <div className="max-width-700 margin-auto">
             <h2 className="contact-cta-title">
-              Ready to Begin Your{" "}
-              <span className="contact-highlight">S'CLUSIVE</span> Journey?
+              Ready to start your adventure with{" "}
+              <span className="contact-highlight">S'CLUSIVE?</span>
             </h2>
             <p className="contact-cta-description">
               We look forward to assisting you and creating extraordinary
-              experiences. Your luxury lifestyle awaits.
+              experiences
             </p>
             <div className="contact-cta-buttons">
               <Link to={"/services"} className="contact-btn-outline">
-                View Services
+                Our Services
               </Link>
             </div>
           </div>
