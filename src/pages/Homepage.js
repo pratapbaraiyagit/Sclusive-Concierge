@@ -29,6 +29,7 @@ const Homepage = () => {
     country: "",
     membershipType: "",
     message: "",
+    attachment: null,
   });
 
   const testimonials = [
@@ -280,15 +281,70 @@ const Homepage = () => {
                   />
                 </div>
 
+                {/* UPDATED FILE INPUT SECTION - GOOGLE TRANSLATE COMPATIBLE */}
                 <div className="form-group">
                   <label className="form-label">Attach File (Optional)</label>
+
+                  {/* Hidden file input */}
                   <input
                     type="file"
+                    id="fileAttachment"
                     name="attachment"
                     onChange={handleFileChange}
                     accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
-                    className="form-control file-input"
+                    style={{ display: "none" }}
                   />
+
+                  {/* Custom translatable button and text */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      flexWrap: "wrap",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    <label
+                      htmlFor="fileAttachment"
+                      style={{
+                        backgroundColor: "#f8cd4d",
+                        color: "#142f2e",
+                        border: "2px solid #f8cd4d",
+                        borderRadius: "25px",
+                        padding: "12px 24px",
+                        fontWeight: "600",
+                        cursor: "pointer",
+                        transition: "all 0.3s ease",
+                        display: "inline-block",
+                        fontSize: "14px",
+                        userSelect: "none",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.target.style.backgroundColor = "#e0b43e";
+                        e.target.style.transform = "translateY(-1px)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.target.style.backgroundColor = "#f8cd4d";
+                        e.target.style.transform = "translateY(0)";
+                      }}
+                    >
+                      Choose File
+                    </label>
+
+                    <span
+                      style={{
+                        color: "#6c757d",
+                        fontSize: "14px",
+                        fontWeight: "400",
+                      }}
+                    >
+                      {formData.attachment
+                        ? formData.attachment.name
+                        : "No file chosen"}
+                    </span>
+                  </div>
+
                   <small className="file-help-text">
                     Max file size 5MB (PDF, JPG, PNG, DOC)
                   </small>
