@@ -250,7 +250,7 @@ const ClientDashboard = () => {
           <div className="card">
             <h2 className="card-title">My Requests</h2>
             <p className="card-description">
-              Submit and track your service needs with your lifestyle manager.
+              Submit and track your requests with your dedicated concierge.
             </p>
 
             {!showNewRequestForm ? (
