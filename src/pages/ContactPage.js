@@ -137,17 +137,75 @@ const ContactPage = () => {
                     />
                   </div>
 
+                  {/* UPDATED FILE INPUT SECTION - GOOGLE TRANSLATE COMPATIBLE */}
                   <div className="contact-form-group">
                     <label className="contact-form-label">
                       Attach File (Optional)
                     </label>
+
+                    {/* Hidden file input */}
                     <input
                       type="file"
+                      id="contactFileAttachment"
                       name="attachment"
                       onChange={handleFileChange}
                       accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                      style={{ display: "none" }}
                       className="contact-form-control contact-file-input"
                     />
+
+                    {/* Custom translatable button and text */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "12px",
+                        flexWrap: "wrap",
+                        marginBottom: "8px",
+                      }}
+                    >
+                      <label
+                        htmlFor="contactFileAttachment"
+                        style={{
+                          backgroundColor: "#f8cd4d",
+                          color: "#142f2e",
+                          border: "2px solid #f8cd4d",
+                          borderRadius: "25px",
+                          padding: "12px 24px",
+                          fontWeight: "600",
+                          cursor: "pointer",
+                          transition: "all 0.3s ease",
+                          display: "inline-block",
+                          fontSize: "14px",
+                          userSelect: "none",
+                          fontFamily: "Poppins, sans-serif",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.target.style.backgroundColor = "#e0b43e";
+                          e.target.style.transform = "translateY(-1px)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.backgroundColor = "#f8cd4d";
+                          e.target.style.transform = "translateY(0)";
+                        }}
+                      >
+                        Choose File
+                      </label>
+
+                      <span
+                        style={{
+                          color: "#6c757d",
+                          fontSize: "14px",
+                          fontWeight: "400",
+                          fontFamily: "Poppins, sans-serif",
+                        }}
+                      >
+                        {formData.attachment
+                          ? formData.attachment.name
+                          : "No file chosen"}
+                      </span>
+                    </div>
+
                     <small className="contact-file-help">
                       Max file size 5MB (PDF, JPG, PNG, DOC)
                     </small>
