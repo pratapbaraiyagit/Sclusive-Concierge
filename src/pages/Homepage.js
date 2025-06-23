@@ -38,7 +38,7 @@ const Homepage = () => {
       author: "— Distinguished Member",
     },
     {
-      quote: "A seamless, first-class experience from start to finish.",
+      quote: "A seamless and premium experience from start to finish.",
       author: "— Executive Client",
     },
     {
@@ -80,7 +80,12 @@ const Homepage = () => {
       >
         <div className="responsive-container">
           <div className="max-width-800 margin-auto">
-            <h1 className="hero-title">
+            <h1
+              className="hero-title"
+              style={{
+                color: "#f8cd4d",
+              }}
+            >
               Experience bespoke concierge
               <br />
               <em className="hero-highlight">
@@ -88,10 +93,10 @@ const Homepage = () => {
               </em>
             </h1>
             <p className="hero-description">
-              S'Clusive Private Concierge offers ultra-personalized, discreet,
-              and world-class lifestyle management to those who demand the
-              extraordinary. Our services provide privileged access to a life of
-              seamless elegance.
+              The S'Clusive private concierge service ultra-personalized,
+              discreet, and world-class lifestyle management to those who demand
+              the extraordinary. Our services provide privileged access to a
+              life of effortless elegance.
             </p>
             <div className="hero-buttons">
               <Link
@@ -143,15 +148,16 @@ const Homepage = () => {
       {/* Signature Services */}
       <section className="section-accent section-padding">
         <div className="responsive-container">
-          <h2 className="section-title-large text-black">Signature Services</h2>
-
+          <h2 className="section-title-large text-black">
+            Our Signature Services{" "}
+          </h2>
           <div className="services-grid_home">
             {[
               "Personal Shopping",
-              "Event Planning & VIP Event Access",
+              "Event organization & VIP access",
               "Luxury Travel & Stay",
               "Corporate Concierge",
-              "Wellness & Lifestyle Management",
+              "Well-being & Lifestyle Management",
             ].map((service, index) => (
               <div key={index} className="service-card">
                 <div className="service-card-inner">
