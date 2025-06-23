@@ -34,7 +34,7 @@ const AboutUs = () => {
     },
     {
       icon: "🌍",
-      title: "Global Reach, Local Refinement",
+      title: "Global presence, local refinement",
       description:
         "Our worldwide network combined with localized expertise ensures seamless service, anywhere in the world.",
     },
@@ -60,7 +60,8 @@ const AboutUs = () => {
         <div className="about-container">
           <div className="max-width-800 margin-auto">
             <h1 className="hero-title-about">
-              About <span className="hero-highlight">S'CLUSIVE</span>
+              Discover S'CLUSIVE{" "}
+              <span className="hero-highlight">S'CLUSIVE</span>
             </h1>
             <p className="hero-subtitle-about">
               Your privileged access to a life without limits.
@@ -75,16 +76,15 @@ const AboutUs = () => {
           <div className="about-row">
             <div className="about-col-6 pr-3">
               <h2 className="section-title-about">
-                Our Brand <span className="hero-highlight">Story</span>
+                Our<span className="hero-highlight">History</span>
               </h2>
               <p className="section-subtitle">
-                Founded on the belief that high-end services should be seamless,
-                S'Clusive brings decades of elite expertise to clients.
+                Founded on the belief that premium services should be seamless,
+                S'Clusive brings years of elite expertise to its clients.
               </p>
               <p className="section-text">
-                As devoted partners in your lifestyle, we are more than just a
-                concierge service — we are your privileged access to a life
-                without limits.
+                As dedicated partners, we are more than just a concierge service
+                - we are your privileged access to a life without limits.
               </p>
               <p className="section-text">
                 Our team is committed to anticipating your needs, ensuring
@@ -120,8 +120,8 @@ const AboutUs = () => {
                 />
               </div>
               <blockquote className="founder-quote">
-                "At S'Clusive, we don't just plan — we anticipate. We don't just
-                serve — we curate. Our mission is to simplify the
+                "At S'Clusive, we don't just plan, we anticipate. We don't just
+                serve, we orchestrate. Our mission is to simplify the
                 extraordinary."
               </blockquote>
               <footer className="quote-author">
@@ -162,16 +162,16 @@ const AboutUs = () => {
         <div className="about-container">
           <div className="max-width-700 margin-auto">
             <h2 className="cta-title">
-              Ready to Experience{" "}
-              <span className="hero-highlight">Unparalleled</span> Luxury?
+              Ready to live an{" "}
+              <span className="hero-highlight">unparalleled</span> experience?
             </h2>
             <p className="cta-description">
-              Learn more about how S'Clusive can simplify the extraordinary for
-              you. Your journey to a life without limits begins here.
+              Discover how S'Clusive can simplify your life. Your journey to a
+              life without limits starts here.
             </p>
             <div className="cta-buttons">
               <Link to={"/contact"} className="about-btn">
-                Contact Us Today
+                Contact us
               </Link>
               <Link to={"/services"} className="about-btn-outline">
                 Explore Our Services
