@@ -65,7 +65,7 @@ const Footer = () => {
                         opacity: 0.8,
                       }}
                     >
-                      Luxury Concierge Services
+                      Private Concierge
                     </p>
                   </div>
                 </div>
@@ -163,7 +163,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-light-text-color footer-contact-link"
-                  style={{ fontSize: "0.9rem" }}
+                  style={{ fontSize: "0.9rem", color: "#d4af37" }}
                 >
                   +224 613 54 37 24
                 </a>
