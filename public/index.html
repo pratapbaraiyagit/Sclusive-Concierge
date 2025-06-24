@@ -3,48 +3,122 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <title>React App</title>
 
+  <!-- Google Translate -->
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
-        // Include both 'en' for English and 'fr' for French
-        includedLanguages: 'en,fr',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        includedLanguages: 'en,fr'
       }, 'google_translate_element');
+    }
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById("langDropdown");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    function changeLanguage(lang) {
+      const select = document.querySelector("select.goog-te-combo");
+      if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event("change"));
+      }
+      toggleDropdown();
     }
   </script>
 
+  <!-- Google Translate Script -->
   <script type="text/javascript"
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+  <!-- Custom Styles -->
   <style>
-    #google_translate_element {
-      position: fixed;
-      top: 0px;
-      right: 0px;
-      z-index: 9999;
-      background-color: white;
-      padding: 0px 10px;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    body {
       font-family: Poppins, sans-serif;
+    }
+
+    #custom_translate_selector {
+      position: fixed;
+      /* top: 10px; */
+      right: 10px;
+      background: #f8cd4d;
+      border-radius: 6px;
+      /* padding: 8px 12px; */
+      font-family: Poppins, sans-serif;
+      z-index: 9999;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    #custom_translate_selector button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #langDropdown {
+      list-style: none;
+      margin: 8px 0 0;
+      padding: 0;
+      display: none;
+      border-top: 1px solid #ccc;
+    }
+
+    #langDropdown li {
+      cursor: pointer;
+      padding: 0px 20px;
+    }
+
+    #langDropdown li:hover {
+      color: #007bff;
+    }
+
+    #langDropdown img {
+      width: 20px;
+      height: auto;
+    }
+
+    /* Hide default Google Translate widget */
+    #google_translate_element {
+      display: none;
     }
   </style>
 </head>
 
 <body>
+
+  <!-- Custom Dropdown -->
+  <div id="custom_translate_selector">
+    <button onclick="toggleDropdown()">🌐 Select Language ▼</button>
+    <ul id="langDropdown" style="background-color: white; border-radius: 6px;">
+    
+      <li onclick="changeLanguage('en')">
+    
+        <img src="https://flagcdn.com/us.svg" alt="English" /> English
+    
+      </li>
+    
+      <li onclick="changeLanguage('fr')">
+    
+        <img src="https://flagcdn.com/fr.svg" alt="French" /> French
+    
+      </li>
+    
+    </ul>
+  </div>
+
+  <!-- Google Translate Hidden Container -->
   <div id="google_translate_element"></div>
 
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
+  <!-- Your app root -->
+  <div id="root">
+    <h1>Welcome to the website</h1>
+    <p>This is a multilingual site. Use the dropdown to switch languages.</p>
+  </div>
+
 </body>
 
 </html>
