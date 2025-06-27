@@ -39,7 +39,7 @@ const Homepage = () => {
       author: "— Distinguished Member",
     },
     {
-      quote: "A seamless and premium experience from start to finish.",
+      quote: "A seamless, first-class experience from start to finish.",
       author: "— Executive Client",
     },
     {
@@ -94,10 +94,10 @@ const Homepage = () => {
               </em>
             </h1>
             <p className="hero-description">
-              The S'Clusive private concierge service ultra-personalized,
-              discreet, and world-class lifestyle management to those who demand
-              the extraordinary. Our services provide privileged access to a
-              life of effortless elegance.
+              S'Clusive Private Concierge offers ultra-personalized, discreet,
+              and world-class lifestyle management to those who demand the
+              extraordinary. Our services provide privileged access to a life of
+              seamless elegance.
             </p>
             <div className="hero-buttons">
               <Link
@@ -150,15 +150,15 @@ const Homepage = () => {
       <section className="section-accent section-padding">
         <div className="responsive-container">
           <h2 className="section-title-large text-black">
-            Our Signature Services{" "}
+            Signature Services{" "}
           </h2>
           <div className="services-grid_home">
             {[
               "Personal Shopping",
-              "Event organization & VIP access",
+              "Event Planning & VIP Event Access",
               "Luxury Travel & Stay",
               "Corporate Concierge",
-              "Well-being & Lifestyle Management",
+              "Wellness & Lifestyle Management",
             ].map((service, index) => (
               <div key={index} className="service-card">
                 <div className="service-card-inner">
