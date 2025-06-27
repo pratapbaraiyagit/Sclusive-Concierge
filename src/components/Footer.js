@@ -65,7 +65,7 @@ const Footer = () => {
                         opacity: 0.8,
                       }}
                     >
-                      Private Concierge
+                      Luxury Concierge Services
                     </p>
                   </div>
                 </div>
