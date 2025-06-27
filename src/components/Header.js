@@ -34,10 +34,10 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link as={Link} to="/" onClick={closeMenu}>
-              Welcome
+              Home
             </Nav.Link>
             <Nav.Link as={Link} to="/about" onClick={closeMenu}>
-              Our History
+              About Us
             </Nav.Link>
             <Nav.Link as={Link} to="/services" onClick={closeMenu}>
               Services
@@ -68,7 +68,7 @@ const Header = () => {
                 onClick={closeMenu}
                 className="btn btn-primary-custom hover-effect d-block w-auto mx-0 text-start ms-lg-3"
               >
-                Customer Area
+                Client Portal
               </Nav.Link>
             )}
           </Nav>
