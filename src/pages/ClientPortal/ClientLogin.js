@@ -176,7 +176,7 @@ const ClientLogin = () => {
                 marginBottom: "1rem",
               }}
             >
-              Customer Area Connection
+              Client Portal Login
             </h2>
             <p
               style={{
@@ -185,7 +185,7 @@ const ClientLogin = () => {
                 fontSize: "16px",
               }}
             >
-              Access your private customer account
+              Access your exclusive lifestyle management dashboard.
             </p>
           </div>
 
