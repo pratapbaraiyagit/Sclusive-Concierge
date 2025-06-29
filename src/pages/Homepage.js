@@ -94,10 +94,9 @@ const Homepage = () => {
               </em>
             </h1>
             <p className="hero-description">
-              S'Clusive Private Concierge offers ultra-personalized, discreet,
-              and world-class lifestyle management to those who demand the
-              extraordinary. Our services provide privileged access to a life of
-              seamless elegance.
+              S'Clusive offers ultra-personalized, discreet, and world-class
+              lifestyle management to those who demand the extraordinary. Our
+              services provide privileged access to a life of seamless elegance.
             </p>
             <div className="hero-buttons">
               <Link
