@@ -34,10 +34,10 @@ const ServicesPage = () => {
         "From daily essentials to rare requests, we make the impossible feel effortless with our comprehensive lifestyle management services.",
       subPoints: [
         "Personal Shopping (gifting, sourcing rare items)",
-        "Reservations (restaurants, events, rides)",
+        "Reservations (restaurants, events, transportation )",
         "Real Estate (buying, selling, & managing properties)",
-        "Private Staffing (Trainer, Nanny, Private Chef)",
-        "Interior Design & Home Management",
+        "Private Staffing (Coach, Nanny, Private Chef)",
+        "Interior Design & Architecture ",
       ],
       icon: "🏠",
     },
@@ -59,7 +59,7 @@ const ServicesPage = () => {
       image: eventPlanningImg,
       title: "Event Planning",
       description:
-        "Whether it's a private dinner or a corporate gala, we orchestrate moments to remember with flawless execution.",
+        "Whether it’s a private dinner or a corporate gala, we plan moments to remember with flawless execution.",
       subPoints: [],
       icon: "🎉",
     },
@@ -67,7 +67,7 @@ const ServicesPage = () => {
       image: corporateConciergeImg,
       title: "Corporate Concierge",
       description:
-        "Elevate executive life with seamless support, from business travel to luxury gifting and corporate event management.",
+        "Elevate executive life with regular support, from business travel to personalized gifting and corporate event planning.",
       subPoints: [],
       icon: "💼",
     },
