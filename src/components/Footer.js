@@ -11,8 +11,13 @@ import {
   FaPhone,
 } from "react-icons/fa";
 import logoIconWhite from "../assets/images/sclusive_logo_icon_white.png";
+import logoFull from "../assets/images/sclusive_logo_icon_yellow.png";
+
+import { useAuth } from "../contexts/AuthContext";
 
 const Footer = () => {
+  const { currentUser } = useAuth();
+
   return (
     <footer className="bg-dark-section text-white py-5">
       <Container>
@@ -35,7 +40,7 @@ const Footer = () => {
                 }}
               >
                 <div className="logo-wrapper d-flex align-items-center justify-content-center justify-content-md-start">
-                  <img
+                  {/* <img
                     src={logoIconWhite}
                     alt="S'CLUSIVE Logo Icon"
                     className="footer-logo"
@@ -45,9 +50,15 @@ const Footer = () => {
                       filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))",
                       transition: "all 0.3s ease",
                     }}
-                  />
+                  /> */}
                   <div className="brand-text ms-3 d-none d-sm-block">
-                    <h4
+                    <img
+                      src={logoFull}
+                      alt="S'CLUSIVE Conciergerie Privée Logo"
+                      height="60"
+                      className="d-inline-block align-top me-2"
+                    />
+                    {/* <h4
                       className="mb-0 fw-bold"
                       style={{
                         color: "#D4AF37", // Gold color
@@ -66,7 +77,7 @@ const Footer = () => {
                       }}
                     >
                       Luxury Concierge Services
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </Link>
@@ -131,12 +142,21 @@ const Footer = () => {
               >
                 Contact
               </Link>
-              <Link
-                to="/portal"
-                className="nav-link text-light-text-color p-0 mb-2 footer-nav-link"
-              >
-                Client Portal
-              </Link>
+              {currentUser ? (
+                <Link
+                  to="/dashboard"
+                  className="nav-link text-light-text-color p-0 mb-2 footer-nav-link"
+                >
+                  Dashboard
+                </Link>
+              ) : (
+                <Link
+                  to="/portal"
+                  className="nav-link text-light-text-color p-0 mb-2 footer-nav-link"
+                >
+                  Client Portal
+                </Link>
+              )}
             </Nav>
           </Col>
 
