@@ -258,22 +258,38 @@
     }
 
     #langDropdown li {
-      cursor: pointer;
-      padding: 0px 20px;
-    }
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 20px;
+  cursor: pointer;
+  border: 2px solid #000000;
+  border-radius: 50px; /* ← Rounded pill shape */
+  margin: 6px 10px;
+  transition: 0.3s;
+}
 
-    #langDropdown li:hover {
-      color: #007bff;
-    }
+#langDropdown li:hover {
+  background-color: #f0f8ff;
+  border-color: #000000; /* darker blue on hover */
+}
 
     #langDropdown img {
-      width: 20px;
-      height: auto;
-    }
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+  vertical-align: middle;
+}
 
     /* Hide default Google Translate widget */
     #google_translate_element {
       display: none;
+    }
+
+    .VIpgJd-ZVi9od-aZ2wEe-wOHMyf {  
+      display: none !important;
     }
   </style>
 </head>
@@ -282,13 +298,13 @@
 
   <!-- Custom Dropdown -->
   <div id="custom_translate_selector">
-    <button onclick="toggleDropdown()">🌐 Select Language ▼</button>
+    <button onclick="toggleDropdown()">🌐 Language ▼</button>
     <ul id="langDropdown" style="background-color: white; border-radius: 6px;">
       <li onclick="changeLanguage('en')">
-        <img src="https://flagcdn.com/us.svg" alt="English" /> English
+        <img src="https://flagcdn.com/us.svg" alt="English" /> EN
       </li>
       <li onclick="changeLanguage('fr')">
-        <img src="https://flagcdn.com/fr.svg" alt="French" /> French
+        <img src="https://flagcdn.com/fr.svg" alt="French" /> FR
       </li>
     </ul>
   </div>
