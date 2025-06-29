@@ -36,188 +36,188 @@
     }
 
     // Override only the <h1> text if translated to "Maison"
-      function overrideTranslationText() {
-          const observer = new MutationObserver(() => {
-            const selectedLang = document.querySelector(".goog-te-combo")?.value || 'en';
+    function overrideTranslationText() {
+      const observer = new MutationObserver(() => {
+        const selectedLang = document.querySelector(".goog-te-combo")?.value || 'en';
 
-            document.querySelectorAll("nav, header, div, span, a, li, h1, h2, p").forEach(el => {
-              const text = el.innerText.trim();
+        document.querySelectorAll("nav, header, div, span, a, li, h1, h2, p").forEach(el => {
+          const text = el.innerText.trim();
 
-              // 🌍 French overrides
-              if (selectedLang === "fr") {
-                if (text === "Maison" || text === "Home") el.innerText = "Accueil";
-                if (text === "Services de signature" || text === "Signature Services") el.innerText = "Nos Services Signature";
-                if (
-                  text === "Espace client" ||
-                  text === "Portail client" ||
-                  text === "Client Portal"
-                ) el.innerText = "Espace Client";
-                if (text === "Client Portal Login") el.innerText = "Connexion Espace Client";
-                if (text === "About Us" || text === "À propos de nous") {
-                  el.innerText = "Notre Histoire";
-                }
-                else if (text === "About") {
-                  el.innerText = "Découvrir";
-                }
-                else if (/^À[\s\u00A0]?propos[\s\u00A0]?de(?!\s?nous)/i.test(el.innerText)) {
-                  // Only replace "À propos de" not followed by "nous"
-                  el.innerHTML = el.innerHTML.replace(/À[\s\u00A0]?propos[\s\u00A0]?de/i, "Découvrir");
-                }
+          // 🌍 French overrides
+          if (selectedLang === "fr") {
+            if (text === "Maison" || text === "Home") el.innerText = "Accueil";
+            if (text === "Services de signature" || text === "Signature Services") el.innerText = "Nos Services Signature";
+            if (
+              text === "Espace client" ||
+              text === "Portail client" ||
+              text === "Client Portal"
+            ) el.innerText = "Espace Client";
+            if (text === "Client Portal Login") el.innerText = "Connexion Espace Client";
+            if (text === "About Us" || text === "À propos de nous") {
+              el.innerText = "Notre Histoire";
+            }
+            else if (text === "About") {
+              el.innerText = "Découvrir";
+            }
+            else if (/^À[\s\u00A0]?propos[\s\u00A0]?de(?!\s?nous)/i.test(el.innerText)) {
+              // Only replace "À propos de" not followed by "nous"
+              el.innerHTML = el.innerHTML.replace(/À[\s\u00A0]?propos[\s\u00A0]?de/i, "Découvrir");
+            }
 
-                // Hero Section
-                if (text === "Benefits of concierge services") el.innerText = "Bénéficiez… de conciergerie";
-                if (text === "Private Concierge S'Clusive") el.innerText = "La conciergerie privée S'Clusive";
-                if (text === "A life of effortless elegance") el.innerText = "une vie d'élégance sans effort";
+            // Hero Section
+            if (text === "Benefits of concierge services") el.innerText = "Bénéficiez… de conciergerie";
+            if (text === "Private Concierge S'Clusive") el.innerText = "La conciergerie privée S'Clusive";
+            if (text === "A life of effortless elegance") el.innerText = "une vie d'élégance sans effort";
 
-                // Services
-                if (text === "Personal Shopping") el.innerText = "Personal Shopping";
-                if (text === "Event Planning & VIP Access") el.innerText = "Organisation d'événements & Accès VIP";
-                if (text === "Wellness & Lifestyle Management") el.innerText = "Bien être & Gestion de Style de Vie";
+            // Services
+            if (text === "Personal Shopping") el.innerText = "Personal Shopping";
+            if (text === "Event Planning & VIP Access") el.innerText = "Organisation d'événements & Accès VIP";
+            if (text === "Wellness & Lifestyle Management") el.innerText = "Bien être & Gestion de Style de Vie";
 
-                // Experience
-                if (text === "A seamless and premium experience from start to finish") el.innerText = "Une expérience fluide et haut de gamme du début à la fin";
-                if (text === "Choose file") el.innerText = "Choisir un fichier";
-                if (text === "No file") el.innerText = "Aucun fichier";
+            // Experience
+            if (text === "A seamless and premium experience from start to finish") el.innerText = "Une expérience fluide et haut de gamme du début à la fin";
+            if (text === "Choose file") el.innerText = "Choisir un fichier";
+            if (text === "No file") el.innerText = "Aucun fichier";
 
-                // Company Info
-                if (text === "Private Concierge") el.innerText = "Conciergerie Privée";
-                if (text === "Elevating the luxury experience") el.innerText = "Sublimer l'expérience du haut de gamme";
+            // Company Info
+            if (text === "Private Concierge") el.innerText = "Conciergerie Privée";
+            if (text === "Elevating the luxury experience") el.innerText = "Sublimer l'expérience du haut de gamme";
 
-                // About Section
-                if (text === "Founded on the belief that luxury services should be seamless, S'Clusive brings years of elite expertise to its clients.") {
-                  el.innerText = "Fondée sur la conviction que les services haut de gamme doivent être fluides, S'Clusive apporte des années d'expertise d'élite à ses clients.";
-                }
-                if (text === "As dedicated partners, we are more than just a concierge service - we are your privileged access to a life without limits.") {
-                  el.innerText = "En tant que partenaires dévoués, nous sommes plus qu'un simple service de conciergerie - nous sommes votre accès privilégié à une vie sans limites.";
-                }
-                if (text === "At S'Clusive, we don't just plan, we anticipate. We don't just serve, we orchestrate. Our mission is to simplify the extraordinary.") {
-                  el.innerText = "Chez S'Clusive, nous ne faisons pas que planifier, nous anticipons. Nous ne faisons pas que servir, nous orchestrons. Notre mission est de simplifier l'extraordinaire.";
-                }
+            // About Section
+            if (text === "Founded on the belief that luxury services should be seamless, S'Clusive brings years of elite expertise to its clients.") {
+              el.innerText = "Fondée sur la conviction que les services haut de gamme doivent être fluides, S'Clusive apporte des années d'expertise d'élite à ses clients.";
+            }
+            if (text === "As dedicated partners, we are more than just a concierge service - we are your privileged access to a life without limits.") {
+              el.innerText = "En tant que partenaires dévoués, nous sommes plus qu'un simple service de conciergerie - nous sommes votre accès privilégié à une vie sans limites.";
+            }
+            if (text === "At S'Clusive, we don't just plan, we anticipate. We don't just serve, we orchestrate. Our mission is to simplify the extraordinary.") {
+              el.innerText = "Chez S'Clusive, nous ne faisons pas que planifier, nous anticipons. Nous ne faisons pas que servir, nous orchestrons. Notre mission est de simplifier l'extraordinaire.";
+            }
 
-                // Global Reach
-                if (text === "Global Reach, Local Refinement") el.innerText = "Présence mondiale, raffinement local";
-                if (text === "Présence mondiale, raffinement local") el.innerText = "Rayonnement mondial, raffinement local";
+            // Global Reach
+            if (text === "Global Reach, Local Refinement") el.innerText = "Présence mondiale, raffinement local";
+            if (text === "Présence mondiale, raffinement local") el.innerText = "Rayonnement mondial, raffinement local";
 
-                // CTA
-                if (text === "Do you want quick assistance?") el.innerText = "Vous souhaitez obtenir une assistance rapide ?";
-                if (text === "Ready to start your adventure with S'CLUSIVE?") el.innerText = "Prêt à commencer votre aventure avec S'CLUSIVE?";
-                if (text === "Ready to experience the unparalleled?") el.innerText = "Prêt à vivre une expérience inégalée?";
-                if (text === "Discover how S'Clusive can simplify your life. Your journey to a life without limits starts here.") {
-                  el.innerText = "Découvrez comment S'Clusive peut vous simplifier la vie. Votre voyage vers une vie sans limites commence ici.";
-                }
-                if (text === "Contact Us" || text === "Contact us") el.innerText = "Contactez-nous";
+            // CTA
+            if (text === "Do you want quick assistance?") el.innerText = "Vous souhaitez obtenir une assistance rapide ?";
+            if (text === "Ready to start your adventure with S'CLUSIVE?") el.innerText = "Prêt à commencer votre aventure avec S'CLUSIVE?";
+            if (text === "Ready to experience the unparalleled?") el.innerText = "Prêt à vivre une expérience inégalée?";
+            if (text === "Discover how S'Clusive can simplify your life. Your journey to a life without limits starts here.") {
+              el.innerText = "Découvrez comment S'Clusive peut vous simplifier la vie. Votre voyage vers une vie sans limites commence ici.";
+            }
+            if (text === "Contact Us" || text === "Contact us") el.innerText = "Contactez-nous";
 
-                // if (text === "Voir les services" || text === "Vios les services") {
-                //   el.innerText = "Nos Services";
-                // }
-                // Client Area
-                if (text === "Client Area") el.innerText = "Espace Client";
-                if (text === "Access your private client account") el.innerText = "Accédez à votre compte client privé";
-                if (text === "Submit and track your requests with your dedicated concierge.") {
-                  el.innerText = "Soumettez et suivez vos demandes avec votre concierge dédié.";
-                }
+            // if (text === "Voir les services" || text === "Vios les services") {
+            //   el.innerText = "Nos Services";
+            // }
+            // Client Area
+            if (text === "Client Area") el.innerText = "Espace Client";
+            if (text === "Access your private client account") el.innerText = "Accédez à votre compte client privé";
+            if (text === "Submit and track your requests with your dedicated concierge.") {
+              el.innerText = "Soumettez et suivez vos demandes avec votre concierge dédié.";
+            }
 
-                // Content
-                if (text === "Access your exclusive lifestyle management dashboard.") {
-                  el.innerText = "Accédez à votre compte client privé";
-                }
-                if (text === "Submit and track your service needs with your lifestyle manager.") {
-                  el.innerText = "Soumettez et suivez vos demandes avec votre concierge dédié.";
-                }
+            // Content
+            if (text === "Access your exclusive lifestyle management dashboard.") {
+              el.innerText = "Accédez à votre compte client privé";
+            }
+            if (text === "Submit and track your service needs with your lifestyle manager.") {
+              el.innerText = "Soumettez et suivez vos demandes avec votre concierge dédié.";
+            }
 
-                // Welcome
-                if (text === "Welcome to the website") el.innerText = "Bienvenue sur le site web";
-                if (text === "This is a multilingual site. Use the dropdown to switch languages.") {
-                  el.innerText = "Ceci est un site multilingue. Utilisez le menu déroulant pour changer de langue.";
-                }
-              }
+            // Welcome
+            if (text === "Welcome to the website") el.innerText = "Bienvenue sur le site web";
+            if (text === "This is a multilingual site. Use the dropdown to switch languages.") {
+              el.innerText = "Ceci est un site multilingue. Utilisez le menu déroulant pour changer de langue.";
+            }
+          }
 
-              // 🔁 Restore English
-              if (selectedLang === "en") {
-                if (text === "Accueil") el.innerText = "Home";
-                if (text === "Nos Services Signature") el.innerText = "Signature Services";
-                if (text === "Connexion Espace Client") el.innerText = "Client Portal Login";
-                if (text === "Notre Histoire") el.innerText = "About Us";
-                if (/Découvrir/i.test(el.innerText)) {
-                  el.innerHTML = el.innerHTML.replace(/Découvrir/i, "About");
-                }
+          // 🔁 Restore English
+          if (selectedLang === "en") {
+            if (text === "Accueil") el.innerText = "Home";
+            if (text === "Nos Services Signature") el.innerText = "Signature Services";
+            if (text === "Connexion Espace Client") el.innerText = "Client Portal Login";
+            if (text === "Notre Histoire") el.innerText = "About Us";
+            if (/Découvrir/i.test(el.innerText)) {
+              el.innerHTML = el.innerHTML.replace(/Découvrir/i, "About");
+            }
 
-                // Hero
-                if (text === "Bénéficiez… de conciergerie") el.innerText = "Benefits of concierge services";
-                if (text === "La conciergerie privée S'Clusive") el.innerText = "Private Concierge S'Clusive";
-                if (text === "une vie d'élégance sans effort") el.innerText = "A life of effortless elegance";
+            // Hero
+            if (text === "Bénéficiez… de conciergerie") el.innerText = "Benefits of concierge services";
+            if (text === "La conciergerie privée S'Clusive") el.innerText = "Private Concierge S'Clusive";
+            if (text === "une vie d'élégance sans effort") el.innerText = "A life of effortless elegance";
 
-                // Services
-                if (text === "Organisation d'événements & Accès VIP") el.innerText = "Event Planning & VIP Access";
-                if (text === "Bien être & Gestion de Style de Vie") el.innerText = "Wellness & Lifestyle Management";
+            // Services
+            if (text === "Organisation d'événements & Accès VIP") el.innerText = "Event Planning & VIP Access";
+            if (text === "Bien être & Gestion de Style de Vie") el.innerText = "Wellness & Lifestyle Management";
 
-                // Experience
-                if (text === "Une expérience fluide et haut de gamme du début à la fin") el.innerText = "A seamless and premium experience from start to finish";
-                if (text === "Choisir un fichier") el.innerText = "Choose file";
-                if (text === "Aucun fichier") el.innerText = "No file";
+            // Experience
+            if (text === "Une expérience fluide et haut de gamme du début à la fin") el.innerText = "A seamless and premium experience from start to finish";
+            if (text === "Choisir un fichier") el.innerText = "Choose file";
+            if (text === "Aucun fichier") el.innerText = "No file";
 
-                // Company
-                if (text === "Conciergerie Privée") el.innerText = "Private Concierge";
-                if (text === "Sublimer l'expérience du haut de gamme") el.innerText = "Elevating the luxury experience";
+            // Company
+            if (text === "Conciergerie Privée") el.innerText = "Private Concierge";
+            if (text === "Sublimer l'expérience du haut de gamme") el.innerText = "Elevating the luxury experience";
 
-                // About Section
-                if (text === "Fondée sur la conviction que les services haut de gamme doivent être fluides, S'Clusive apporte des années d'expertise d'élite à ses clients.") {
-                  el.innerText = "Founded on the belief that luxury services should be seamless, S'Clusive brings years of elite expertise to its clients.";
-                }
-                if (text === "En tant que partenaires dévoués, nous sommes plus qu'un simple service de conciergerie - nous sommes votre accès privilégié à une vie sans limites.") {
-                  el.innerText = "As dedicated partners, we are more than just a concierge service - we are your privileged access to a life without limits.";
-                }
-                if (text === "Chez S'Clusive, nous ne faisons pas que planifier, nous anticipons. Nous ne faisons pas que servir, nous orchestrons. Notre mission est de simplifier l'extraordinaire.") {
-                  el.innerText = "At S'Clusive, we don't just plan, we anticipate. We don't just serve, we orchestrate. Our mission is to simplify the extraordinary.";
-                }
+            // About Section
+            if (text === "Fondée sur la conviction que les services haut de gamme doivent être fluides, S'Clusive apporte des années d'expertise d'élite à ses clients.") {
+              el.innerText = "Founded on the belief that luxury services should be seamless, S'Clusive brings years of elite expertise to its clients.";
+            }
+            if (text === "En tant que partenaires dévoués, nous sommes plus qu'un simple service de conciergerie - nous sommes votre accès privilégié à une vie sans limites.") {
+              el.innerText = "As dedicated partners, we are more than just a concierge service - we are your privileged access to a life without limits.";
+            }
+            if (text === "Chez S'Clusive, nous ne faisons pas que planifier, nous anticipons. Nous ne faisons pas que servir, nous orchestrons. Notre mission est de simplifier l'extraordinaire.") {
+              el.innerText = "At S'Clusive, we don't just plan, we anticipate. We don't just serve, we orchestrate. Our mission is to simplify the extraordinary.";
+            }
 
-                // Global Reach
-                if (text === "Rayonnement mondial, raffinement local" || text === "Présence mondiale, raffinement local") {
-                  el.innerText = "Global Reach, Local Refinement";
-                }
+            // Global Reach
+            if (text === "Rayonnement mondial, raffinement local" || text === "Présence mondiale, raffinement local") {
+              el.innerText = "Global Reach, Local Refinement";
+            }
 
-                // CTA
-                if (text === "Vous souhaitez obtenir une assistance rapide ?") el.innerText = "Do you want quick assistance?";
-                if (text === "Prêt à commencer votre aventure avec S'CLUSIVE?") el.innerText = "Ready to start your adventure with S'CLUSIVE?";
-                if (text === "Prêt à vivre une expérience inégalée?") el.innerText = "Ready to experience the unparalleled?";
-                if (text === "Découvrez comment S'Clusive peut vous simplifier la vie. Votre voyage vers une vie sans limites commence ici.") {
-                  el.innerText = "Discover how S'Clusive can simplify your life. Your journey to a life without limits starts here.";
-                }
-                if (text === "Contactez-nous") el.innerText = "Contact Us";
+            // CTA
+            if (text === "Vous souhaitez obtenir une assistance rapide ?") el.innerText = "Do you want quick assistance?";
+            if (text === "Prêt à commencer votre aventure avec S'CLUSIVE?") el.innerText = "Ready to start your adventure with S'CLUSIVE?";
+            if (text === "Prêt à vivre une expérience inégalée?") el.innerText = "Ready to experience the unparalleled?";
+            if (text === "Découvrez comment S'Clusive peut vous simplifier la vie. Votre voyage vers une vie sans limites commence ici.") {
+              el.innerText = "Discover how S'Clusive can simplify your life. Your journey to a life without limits starts here.";
+            }
+            if (text === "Contactez-nous") el.innerText = "Contact Us";
 
-                // Client Area
-                if (text === "Espace Client") el.innerText = "Client Area";
-                if (text === "Accédez à votre compte client privé") el.innerText = "Access your private client account";
-                if (text === "Soumettez et suivez vos demandes avec votre concierge dédié.") {
-                  el.innerText = "Submit and track your requests with your dedicated concierge.";
-                }
+            // Client Area
+            if (text === "Espace Client") el.innerText = "Client Area";
+            if (text === "Accédez à votre compte client privé") el.innerText = "Access your private client account";
+            if (text === "Soumettez et suivez vos demandes avec votre concierge dédié.") {
+              el.innerText = "Submit and track your requests with your dedicated concierge.";
+            }
 
-                // Content
-                if (text === "Accédez à votre tableau de bord de gestion de style de vie exclusif") {
-                  el.innerText = "Access your exclusive lifestyle management dashboard.";
-                }
-                if (text === "Soumettez et suivez vos demandes avec votre concierge dédié.") {
-                  el.innerText = "Submit and track your service needs with your lifestyle manager.";
-                }
-                // if (/voir les services/i.test(text) || /vios les services/i.test(text)) {
-                //   el.innerText = "Nos Services";
-                // }
+            // Content
+            if (text === "Accédez à votre tableau de bord de gestion de style de vie exclusif") {
+              el.innerText = "Access your exclusive lifestyle management dashboard.";
+            }
+            if (text === "Soumettez et suivez vos demandes avec votre concierge dédié.") {
+              el.innerText = "Submit and track your service needs with your lifestyle manager.";
+            }
+            // if (/voir les services/i.test(text) || /vios les services/i.test(text)) {
+            //   el.innerText = "Nos Services";
+            // }
 
 
-                // Welcome
-                // if (text === "Bienvenue sur le site web") el.innerText = "Welcome to the website";
-                // if (text === "Ceci est un site multilingue. Utilisez le menu déroulant pour changer de langue.") {
-                //   el.innerText = "This is a multilingual site. Use the dropdown to switch languages.";
-                // }
-              }
-            });
-          });
+            // Welcome
+            // if (text === "Bienvenue sur le site web") el.innerText = "Welcome to the website";
+            // if (text === "Ceci est un site multilingue. Utilisez le menu déroulant pour changer de langue.") {
+            //   el.innerText = "This is a multilingual site. Use the dropdown to switch languages.";
+            // }
+          }
+        });
+      });
 
-          observer.observe(document.body, {
-            childList: true,
-            subtree: true,
-          });
-        }
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
+    }
   </script>
 
   <!-- Google Translate Script -->
@@ -258,38 +258,44 @@
     }
 
     #langDropdown li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 20px;
-  cursor: pointer;
-  border: 2px solid #000000;
-  border-radius: 50px; /* ← Rounded pill shape */
-  margin: 6px 10px;
-  transition: 0.3s;
-}
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 20px;
+      cursor: pointer;
+      border: 2px solid #000000;
+      border-radius: 50px;
+      /* ← Rounded pill shape */
+      margin: 6px 10px;
+      transition: 0.3s;
+    }
 
-#langDropdown li:hover {
-  background-color: #f0f8ff;
-  border-color: #000000; /* darker blue on hover */
-}
+    #langDropdown li:hover {
+      background-color: #f0f8ff;
+      border-color: #000000;
+      /* darker blue on hover */
+    }
 
     #langDropdown img {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 8px;
-  vertical-align: middle;
-}
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
 
     /* Hide default Google Translate widget */
     #google_translate_element {
       display: none;
     }
 
-    .VIpgJd-ZVi9od-aZ2wEe-wOHMyf {  
+    .VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
       display: none !important;
+    }
+
+    .notranslate {
+      translate: no;
     }
   </style>
 </head>
@@ -301,10 +307,12 @@
     <button onclick="toggleDropdown()">🌐 Language ▼</button>
     <ul id="langDropdown" style="background-color: white; border-radius: 6px;">
       <li onclick="changeLanguage('en')">
-        <img src="https://flagcdn.com/us.svg" alt="English" /> EN
+        <img src="https://flagcdn.com/us.svg" alt="English" />
+        <span class="notranslate" translate="no">EN</span>
       </li>
       <li onclick="changeLanguage('fr')">
-        <img src="https://flagcdn.com/fr.svg" alt="French" /> FR
+        <img src="https://flagcdn.com/fr.svg" alt="French" />
+        <span class="notranslate" translate="no">FR</span>
       </li>
     </ul>
   </div>
