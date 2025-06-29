@@ -120,8 +120,8 @@ const AboutUs = () => {
                 />
               </div>
               <blockquote className="founder-quote">
-                "At S'Clusive, we don't just plan — we anticipate. We don't
-                justAdd commentMore actions serve — we curate. Our mission is to
+                "At S'Clusive, we don't just plan — we anticipate. We don't just
+                add comment more actions serve — we curate. Our mission is to
                 simplify the extraordinary."
               </blockquote>
               <footer className="quote-author">
@@ -166,8 +166,8 @@ const AboutUs = () => {
               <span className="hero-highlight"> Unparalleled</span> Luxury?
             </h2>
             <p className="cta-description">
-              Learn more about how S'Clusive can simplify the extraordinary
-              forAdd commentMore actions you. Your journey to a life without
+              Learn more about how S'CLUSIVE can simplify the extraordinary for
+              add comment more actions you. Your journey to a life without
               limits begins here.
             </p>
             <div className="cta-buttons">
