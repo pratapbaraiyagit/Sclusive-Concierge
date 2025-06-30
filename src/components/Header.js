@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "../contexts/AuthContext";
 import logoFull from "../assets/images/sclusive_logo_icon_yellow.png";
 
 const Header = () => {
+  const { t } = useTranslation();
   const { currentUser } = useAuth();
   const navigate = useNavigate();
   const [expanded, setExpanded] = useState(false); // Track navbar state
@@ -34,19 +36,19 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link as={Link} to="/" onClick={closeMenu}>
-              Home
+              {t("Home")}
             </Nav.Link>
             <Nav.Link as={Link} to="/about" onClick={closeMenu}>
-              About Us
+              {t("About Us")}
             </Nav.Link>
             <Nav.Link as={Link} to="/services" onClick={closeMenu}>
-              Services
+              {t("Services")}
             </Nav.Link>
             <Nav.Link as={Link} to="/membership" onClick={closeMenu}>
-              Membership
+              {t("Membership")}
             </Nav.Link>
             <Nav.Link as={Link} to="/contact" onClick={closeMenu}>
-              Contact
+              {t("Contact")}
             </Nav.Link>
 
             {/* Authentication-aware button */}
@@ -59,7 +61,7 @@ const Header = () => {
                 className="btn btn-primary-custom hover-effect d-block w-auto mx-0 text-start ms-lg-3"
                 style={{ cursor: "pointer" }}
               >
-                Dashboard
+                {t("Dashboard")}
               </Nav.Link>
             ) : (
               <Nav.Link
@@ -68,7 +70,7 @@ const Header = () => {
                 onClick={closeMenu}
                 className="btn btn-primary-custom hover-effect d-block w-auto mx-0 text-start ms-lg-3"
               >
-                Client Portal
+                {t("Client Portal")}
               </Nav.Link>
             )}
           </Nav>
