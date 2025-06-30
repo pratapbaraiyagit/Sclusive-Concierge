@@ -2,6 +2,7 @@
 import React from "react";
 import { Container, Row, Col, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   FaInstagram,
   FaLinkedinIn,
@@ -16,6 +17,7 @@ import logoFull from "../assets/images/sclusive_logo_icon_yellow.png";
 import { useAuth } from "../contexts/AuthContext";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const { currentUser } = useAuth();
 
   return (
@@ -40,17 +42,6 @@ const Footer = () => {
                 }}
               >
                 <div className="logo-wrapper d-flex align-items-center justify-content-center justify-content-md-start">
-                  {/* <img
-                    src={logoIconWhite}
-                    alt="S'CLUSIVE Logo Icon"
-                    className="footer-logo"
-                    style={{
-                      height: "60px",
-                      width: "auto",
-                      filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))",
-                      transition: "all 0.3s ease",
-                    }}
-                  /> */}
                   <div className="brand-text ms-3 d-none d-sm-block">
                     <img
                       src={logoFull}
@@ -58,26 +49,6 @@ const Footer = () => {
                       height="60"
                       className="d-inline-block align-top me-2"
                     />
-                    {/* <h4
-                      className="mb-0 fw-bold"
-                      style={{
-                        color: "#D4AF37", // Gold color
-                        fontSize: "1.5rem",
-                        letterSpacing: "1px",
-                      }}
-                    >
-                      S'CLUSIVE
-                    </h4>
-                    <p
-                      className="mb-0 text-light-text-color"
-                      style={{
-                        fontSize: "0.85rem",
-                        fontStyle: "italic",
-                        opacity: 0.8,
-                      }}
-                    >
-                      Luxury Concierge Services
-                    </p> */}
                   </div>
                 </div>
               </Link>
@@ -102,7 +73,7 @@ const Footer = () => {
                     opacity: 0.8,
                   }}
                 >
-                  Luxury Concierge Services
+                  {t("Luxury Concierge Services")}
                 </p>
               </div>
             </div>
@@ -110,51 +81,53 @@ const Footer = () => {
 
           {/* Quick Links Section */}
           <Col md={3} className="mb-4 mb-md-0 text-center text-md-start">
-            <h5 className="mb-3 text-primary-custom fw-bold">Quick Links</h5>
+            <h5 className="mb-3 text-primary-custom fw-bold">
+              {t("Quick Links")}
+            </h5>
             <Nav className="flex-column justify-content-center justify-content-md-start">
               <Link
                 to="/"
                 className="nav-link text-light-text-color p-0 mb-2 footer-nav-link"
               >
-                Home
+                {t("Home")}
               </Link>
               <Link
                 to="/about"
                 className="nav-link text-light-text-color p-0 mb-2 footer-nav-link"
               >
-                About Us
+                {t("About Us")}
               </Link>
               <Link
                 to="/services"
                 className="nav-link text-light-text-color p-0 mb-2 footer-nav-link"
               >
-                Services
+                {t("Services")}
               </Link>
               <Link
                 to="/membership"
                 className="nav-link text-light-text-color p-0 mb-2 footer-nav-link"
               >
-                Membership
+                {t("Membership")}
               </Link>
               <Link
                 to="/contact"
                 className="nav-link text-light-text-color p-0 mb-2 footer-nav-link"
               >
-                Contact
+                {t("Contact")}
               </Link>
               {currentUser ? (
                 <Link
                   to="/dashboard"
                   className="nav-link text-light-text-color p-0 mb-2 footer-nav-link"
                 >
-                  Dashboard
+                  {t("Dashboard")}
                 </Link>
               ) : (
                 <Link
                   to="/portal"
                   className="nav-link text-light-text-color p-0 mb-2 footer-nav-link"
                 >
-                  Client Portal
+                  {t("Client Portal")}
                 </Link>
               )}
             </Nav>
@@ -162,7 +135,9 @@ const Footer = () => {
 
           {/* Contact Section */}
           <Col md={3} className="mb-4 mb-md-0 text-center text-md-start">
-            <h5 className="mb-3 text-primary-custom fw-bold">Contact Us</h5>
+            <h5 className="mb-3 text-primary-custom fw-bold">
+              {t("Contact Us")}
+            </h5>
             <ul className="list-unstyled">
               <li className="text-light-text-color d-flex align-items-center justify-content-center justify-content-md-start mb-2">
                 <FaEnvelope className="me-2 text-primary-custom" size={16} />
@@ -197,7 +172,9 @@ const Footer = () => {
 
           {/* Social Media Section */}
           <Col md={2} className="text-center">
-            <h5 className="mb-3 text-primary-custom fw-bold">Follow Us</h5>
+            <h5 className="mb-3 text-primary-custom fw-bold">
+              {t("Follow Us")}
+            </h5>
             <div className="social-icons d-flex justify-content-center justify-content-md-end gap-3">
               <a
                 href="https://instagram.com/your_sclusive_instagram"
@@ -312,11 +289,11 @@ const Footer = () => {
         <Row>
           <Col className="text-center text-light-text-color">
             <p className="mb-0" style={{ fontSize: "0.9rem", opacity: 0.8 }}>
-              &copy; {new Date().getFullYear()} S'CLUSIVE. All rights reserved.
-              |
+              &copy; {new Date().getFullYear()} S'CLUSIVE.{" "}
+              {t("All rights reserved")}. |
               <span style={{ color: "#D4AF37", fontStyle: "italic" }}>
                 {" "}
-                Elevating Luxury Experiences
+                {t("Elevating Luxury Experiences")}
               </span>
             </p>
           </Col>
