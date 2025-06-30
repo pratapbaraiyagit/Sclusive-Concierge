@@ -1,0 +1,57 @@
+/* src/components/LanguageSelector.css */
+#custom_translate_selector {
+  position: fixed;
+  right: 10px;
+  background: #f8cd4d;
+  border-radius: 6px;
+  font-family: Poppins, sans-serif;
+  z-index: 9999;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+#custom_translate_selector button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  /* padding: 8px 12px; */
+  color: inherit;
+}
+
+#langDropdown {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: none;
+  border-top: 1px solid #ccc;
+}
+
+#langDropdown li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 20px;
+  cursor: pointer;
+  border: 2px solid #000000;
+  border-radius: 50px;
+  margin: 6px 10px;
+  transition: 0.3s;
+}
+
+#langDropdown li:hover {
+  background-color: #f0f8ff;
+  border-color: #000000;
+}
+
+#langDropdown img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.notranslate {
+  translate: no;
+}
