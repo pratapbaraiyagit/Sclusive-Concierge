@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import "./App.css";
+import "./i18n"; // Import i18n configuration
 
 // Import Firebase Context
 import { AuthProvider } from "./contexts/AuthContext";
@@ -11,6 +12,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 // Import your components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import LanguageSelector from "./components/LanguageSelector";
 import Homepage from "./pages/Homepage";
 import AboutUs from "./pages/AboutUs";
 import ServicesPage from "./pages/ServicesPage";
@@ -28,6 +30,7 @@ function App() {
         <div className="App">
           <ScrollToTop />
           <Header />
+          <LanguageSelector />
           <main>
             <Routes>
               <Route path="/" element={<Homepage />} />
