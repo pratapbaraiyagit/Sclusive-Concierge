@@ -1,6 +1,7 @@
 // src/pages/ClientPortal/ClientDashboard.js
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "../../contexts/AuthContext";
 import {
   collection,
@@ -17,6 +18,7 @@ import { db } from "../../firebase/config";
 import "./ClientDashboard.css";
 
 const ClientDashboard = () => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState("requests");
   const [messageText, setMessageText] = useState("");
   const [accountData, setAccountData] = useState({
@@ -159,7 +161,7 @@ const ClientDashboard = () => {
 
   const handleNewRequest = async () => {
     if (!newRequestData.type || !newRequestData.details) {
-      alert("Please fill in all required fields");
+      alert(t("Please fill in all required fields"));
       return;
     }
 
@@ -175,10 +177,10 @@ const ClientDashboard = () => {
 
       setNewRequestData({ type: "", details: "", attachment: null });
       setShowNewRequestForm(false);
-      alert("Request submitted successfully!");
+      alert(t("Request submitted successfully!"));
     } catch (error) {
       console.error("Error creating request:", error);
-      alert("Failed to submit request. Please try again.");
+      alert(t("Failed to submit request. Please try again."));
     }
   };
 
@@ -196,7 +198,7 @@ const ClientDashboard = () => {
       setMessageText("");
     } catch (error) {
       console.error("Error sending message:", error);
-      alert("Failed to send message. Please try again.");
+      alert(t("Failed to send message. Please try again."));
     }
   };
 
@@ -215,10 +217,10 @@ const ClientDashboard = () => {
         preferences: accountData.preferences,
         updatedAt: new Date(),
       });
-      alert("Account updated successfully!");
+      alert(t("Account updated successfully!"));
     } catch (error) {
       console.error("Error updating account:", error);
-      alert("Failed to update account. Please try again.");
+      alert(t("Failed to update account. Please try again."));
     }
   };
 
@@ -248,9 +250,11 @@ const ClientDashboard = () => {
       case "requests":
         return (
           <div className="card">
-            <h2 className="card-title">My Requests</h2>
+            <h2 className="card-title">{t("My Requests")}</h2>
             <p className="card-description">
-              Submit and track your service needs with your lifestyle manager.
+              {t(
+                "Submit and track your service needs with your lifestyle manager."
+              )}
             </p>
 
             {!showNewRequestForm ? (
@@ -259,11 +263,11 @@ const ClientDashboard = () => {
                 className="btnd btnd-primary"
                 style={{ marginBottom: "2rem" }}
               >
-                Submit New Request
+                {t("Submit New Request")}
               </button>
             ) : (
               <div className="new-request-form">
-                <h4 className="new-request-title">New Request</h4>
+                <h4 className="new-request-title">{t("New Request")}</h4>
                 <div>
                   <select
                     value={newRequestData.type}
@@ -275,15 +279,23 @@ const ClientDashboard = () => {
                     }
                     className="form-control"
                   >
-                    <option value="">Select Request Type *</option>
-                    <option value="Travel Booking">Travel Booking</option>
-                    <option value="Restaurant Reservation">
-                      Restaurant Reservation
+                    <option value="">{t("Select Request Type *")}</option>
+                    <option value="Travel Booking">
+                      {t("Travel Booking")}
                     </option>
-                    <option value="Personal Shopping">Personal Shopping</option>
-                    <option value="Event Planning">Event Planning</option>
-                    <option value="Transportation">Transportation</option>
-                    <option value="Other">Other</option>
+                    <option value="Restaurant Reservation">
+                      {t("Restaurant Reservation")}
+                    </option>
+                    <option value="Personal Shopping">
+                      {t("Personal Shopping")}
+                    </option>
+                    <option value="Event Planning">
+                      {t("Event Planning")}
+                    </option>
+                    <option value="Transportation">
+                      {t("Transportation")}
+                    </option>
+                    <option value="Other">{t("Other")}</option>
                   </select>
                 </div>
                 <div>
@@ -295,13 +307,15 @@ const ClientDashboard = () => {
                         details: e.target.value,
                       })
                     }
-                    placeholder="Describe your request in detail..."
+                    placeholder={t("Describe your request in detail...")}
                     rows={4}
                     className="form-control textarea"
                   />
                 </div>
                 <div>
-                  <label className="form-label">Attach File (Optional)</label>
+                  <label className="form-label">
+                    {t("Attach File (Optional)")}
+                  </label>
                   <input
                     type="file"
                     name="attachment"
@@ -310,7 +324,7 @@ const ClientDashboard = () => {
                     className="form-control file-input"
                   />
                   <small className="form-help-text">
-                    Max file size 5MB (PDF, JPG, PNG, DOC)
+                    {t("Max file size 5MB (PDF, JPG, PNG, DOC)")}
                   </small>
                 </div>
                 <div className="form-actions">
@@ -318,7 +332,7 @@ const ClientDashboard = () => {
                     onClick={handleNewRequest}
                     className="btnd btnd-primary"
                   >
-                    Submit Request
+                    {t("Submit Request")}
                   </button>
                   <button
                     onClick={() => {
@@ -331,14 +345,14 @@ const ClientDashboard = () => {
                     }}
                     className="btnd btnd-outlines"
                   >
-                    Cancel
+                    {t("Cancel")}
                   </button>
                 </div>
               </div>
             )}
 
             {loading ? (
-              <p style={{ color: "#142F2E" }}>Loading requests...</p>
+              <p style={{ color: "#142F2E" }}>{t("Loading requests...")}</p>
             ) : requests.length > 0 ? (
               <div>
                 {requests.map((req) => (
@@ -347,20 +361,22 @@ const ClientDashboard = () => {
                       <h5>{req.type}</h5>
                       <small className="list-item-details">{req.details}</small>
                       <small className="list-item-date">
-                        Created: {formatDate(req.createdAt)}
+                        {t("Created")}: {formatDate(req.createdAt)}
                       </small>
                     </div>
                     <span
                       className="status-badge"
                       style={{ backgroundColor: getStatusColor(req.status) }}
                     >
-                      {req.status}
+                      {t(req.status)}
                     </span>
                   </div>
                 ))}
               </div>
             ) : (
-              <p style={{ color: "#142F2E" }}>No active requests found.</p>
+              <p style={{ color: "#142F2E" }}>
+                {t("No active requests found.")}
+              </p>
             )}
           </div>
         );
@@ -368,9 +384,9 @@ const ClientDashboard = () => {
       case "itineraries":
         return (
           <div className="card">
-            <h2 className="card-title">Itineraries</h2>
+            <h2 className="card-title">{t("Itineraries")}</h2>
             <p className="card-description">
-              View your upcoming bookings and detailed travel plans.
+              {t("View your upcoming bookings and detailed travel plans.")}
             </p>
             {itineraries.length > 0 ? (
               <div>
@@ -379,10 +395,10 @@ const ClientDashboard = () => {
                     <div className="list-item-content">
                       <h5>{itinerary.title}</h5>
                       <small className="list-item-details">
-                        Dates: {itinerary.dates}
+                        {t("Dates")}: {itinerary.dates}
                       </small>
                       <small className="list-item-date">
-                        Created: {formatDate(itinerary.createdAt)}
+                        {t("Created")}: {formatDate(itinerary.createdAt)}
                       </small>
                     </div>
                     <span
@@ -391,13 +407,15 @@ const ClientDashboard = () => {
                         backgroundColor: getStatusColor(itinerary.status),
                       }}
                     >
-                      {itinerary.status}
+                      {t(itinerary.status)}
                     </span>
                   </div>
                 ))}
               </div>
             ) : (
-              <p style={{ color: "#142F2E" }}>No upcoming itineraries.</p>
+              <p style={{ color: "#142F2E" }}>
+                {t("No upcoming itineraries.")}
+              </p>
             )}
           </div>
         );
@@ -405,10 +423,11 @@ const ClientDashboard = () => {
       case "privileges":
         return (
           <div className="card">
-            <h2 className="card-title">Privileges</h2>
+            <h2 className="card-title">{t("Privileges")}</h2>
             <p className="card-description">
-              Explore your current perks and exclusive offers as a S'CLUSIVE
-              member.
+              {t(
+                "Explore your current perks and exclusive offers as a S'CLUSIVE member."
+              )}
             </p>
             {privileges.length > 0 ? (
               <div>
@@ -425,7 +444,7 @@ const ClientDashboard = () => {
               </div>
             ) : (
               <p style={{ color: "#142F2E" }}>
-                No special privileges currently available.
+                {t("No special privileges currently available.")}
               </p>
             )}
           </div>
@@ -434,9 +453,9 @@ const ClientDashboard = () => {
       case "messaging":
         return (
           <div className="card">
-            <h2 className="card-title">Messaging</h2>
+            <h2 className="card-title">{t("Messaging")}</h2>
             <p className="card-description">
-              Direct chat with your dedicated lifestyle manager.
+              {t("Direct chat with your dedicated lifestyle manager.")}
             </p>
             <div className="messages-container">
               {messages.length > 0 ? (
@@ -451,7 +470,7 @@ const ClientDashboard = () => {
                       }`}
                     >
                       <small className="message-header">
-                        {msg.sender === "client" ? "You" : "Support"} -{" "}
+                        {msg.sender === "client" ? t("You") : t("Support")} -{" "}
                         {formatDate(msg.createdAt)}
                       </small>
                       <p className="message-content">{msg.message}</p>
@@ -460,8 +479,9 @@ const ClientDashboard = () => {
                 </div>
               ) : (
                 <p className="no-messages">
-                  No messages yet. Start a conversation with your lifestyle
-                  manager.
+                  {t(
+                    "No messages yet. Start a conversation with your lifestyle manager."
+                  )}
                 </p>
               )}
             </div>
@@ -469,14 +489,14 @@ const ClientDashboard = () => {
               <textarea
                 value={messageText}
                 onChange={(e) => setMessageText(e.target.value)}
-                placeholder="Type your message..."
+                placeholder={t("Type your message...")}
                 className="form-control textarea"
               />
               <button
                 className="btnd btnd-primary btnd-full-width"
                 onClick={handleSendMessage}
               >
-                Send Message
+                {t("Send Message")}
               </button>
             </div>
           </div>
@@ -485,13 +505,13 @@ const ClientDashboard = () => {
       case "account":
         return (
           <div className="card">
-            <h2 className="card-title">Account Settings</h2>
+            <h2 className="card-title">{t("Account Settings")}</h2>
             <p className="card-description">
-              Manage your personal information and preferences.
+              {t("Manage your personal information and preferences.")}
             </p>
             <div>
               <div>
-                <label className="form-label">Full Name</label>
+                <label className="form-label">{t("Full Name")}</label>
                 <input
                   type="text"
                   value={accountData.name}
@@ -500,7 +520,7 @@ const ClientDashboard = () => {
                 />
               </div>
               <div>
-                <label className="form-label">Email</label>
+                <label className="form-label">{t("Email")}</label>
                 <input
                   type="email"
                   value={accountData.email}
@@ -509,12 +529,13 @@ const ClientDashboard = () => {
                   disabled
                 />
                 <small className="form-help-text">
-                  Email cannot be changed. Contact support if you need to update
-                  your email.
+                  {t(
+                    "Email cannot be changed. Contact support if you need to update your email."
+                  )}
                 </small>
               </div>
               <div>
-                <label className="form-label">Phone</label>
+                <label className="form-label">{t("Phone")}</label>
                 <input
                   type="tel"
                   value={accountData.phone}
@@ -523,13 +544,15 @@ const ClientDashboard = () => {
                 />
               </div>
               <div style={{ marginBottom: "2rem" }}>
-                <label className="form-label">Preferences</label>
+                <label className="form-label">{t("Preferences")}</label>
                 <textarea
                   value={accountData.preferences}
                   onChange={(e) =>
                     handleAccountUpdate("preferences", e.target.value)
                   }
-                  placeholder="Tell us about your preferences (dietary restrictions, seating preferences, etc.)"
+                  placeholder={t(
+                    "Tell us about your preferences (dietary restrictions, seating preferences, etc.)"
+                  )}
                   className="form-control textarea"
                 />
               </div>
@@ -537,7 +560,7 @@ const ClientDashboard = () => {
                 className="btnd btnd-primary"
                 onClick={saveAccountChanges}
               >
-                Save Changes
+                {t("Save Changes")}
               </button>
             </div>
           </div>
@@ -553,13 +576,13 @@ const ClientDashboard = () => {
       <div className="container">
         <div className="header">
           <h1 className="header-title">
-            Welcome, {accountData.name || "Valued Member"}!
+            {t("Welcome")}, {accountData.name || t("Valued Member")}!
           </h1>
           <button
             onClick={handleLogout}
             className="btnd btnd-outlines logout-btnd"
           >
-            Logout
+            {t("Logout")}
           </button>
         </div>
 
@@ -567,11 +590,11 @@ const ClientDashboard = () => {
           <div className="col-3">
             <nav className="navs">
               {[
-                { key: "requests", label: "My Requests" },
-                { key: "itineraries", label: "Itineraries" },
-                { key: "privileges", label: "Privileges" },
-                { key: "messaging", label: "Messaging" },
-                { key: "account", label: "Account Settings" },
+                { key: "requests", label: t("My Requests") },
+                { key: "itineraries", label: t("Itineraries") },
+                { key: "privileges", label: t("Privileges") },
+                { key: "messaging", label: t("Messaging") },
+                { key: "account", label: t("Account Settings") },
               ].map((item) => (
                 <button
                   key={item.key}
