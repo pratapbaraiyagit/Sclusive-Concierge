@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./Homepage.css"; // Import the CSS file
 
 // Mock images - replace with your actual asset paths
@@ -21,6 +22,7 @@ const exclusiveAccessService =
   "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
 
 const Homepage = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -34,18 +36,20 @@ const Homepage = () => {
 
   const testimonials = [
     {
-      quote:
-        "The team at S'Clusive anticipated our every need before we even had to ask.",
-      author: "— Distinguished Member",
+      quote: t(
+        "The team at S'Clusive anticipated our every need before we even had to ask."
+      ),
+      author: t("— Distinguished Member"),
     },
     {
-      quote: "A seamless, first-class experience from start to finish.",
-      author: "— Executive Client",
+      quote: t("A seamless, first-class experience from start to finish."),
+      author: t("— Executive Client"),
     },
     {
-      quote:
-        "S'Clusive couldn't have planned our trip better. Everything was perfect!",
-      author: "— Private Member",
+      quote: t(
+        "S'Clusive couldn't have planned our trip better. Everything was perfect!"
+      ),
+      author: t("— Private Member"),
     },
   ];
 
@@ -87,16 +91,16 @@ const Homepage = () => {
                 color: "#f8cd4d",
               }}
             >
-              Experience bespoke concierge
+              {t("Experience bespoke concierge")}
               <br />
-              <em className="hero-highlight">
-                services tailored to your lifestyle
-              </em>
+              {/* <em className="hero-highlight">
+                {t("services tailored to your lifestyle")}
+              </em> */}
             </h1>
             <p className="hero-description">
-              S'Clusive offers ultra-personalized, discreet, and world-class
-              lifestyle management to those who demand the extraordinary. Our
-              services provide privileged access to a life of seamless elegance.
+              {t(
+                "S'Clusive offers ultra-personalized, discreet, and world-class lifestyle management to those who demand the extraordinary. Our services provide privileged access to a life of seamless elegance."
+              )}
             </p>
             <div className="hero-buttons">
               <Link
@@ -107,7 +111,7 @@ const Homepage = () => {
                   padding: "16px 40px",
                 }}
               >
-                Contact Us
+                {t("Contact Us")}
               </Link>
               <Link
                 to="/services"
@@ -117,7 +121,7 @@ const Homepage = () => {
                   padding: "16px 40px",
                 }}
               >
-                Our Services
+                {t("Our Services")}
               </Link>
             </div>
           </div>
@@ -127,10 +131,11 @@ const Homepage = () => {
       {/* About Us Teaser */}
       <section className="section-dark section-padding">
         <div className="responsive-container">
-          <h2 className="section-title text-white">About Us</h2>
+          <h2 className="section-title text-white">{t("About Us")}</h2>
           <p className="section-description text-accent">
-            Discover the story behind S'Clusive — a world where discretion,
-            personalization, and excellence are our standards.
+            {t(
+              "Discover the story behind S'Clusive — a world where discretion, personalization, and excellence are our standards."
+            )}
           </p>
           <Link
             to="/about"
@@ -140,7 +145,7 @@ const Homepage = () => {
               padding: "12px 30px",
             }}
           >
-            Learn More →
+            {t("Learn More")} →
           </Link>
         </div>
       </section>
@@ -149,15 +154,15 @@ const Homepage = () => {
       <section className="section-accent section-padding">
         <div className="responsive-container">
           <h2 className="section-title-large text-black">
-            Signature Services{" "}
+            {t("Signature Services")}{" "}
           </h2>
           <div className="services-grid_home">
             {[
-              "Personal Shopping",
-              "Event Planning & VIP Event Access",
-              "Luxury Travel & Stay",
-              "Corporate Concierge",
-              "Wellness & Lifestyle Management",
+              t("Personal Shopping"),
+              t("Event Planning & VIP Event Access"),
+              t("Luxury Travel & Stay"),
+              t("Corporate Concierge"),
+              t("Wellness & Lifestyle Management"),
             ].map((service, index) => (
               <div key={index} className="service-card">
                 <div className="service-card-inner">
@@ -173,7 +178,7 @@ const Homepage = () => {
       {/* Testimonials */}
       <section className="section-dark section-padding">
         <div className="responsive-container">
-          <h2 className="section-title-large text-gold">Testimonials</h2>
+          <h2 className="section-title-large text-gold">{t("Testimonials")}</h2>
           <div className="responsive-row">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="responsive-col-4">
@@ -200,7 +205,7 @@ const Homepage = () => {
                 className="section-title text-black"
                 style={{ fontWeight: "700" }}
               >
-                Want to enquire about our services?
+                {t("Want to enquire about our services?")}
               </h2>
               <h3
                 className="text-black"
@@ -211,78 +216,84 @@ const Homepage = () => {
                   marginBottom: "1rem",
                 }}
               >
-                Fill out the form below.
+                {t("Fill out the form below.")}
               </h3>
               <p style={{ color: "#6c757d", fontSize: "1.1rem" }}>
-                We will get back to you within 24 hours.
+                {t("We will get back to you within 24 hours.")}
               </p>
             </div>
 
             <div className="form-container form-container-desktop">
               <div className="form-header">
                 <h2 className="form-title">
-                  Send Us a <span className="text-gold">Message</span>
+                  {t("Send Us a")}{" "}
+                  <span className="text-gold">{t("Message")}</span>
                 </h2>
                 <p className="form-description">
-                  Please use the form below for general inquiries or partnership
-                  opportunities. We aim to respond within 24 hours.
+                  {t(
+                    "Please use the form below for general inquiries or partnership opportunities. We aim to respond within 24 hours."
+                  )}
                 </p>
               </div>
 
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <label className="form-label">Full Name *</label>
+                  <label className="form-label">{t("Full Name *")}</label>
                   <input
                     type="text"
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleInputChange}
-                    placeholder="Enter your full name"
+                    placeholder={t("Enter your full name")}
                     required
                     className="form-control"
                   />
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Email Address *</label>
+                  <label className="form-label">{t("Email Address *")}</label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    placeholder="Enter your email address"
+                    placeholder={t("Enter your email address")}
                     required
                     className="form-control"
                   />
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Phone Number</label>
+                  <label className="form-label">{t("Phone Number")}</label>
                   <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    placeholder="Enter your phone number (optional)"
+                    placeholder={t("Enter your phone number (optional)")}
                     className="form-control"
                   />
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Your Message *</label>
+                  <label className="form-label">{t("Your Message *")}</label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    placeholder="Tell us about your needs and how we can assist you..."
+                    placeholder={t(
+                      "Tell us about your needs and how we can assist you..."
+                    )}
                     required
                     className="form-control textarea"
                   />
                 </div>
 
-                {/* UPDATED FILE INPUT SECTION - GOOGLE TRANSLATE COMPATIBLE */}
+                {/* UPDATED FILE INPUT SECTION - i18n COMPATIBLE */}
                 <div className="form-group">
-                  <label className="form-label">Attach File (Optional)</label>
+                  <label className="form-label">
+                    {t("Attach File (Optional)")}
+                  </label>
 
                   {/* Hidden file input */}
                   <input
@@ -328,7 +339,7 @@ const Homepage = () => {
                         e.target.style.transform = "translateY(0)";
                       }}
                     >
-                      Choose File
+                      {t("Choose File")}
                     </label>
 
                     <span
@@ -340,12 +351,12 @@ const Homepage = () => {
                     >
                       {formData.attachment
                         ? formData.attachment.name
-                        : "No file chosen"}
+                        : t("No file chosen")}
                     </span>
                   </div>
 
                   <small className="file-help-text">
-                    Max file size 5MB (PDF, JPG, PNG, DOC)
+                    {t("Max file size 5MB (PDF, JPG, PNG, DOC)")}
                   </small>
                 </div>
 
@@ -353,7 +364,7 @@ const Homepage = () => {
                   type="submit"
                   className="responsive-btn btn-primary form-submit-btn"
                 >
-                  Send Message
+                  {t("Send Message")}
                 </button>
               </form>
             </div>
@@ -366,7 +377,7 @@ const Homepage = () => {
         <div className="responsive-container">
           <div className="max-width-600 margin-auto">
             <h2 className="section-title text-white">
-              Experience the Extraordinary
+              {t("Experience the Extraordinary")}
             </h2>
             <Link
               to="/contact"
@@ -378,7 +389,7 @@ const Homepage = () => {
                 minWidth: "200px",
               }}
             >
-              Enquire Now
+              {t("Enquire Now")}
             </Link>
           </div>
         </div>
