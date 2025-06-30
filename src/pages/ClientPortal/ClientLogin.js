@@ -1,6 +1,7 @@
 // src/pages/ClientPortal/ClientLogin.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "../../contexts/AuthContext";
 
 // Import icons from react-icons (specifically from the Font Awesome set)
@@ -8,6 +9,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa"; // FaEye for show, FaEyeSlas
 
 // Login Page Component
 const ClientLogin = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -33,7 +35,7 @@ const ClientLogin = () => {
     e.preventDefault();
 
     if (!formData.email || !formData.password) {
-      setError("Please enter both email and password");
+      setError(t("Please enter both email and password"));
       return;
     }
 
@@ -44,7 +46,7 @@ const ClientLogin = () => {
       navigate("/dashboard");
     } catch (error) {
       console.error("Login error:", error);
-      setError("Failed to log in. Please check your credentials.");
+      setError(t("Failed to log in. Please check your credentials."));
     } finally {
       setLoading(false);
     }
@@ -176,7 +178,7 @@ const ClientLogin = () => {
                 marginBottom: "1rem",
               }}
             >
-              Client Portal Login
+              {t("Client Portal Login")}
             </h2>
             <p
               style={{
@@ -185,7 +187,7 @@ const ClientLogin = () => {
                 fontSize: "16px",
               }}
             >
-              Access your exclusive lifestyle management dashboard.
+              {t("Access your exclusive lifestyle management dashboard.")}
             </p>
           </div>
 
@@ -193,13 +195,13 @@ const ClientLogin = () => {
 
           <form onSubmit={handleLogin}>
             <div style={styles.formGroup}>
-              <label style={styles.formLabel}>Email address</label>
+              <label style={styles.formLabel}>{t("Email address")}</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                placeholder="Enter email"
+                placeholder={t("Enter email")}
                 required
                 style={styles.formControl}
                 onFocus={(e) => {
@@ -214,13 +216,13 @@ const ClientLogin = () => {
             </div>
 
             <div style={styles.formGroup}>
-              <label style={styles.formLabel}>Password</label>
+              <label style={styles.formLabel}>{t("Password")}</label>
               <input
                 type={showPassword ? "text" : "password"} // Dynamic type
                 name="password"
                 value={formData.password}
                 onChange={handleInputChange}
-                placeholder="Password"
+                placeholder={t("Password")}
                 required
                 style={styles.formControl}
                 onFocus={(e) => {
@@ -236,7 +238,9 @@ const ClientLogin = () => {
                 type="button"
                 style={styles.passwordToggle}
                 onClick={() => setShowPassword(!showPassword)}
-                aria-label={showPassword ? "Hide password" : "Show password"}
+                aria-label={
+                  showPassword ? t("Hide password") : t("Show password")
+                }
               >
                 {/* Use FaEye or FaEyeSlash based on showPassword state */}
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
@@ -266,7 +270,7 @@ const ClientLogin = () => {
                 }
               }}
             >
-              {loading ? "Logging in..." : "Login"}
+              {loading ? t("Logging in...") : t("Login")}
             </button>
           </form>
 
@@ -281,7 +285,7 @@ const ClientLogin = () => {
               onMouseEnter={(e) => (e.target.style.color = "#F8CD4D")}
               onMouseLeave={(e) => (e.target.style.color = "#142F2E")}
             >
-              Forgot Password?
+              {t("Forgot Password?")}
             </span>
             <span
               onClick={() => setShowRequestAccess(true)}
@@ -289,7 +293,7 @@ const ClientLogin = () => {
               onMouseEnter={(e) => (e.target.style.color = "#F8CD4D")}
               onMouseLeave={(e) => (e.target.style.color = "#142F2E")}
             >
-              Request Access
+              {t("Request Access")}
             </span>
           </div>
         </div>
@@ -300,6 +304,7 @@ const ClientLogin = () => {
 
 // Forgot Password Component
 const ForgotPassword = ({ onBack }) => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -318,7 +323,9 @@ const ForgotPassword = ({ onBack }) => {
     } catch (error) {
       console.error("Password reset error:", error);
       setError(
-        "Failed to send password reset email. Please check your email address."
+        t(
+          "Failed to send password reset email. Please check your email address."
+        )
       );
     } finally {
       setLoading(false);
@@ -396,14 +403,15 @@ const ForgotPassword = ({ onBack }) => {
               marginBottom: "1rem",
             }}
           >
-            Forgot Password?
+            {t("Forgot Password?")}
           </h2>
 
           {!isSubmitted ? (
             <>
               <p style={{ color: "#142F2E", marginBottom: "2rem" }}>
-                Enter your email address and we'll send you a link to reset your
-                password.
+                {t(
+                  "Enter your email address and we'll send you a link to reset your password."
+                )}
               </p>
 
               {error && <div style={styles.error}>{error}</div>}
@@ -414,7 +422,7 @@ const ForgotPassword = ({ onBack }) => {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
+                    placeholder={t("Enter your email address")}
                     required
                     style={styles.formControl}
                   />
@@ -442,7 +450,7 @@ const ForgotPassword = ({ onBack }) => {
                     }
                   }}
                 >
-                  {loading ? "Sending..." : "Send Reset Link"}
+                  {loading ? t("Sending...") : t("Send Reset Link")}
                 </button>
               </form>
             </>
@@ -450,8 +458,9 @@ const ForgotPassword = ({ onBack }) => {
             <div>
               <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>✅</div>
               <p style={{ color: "#142F2E", marginBottom: "2rem" }}>
-                Reset link sent! Please check your email for further
-                instructions.
+                {t(
+                  "Reset link sent! Please check your email for further instructions."
+                )}
               </p>
             </div>
           )}
@@ -473,7 +482,7 @@ const ForgotPassword = ({ onBack }) => {
               e.target.style.color = "#142F2E";
             }}
           >
-            Back to Login
+            {t("Back to Login")}
           </button>
         </div>
       </div>
@@ -483,6 +492,7 @@ const ForgotPassword = ({ onBack }) => {
 
 // Request Access Component
 const RequestAccess = ({ onBack }) => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -512,12 +522,12 @@ const RequestAccess = ({ onBack }) => {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match");
+      setError(t("Passwords do not match"));
       return;
     }
 
     if (formData.password.length < 6) {
-      setError("Password must be at least 6 characters long");
+      setError(t("Password must be at least 6 characters long"));
       return;
     }
 
@@ -529,9 +539,9 @@ const RequestAccess = ({ onBack }) => {
     } catch (error) {
       console.error("Signup error:", error);
       if (error.code === "auth/email-already-in-use") {
-        setError("An account with this email already exists");
+        setError(t("An account with this email already exists"));
       } else {
-        setError("Failed to create account. Please try again.");
+        setError(t("Failed to create account. Please try again."));
       }
     } finally {
       setLoading(false);
@@ -629,7 +639,7 @@ const RequestAccess = ({ onBack }) => {
               textAlign: "center",
             }}
           >
-            Request Access
+            {t("Request Access")}
           </h2>
 
           {!isSubmitted ? (
@@ -641,8 +651,9 @@ const RequestAccess = ({ onBack }) => {
                   textAlign: "center",
                 }}
               >
-                Complete the form below to request access to our exclusive
-                client portal.
+                {t(
+                  "Complete the form below to request access to our exclusive client portal."
+                )}
               </p>
 
               {error && <div style={styles.error}>{error}</div>}
@@ -654,7 +665,7 @@ const RequestAccess = ({ onBack }) => {
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleInputChange}
-                    placeholder="Full Name *"
+                    placeholder={t("Full Name *")}
                     required
                     style={styles.formControl}
                   />
@@ -666,7 +677,7 @@ const RequestAccess = ({ onBack }) => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    placeholder="Email Address *"
+                    placeholder={t("Email Address *")}
                     required
                     style={styles.formControl}
                   />
@@ -678,7 +689,7 @@ const RequestAccess = ({ onBack }) => {
                     name="password"
                     value={formData.password}
                     onChange={handleInputChange}
-                    placeholder="Password *"
+                    placeholder={t("Password *")}
                     required
                     style={styles.formControl}
                   />
@@ -687,7 +698,7 @@ const RequestAccess = ({ onBack }) => {
                     style={styles.passwordToggle}
                     onClick={() => setShowPasswordRA(!showPasswordRA)}
                     aria-label={
-                      showPasswordRA ? "Hide password" : "Show password"
+                      showPasswordRA ? t("Hide password") : t("Show password")
                     }
                   >
                     {/* Use FaEye or FaEyeSlash based on showPasswordRA state */}
@@ -701,7 +712,7 @@ const RequestAccess = ({ onBack }) => {
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleInputChange}
-                    placeholder="Confirm Password *"
+                    placeholder={t("Confirm Password *")}
                     required
                     style={styles.formControl}
                   />
@@ -713,8 +724,8 @@ const RequestAccess = ({ onBack }) => {
                     }
                     aria-label={
                       showConfirmPasswordRA
-                        ? "Hide confirm password"
-                        : "Show confirm password"
+                        ? t("Hide confirm password")
+                        : t("Show confirm password")
                     }
                   >
                     {/* Use FaEye or FaEyeSlash based on showConfirmPasswordRA state */}
@@ -728,7 +739,7 @@ const RequestAccess = ({ onBack }) => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    placeholder="Phone Number"
+                    placeholder={t("Phone Number")}
                     style={styles.formControl}
                   />
                 </div>
@@ -739,7 +750,7 @@ const RequestAccess = ({ onBack }) => {
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    placeholder="Company (Optional)"
+                    placeholder={t("Company (Optional)")}
                     style={styles.formControl}
                   />
                 </div>
@@ -749,7 +760,7 @@ const RequestAccess = ({ onBack }) => {
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    placeholder="Tell us about your concierge needs..."
+                    placeholder={t("Tell us about your concierge needs...")}
                     rows={4}
                     style={{
                       ...styles.formControl,
@@ -780,7 +791,7 @@ const RequestAccess = ({ onBack }) => {
                     }
                   }}
                 >
-                  {loading ? "Creating Account..." : "Submit Request"}
+                  {loading ? t("Creating Account...") : t("Submit Request")}
                 </button>
               </form>
             </>
@@ -788,8 +799,9 @@ const RequestAccess = ({ onBack }) => {
             <div style={{ textAlign: "center" }}>
               <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>🎉</div>
               <p style={{ color: "#142F2E", marginBottom: "2rem" }}>
-                Your account has been created successfully! You can now log in
-                to access your dashboard.
+                {t(
+                  "Your account has been created successfully! You can now log in to access your dashboard."
+                )}
               </p>
             </div>
           )}
@@ -813,7 +825,7 @@ const RequestAccess = ({ onBack }) => {
               e.target.style.color = "#142F2E";
             }}
           >
-            Back to Login
+            {t("Back to Login")}
           </button>
         </div>
       </div>
