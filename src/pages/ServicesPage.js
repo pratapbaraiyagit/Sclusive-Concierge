@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./ServicesPage.css"; // Import the CSS file
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Updated premium images
 const servicesHero =
@@ -15,6 +16,7 @@ const corporateConciergeImg =
   "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
 
 const ServicesPage = () => {
+  const { t } = useTranslation();
   // State to track which services are expanded
   const [expandedServices, setExpandedServices] = useState({});
 
@@ -29,45 +31,49 @@ const ServicesPage = () => {
   const servicesContent = [
     {
       image: lifestyleManagementImg,
-      title: "Lifestyle Management",
-      description:
-        "From daily essentials to rare requests, we make the impossible feel effortless with our comprehensive lifestyle management services.",
+      title: t("Lifestyle Management"),
+      description: t(
+        "From daily essentials to rare requests, we make the impossible feel effortless with our comprehensive lifestyle management services."
+      ),
       subPoints: [
-        "Personal Shopping (gifting, sourcing rare items)",
-        "Reservations (restaurants, events, transportation )",
-        "Real Estate (buying, selling, & managing properties)",
-        "Private Staffing (Coach, Nanny, Private Chef)",
-        "Interior Design & Architecture ",
+        t("Personal Shopping (gifting, sourcing rare items)"),
+        t("Reservations (restaurants, events, transportation)"),
+        t("Real Estate (buying, selling, & managing properties)"),
+        t("Private Staffing (Coach, Nanny, Private Chef)"),
+        t("Interior Design & Architecture"),
       ],
       icon: "🏠",
     },
     {
       image: luxuryTravelImg,
-      title: "Luxury Travel & Stay",
-      description:
-        "Exclusive Villas & Hotels, Private Jet Charter, curated journeys — we handle every detail of your travel experience.",
+      title: t("Luxury Travel & Stay"),
+      description: t(
+        "Exclusive Villas & Hotels, Private Jet Charter, curated journeys — we handle every detail of your travel experience."
+      ),
       subPoints: [
-        "Reservations (flights, hotel, transportation)",
-        "Tailored Trip Planning (work or personal)",
-        "Michelin-Starred Restaurant Reservations",
-        "Seasonal & Long-Term Rentals",
-        "Private Jet & Yacht Charter Services",
+        t("Reservations (flights, hotel, transportation)"),
+        t("Tailored Trip Planning (work or personal)"),
+        t("Michelin-Starred Restaurant Reservations"),
+        t("Seasonal & Long-Term Rentals"),
+        t("Private Jet & Yacht Charter Services"),
       ],
       icon: "✈️",
     },
     {
       image: eventPlanningImg,
-      title: "Event Planning",
-      description:
-        "Whether it’s a private dinner or a corporate gala, we plan moments to remember with flawless execution.",
+      title: t("Event Planning"),
+      description: t(
+        "Whether it's a private dinner or a corporate gala, we plan moments to remember with flawless execution."
+      ),
       subPoints: [],
       icon: "🎉",
     },
     {
       image: corporateConciergeImg,
-      title: "Corporate Concierge",
-      description:
-        "Elevate executive life with regular support, from business travel to personalized gifting and corporate event planning.",
+      title: t("Corporate Concierge"),
+      description: t(
+        "Elevate executive life with regular support, from business travel to personalized gifting and corporate event planning."
+      ),
       subPoints: [],
       icon: "💼",
     },
@@ -85,16 +91,17 @@ const ServicesPage = () => {
         <div className="services-container">
           <div className="max-width-900 margin-auto">
             <h1 className="services-hero-title">
-              Our <span className="services-highlight">Bespoke</span> Services
+              {t("Our")}{" "}
+              <span className="services-highlight">{t("Bespoke")}</span>{" "}
+              {t("Services")}
             </h1>
             <p className="services-hero-description">
-              We take pride in offering bespoke services tailored to your unique
-              needs. Whether you require a restaurant reservation, a ticket to
-              an exclusive event, a VIP transfer by car or private jet, or even
-              full vacation planning, we are here to assist you.
+              {t(
+                "We take pride in offering bespoke services tailored to your unique needs. Whether you require a restaurant reservation, a ticket to an exclusive event, a VIP transfer by car or private jet, or even full vacation planning, we are here to assist you."
+              )}
             </p>
             <p className="services-hero-tagline">
-              Discover the art of exclusive living with S'CLUSIVE.
+              {t("Discover the art of exclusive living with S'CLUSIVE.")}
             </p>
           </div>
         </div>
@@ -105,13 +112,13 @@ const ServicesPage = () => {
         <div className="services-container">
           <div className="text-center mb-4">
             <h2 className="services-section-title">
-              A World of Possibilities at Your{" "}
-              <span className="services-highlight">Fingertips</span>
+              {t("A World of Possibilities at Your")}{" "}
+              <span className="services-highlight">{t("Fingertips")}</span>
             </h2>
             <p className="services-section-description">
-              Our comprehensive suite of services is designed to anticipate your
-              every need and transform your desires into extraordinary
-              experiences.
+              {t(
+                "Our comprehensive suite of services is designed to anticipate your every need and transform your desires into extraordinary experiences."
+              )}
             </p>
           </div>
 
@@ -139,12 +146,12 @@ const ServicesPage = () => {
                     </p>
 
                     {/* Features List */}
-                    {(service.title === "Lifestyle Management" ||
-                      service.title === "Luxury Travel & Stay") &&
+                    {(service.title === t("Lifestyle Management") ||
+                      service.title === t("Luxury Travel & Stay")) &&
                       service.subPoints.length > 0 && (
                         <div className="services-features">
                           <h4 className="services-features-title">
-                            What's Included:
+                            {t("What's Included:")}
                           </h4>
                           <ul className="services-features-list">
                             {/* Always show first 3 items */}
@@ -180,10 +187,10 @@ const ServicesPage = () => {
                                 }}
                               >
                                 {expandedServices[service.title]
-                                  ? "- Show less"
-                                  : `+ ${
-                                      service.subPoints.length - 3
-                                    } more services`}
+                                  ? t("- Show less")
+                                  : `+ ${service.subPoints.length - 3} ${t(
+                                      "more services"
+                                    )}`}
                               </li>
                             )}
                           </ul>
@@ -191,8 +198,8 @@ const ServicesPage = () => {
                       )}
 
                     {/* Spacer for cards without features */}
-                    {(service.title === "Event Planning" ||
-                      service.title === "Corporate Concierge") && (
+                    {(service.title === t("Event Planning") ||
+                      service.title === t("Corporate Concierge")) && (
                       <div className="services-card-spacer">
                         {/* Empty spacer to maintain consistent button positioning */}
                       </div>
@@ -201,7 +208,7 @@ const ServicesPage = () => {
                     {/* CTA Button - Fixed at bottom */}
                     <div className="services-card-cta">
                       <Link to="/contact" className="services-card-btn">
-                        Learn More →
+                        {t("Learn More")} →
                       </Link>
                     </div>
                   </div>
@@ -217,19 +224,19 @@ const ServicesPage = () => {
         <div className="services-container">
           <div className="text-center max-width-800 margin-auto">
             <h2 className="services-section-title-medium">
-              Beyond <span className="services-highlight">Expectations</span>
+              {t("Beyond")}{" "}
+              <span className="services-highlight">{t("Expectations")}</span>
             </h2>
             <p className="services-section-description">
-              Our services extend far beyond the ordinary. From arranging
-              private museum viewings to securing last-minute reservations at
-              the world's most exclusive restaurants, we turn the impossible
-              into reality.
+              {t(
+                "Our services extend far beyond the ordinary. From arranging private museum viewings to securing last-minute reservations at the world's most exclusive restaurants, we turn the impossible into reality."
+              )}
             </p>
             <div className="services-stats">
               {[
-                { number: "24/7", text: "Global Support" },
-                { number: "10+", text: "Countries Served" },
-                { number: "99.8%", text: "Success Rate" },
+                { number: "24/7", text: t("Global Support") },
+                { number: "10+", text: t("Countries Served") },
+                { number: "99.8%", text: t("Success Rate") },
               ].map((stat, index) => (
                 <div key={index} className="services-stat">
                   <div className="services-stat-number">{stat.number}</div>
@@ -246,19 +253,21 @@ const ServicesPage = () => {
         <div className="services-container">
           <div className="max-width-700 margin-auto">
             <h2 className="services-cta-title">
-              Ready to Experience{" "}
-              <span className="services-highlight">Unparalleled</span> Luxury?
+              {t("Ready to Experience")}{" "}
+              <span className="services-highlight">{t("Unparalleled")}</span>{" "}
+              {t("Luxury?")}
             </h2>
             <p className="services-cta-description">
-              Our team is ready to curate your next extraordinary moment. Let us
-              transform your vision into an unforgettable reality.
+              {t(
+                "Our team is ready to curate your next extraordinary moment. Let us transform your vision into an unforgettable reality."
+              )}
             </p>
             <div className="services-cta-buttons">
               <Link to="/contact" className="services-btn">
-                Start Your Request
+                {t("Start Your Request")}
               </Link>
               <a href="tel:+224613543724" className="services-btn-outline">
-                Speak to an Advisor
+                {t("Speak to an Advisor")}
               </a>
             </div>
           </div>
