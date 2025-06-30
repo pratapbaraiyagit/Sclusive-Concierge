@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./AboutUs.css"; // Import the CSS file
 
 // Updated premium images
@@ -13,30 +14,36 @@ const luxuryServiceImg =
   "https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
 
 const AboutUs = () => {
+  const { t } = useTranslation();
+
   const values = [
     {
       icon: "🔒",
-      title: "Total Discretion",
-      description:
-        "Your privacy is our utmost priority, handled with the highest level of confidentiality and professional discretion.",
+      title: t("Total Discretion"),
+      description: t(
+        "Your privacy is our utmost priority, handled with the highest level of confidentiality and professional discretion."
+      ),
     },
     {
       icon: "⚡",
-      title: "Personalized Services",
-      description:
-        "Every request is unique, and our solutions are meticulously tailored to your exact needs and preferences.",
+      title: t("Personalized Services"),
+      description: t(
+        "Every request is unique, and our solutions are meticulously tailored to your exact needs and preferences."
+      ),
     },
     {
       icon: "💎",
-      title: "Impeccable Taste",
-      description:
-        "From exclusive experiences to luxury acquisitions, our standards reflect the pinnacle of refinement and sophistication.",
+      title: t("Impeccable Taste"),
+      description: t(
+        "From exclusive experiences to luxury acquisitions, our standards reflect the pinnacle of refinement and sophistication."
+      ),
     },
     {
       icon: "🌍",
-      title: "Global Reach, Local Refinement",
-      description:
-        "Our worldwide network combined with localized expertise ensures seamless service, anywhere in the world.",
+      title: t("Global Reach, Local Refinement"),
+      description: t(
+        "Our worldwide network combined with localized expertise ensures seamless service, anywhere in the world."
+      ),
     },
   ];
 
@@ -60,10 +67,10 @@ const AboutUs = () => {
         <div className="about-container">
           <div className="max-width-800 margin-auto">
             <h1 className="hero-title-about">
-              About <span className="hero-highlight">S'CLUSIVE</span>
+              {t("About")} <span className="hero-highlight">S'CLUSIVE</span>
             </h1>
             <p className="hero-subtitle-about">
-              Your privileged access to a life without limits.
+              {t("Your privileged access to a life without limits.")}
             </p>
           </div>
         </div>
@@ -75,21 +82,23 @@ const AboutUs = () => {
           <div className="about-row">
             <div className="about-col-6 pr-3">
               <h2 className="section-title-about">
-                Our Brand <span className="hero-highlight">Story</span>
+                {t("Our Brand")}{" "}
+                <span className="hero-highlight">{t("Story")}</span>
               </h2>
               <p className="section-subtitle">
-                Founded on the belief that high-end services should be seamless,
-                S'Clusive brings decades of elite expertise to clients.
+                {t(
+                  "Founded on the belief that high-end services should be seamless, S'Clusive brings decades of elite expertise to clients."
+                )}
               </p>
               <p className="section-text">
-                As devoted partners in your lifestyle, we are more than just a
-                concierge service — we are your privileged access to a life
-                without limits.
+                {t(
+                  "As devoted partners in your lifestyle, we are more than just a concierge service — we are your privileged access to a life without limits."
+                )}
               </p>
               <p className="section-text">
-                Our team is committed to anticipating your needs, ensuring
-                discretion, and turning every request into an exceptional
-                experience.
+                {t(
+                  "Our team is committed to anticipating your needs, ensuring discretion, and turning every request into an exceptional experience."
+                )}
               </p>
             </div>
 
@@ -110,7 +119,7 @@ const AboutUs = () => {
           <div className="about-row">
             <div className="about-col-full">
               <h2 className="section-title-medium">
-                Our <span className="hero-highlight">Vision</span>
+                {t("Our")} <span className="hero-highlight">{t("Vision")}</span>
               </h2>
               <div className="mb-4">
                 <img
@@ -120,12 +129,14 @@ const AboutUs = () => {
                 />
               </div>
               <blockquote className="founder-quote">
-                "At S'Clusive, we don't just plan — we anticipate. We don't just
-                add comment more actions serve — we curate. Our mission is to
-                simplify the extraordinary."
+                "
+                {t(
+                  "At S'Clusive, we don't just plan — we anticipate. We don't just add comment more actions serve — we curate. Our mission is to simplify the extraordinary."
+                )}
+                "
               </blockquote>
               <footer className="quote-author">
-                — The Co-Founders of S'clusive
+                — {t("The Co-Founders of S'clusive")}
               </footer>
             </div>
           </div>
@@ -137,11 +148,12 @@ const AboutUs = () => {
         <div className="about-container">
           <div className="text-center mb-4">
             <h2 className="section-title-about">
-              Our <span className="hero-highlight">Values</span>
+              {t("Our")} <span className="hero-highlight">{t("Values")}</span>
             </h2>
             <p className="section-description-about">
-              These principles guide every interaction and decision we make,
-              ensuring excellence in all aspects of our service.
+              {t(
+                "These principles guide every interaction and decision we make, ensuring excellence in all aspects of our service."
+              )}
             </p>
           </div>
 
@@ -162,20 +174,21 @@ const AboutUs = () => {
         <div className="about-container">
           <div className="max-width-700 margin-auto">
             <h2 className="cta-title">
-              Ready to Experience
-              <span className="hero-highlight"> Unparalleled</span> Luxury?
+              {t("Ready to Experience")}
+              <span className="hero-highlight"> {t("Unparalleled")}</span>{" "}
+              {t("Luxury?")}
             </h2>
             <p className="cta-description">
-              Learn more about how S'CLUSIVE can simplify the extraordinary for
-              add comment more actions you. Your journey to a life without
-              limits begins here.
+              {t(
+                "Learn more about how S'CLUSIVE can simplify the extraordinary for add comment more actions you. Your journey to a life without limits begins here."
+              )}
             </p>
             <div className="cta-buttons">
               <Link to={"/contact"} className="about-btn">
-                Contact Us Today
+                {t("Contact Us Today")}
               </Link>
               <Link to={"/services"} className="about-btn-outline">
-                Explore Our Services
+                {t("Explore Our Services")}
               </Link>
             </div>
           </div>
