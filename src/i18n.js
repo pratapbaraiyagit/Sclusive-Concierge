@@ -53,7 +53,7 @@ const resources = {
       "Your privileged access to a life without limits.":
         "Your privileged access to a life without limits.",
       "Our Brand": "Our Brand",
-      Our: "Our",
+      // Our: "Our",
       "The Co-Founders of S'clusive": "The Co-Founders of S'clusive",
       "These principles guide every interaction and decision we make, ensuring excellence in all aspects of our service.":
         "These principles guide every interaction and decision we make, ensuring excellence in all aspects of our service.",
@@ -493,7 +493,7 @@ const resources = {
         "Notre équipe s'engage à anticiper vos besoins, assurer la discrétion et transformer chaque demande en une expérience exceptionnelle.",
       "Your privileged access to a life without limits.":
         "Votre accès privilégié à une vie sans limites.",
-      "Our Brand": "Notre Marque",
+      "Our Brand": "Notre",
       Our: "Notre",
       "The Co-Founders of S'clusive": "Les Co-Fondateurs de S'clusive",
       "These principles guide every interaction and decision we make, ensuring excellence in all aspects of our service.":
