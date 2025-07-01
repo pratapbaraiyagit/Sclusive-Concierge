@@ -187,7 +187,7 @@ const ClientLogin = () => {
                 fontSize: "16px",
               }}
             >
-              {t("Access your exclusive lifestyle management dashboard.")}
+              {t("Access your dashboard")}
             </p>
           </div>
 
