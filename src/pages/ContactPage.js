@@ -61,9 +61,9 @@ const ContactPage = () => {
         <div className="contact-container">
           <div className="max-width-800 margin-auto">
             <h1 className="contact-hero-title">
-              {t("We'd Love to")}{" "}
-              <span className="contact-highlight">{t("Hear")}</span>{" "}
-              {t("From You")}
+              {t("We'd Love to Hear From You")}{" "}
+              {/* <span className="contact-highlight">{t("Hear")}</span>{" "}
+              {t("From You")} */}
             </h1>
           </div>
         </div>
@@ -293,7 +293,7 @@ const ContactPage = () => {
         <div className="contact-container">
           <div className="text-center mb-3">
             <h2 className="contact-section-title">
-              {t("Prefer to Connect")}{" "}
+              {t("Prefer to Connect Us")}{" "}
               <span className="contact-highlight">{t("Directly")}</span>?
             </h2>
             <p className="contact-section-description">
