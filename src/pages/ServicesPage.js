@@ -91,9 +91,9 @@ const ServicesPage = () => {
         <div className="services-container">
           <div className="max-width-900 margin-auto">
             <h1 className="services-hero-title">
-              {t("Our")}{" "}
-              <span className="services-highlight">{t("Bespoke")}</span>{" "}
-              {t("Services")}
+              {t("Our Bespoke Services")}{" "}
+              {/* <span className="services-highlight">{t("Bespoke")}</span>{" "}
+              {t("Services")} */}
             </h1>
             <p className="services-hero-description">
               {t(
