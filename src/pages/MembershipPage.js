@@ -21,7 +21,7 @@ const MembershipPage = () => {
   const benefits = [
     {
       image: membershipBenefitsImg,
-      title: t("Dedicated Lifestyle Manager"),
+      title: t("Dedicated Concierge"),
       description: t(
         "A single point of contact available to anticipate and fulfill your every need, 24/7 worldwide support."
       ),
@@ -133,13 +133,13 @@ const MembershipPage = () => {
               </span>
             </div>
             <h1 className="membership-hero-title">
-              {t("Become a")}{" "}
-              <span className="membership-highlight">S'CLUSIVE</span>{" "}
-              {t("Member")}
+              {t("Become a S'CLUSIVE Member")}{" "}
+              {/* <span className="membership-highlight">S'CLUSIVE</span>{" "}
+              {t("Member")} */}
             </h1>
             <p className="membership-hero-description">
               {t(
-                "Unlock a world of unparalleled luxury and personalized service. Experience the ultimate in convenience, access, and discretion."
+                "Access a world of unparalleled luxury and personalized service. Experience the ultimate in convenience, access, and discretion."
               )}
             </p>
             <div className="membership-hero-buttons">
