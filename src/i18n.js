@@ -36,20 +36,25 @@ const resources = {
       "Luxury Travel & Stay": "Luxury Travel & Stay",
       "Corporate Concierge": "Corporate Concierge",
       "Wellness & Lifestyle Management": "Wellness & Lifestyle Management",
+      "At S'Clusive, we don't just plan, we anticipate. We don't just add comments, we organize actions, we organize. Our mission is to simplify the extraordinary.":
+        "At S'Clusive, we don't just plan, we anticipate. We don't just add comments, we organize actions, we organize. Our mission is to simplify the extraordinary.",
 
       // About Section
       "Our Brand Story": "Our Brand Story",
-      "Founded on the belief that high-end services should be seamless, S'Clusive brings decades of elite expertise to clients.":
-        "Founded on the belief that high-end services should be seamless, S'Clusive brings decades of elite expertise to clients.",
+      "Founded on the belief that premium services should be seamless, S'Clusive brings decades of elite expertise to its clients.":
+        "Founded on the belief that premium services should be seamless, S'Clusive brings decades of elite expertise to its clients.",
       "As dedicated partners, we are more than just a concierge service - we are your privileged access to a life without limits.":
         "As dedicated partners, we are more than just a concierge service - we are your privileged access to a life without limits.",
       "At S'Clusive, we don't just plan, we anticipate. We don't just serve, we orchestrate. Our mission is to simplify the extraordinary.":
         "At S'Clusive, we don't just plan, we anticipate. We don't just serve, we orchestrate. Our mission is to simplify the extraordinary.",
       "Our Vision": "Our Vision",
       "Our Values": "Our Values",
+      "Our Bespoke Services": "Our Bespoke Services",
+      "Become a S'CLUSIVE Member": "Become a S'CLUSIVE Member",
+      "We'd Love to Hear From You": "We'd Love to Hear From You",
       Story: "Story",
-      "Our team is committed to anticipating your needs, ensuring discretion, and turning every request into an exceptional experience.":
-        "Our team is committed to anticipating your needs, ensuring discretion, and turning every request into an exceptional experience.",
+      "Our team is committed to anticipating your needs, ensuring discretion, and transforming every request into an exceptional experience.":
+        "Our team is committed to anticipating your needs, ensuring discretion, and transforming every request into an exceptional experience.",
       "Your privileged access to a life without limits.":
         "Your privileged access to a life without limits.",
       "Our Brand": "Our Brand",
@@ -129,8 +134,7 @@ const resources = {
         "Access your private client account",
       "Submit and track your requests with your dedicated concierge.":
         "Submit and track your requests with your dedicated concierge.",
-      "Access your exclusive lifestyle management dashboard.":
-        "Access your exclusive lifestyle management dashboard.",
+      "Access your dashboard": "Access your dashboard",
       "Submit and track your service needs with your lifestyle manager.":
         "Submit and track your service needs with your lifestyle manager.",
 
@@ -215,15 +219,15 @@ const resources = {
       "EXCLUSIVE MEMBERSHIP": "EXCLUSIVE MEMBERSHIP",
       "Become a": "Become a",
       Member: "Member",
-      "Unlock a world of unparalleled luxury and personalized service. Experience the ultimate in convenience, access, and discretion.":
-        "Unlock a world of unparalleled luxury and personalized service. Experience the ultimate in convenience, access, and discretion.",
+      "Access a world of unparalleled luxury and personalized service. Experience the ultimate in convenience, access, and discretion.":
+        "Access a world of unparalleled luxury and personalized service. Experience the ultimate in convenience, access, and discretion.",
       "View Membership Tiers": "View Membership Tiers",
       "Why Choose": "Why Choose",
       "S'Clusive membership opens the door to a universe of tailored experiences, global connections, and dedicated support that transforms how you live.":
         "S'Clusive membership opens the door to a universe of tailored experiences, global connections, and dedicated support that transforms how you live.",
 
       // Membership Benefits
-      "Dedicated Lifestyle Manager": "Dedicated Lifestyle Manager",
+      "Dedicated Concierge": "Dedicated Concierge",
       "A single point of contact available to anticipate and fulfill your every need, 24/7 worldwide support.":
         "A single point of contact available to anticipate and fulfill your every need, 24/7 worldwide support.",
       "Exclusive Access": "Exclusive Access",
@@ -304,7 +308,7 @@ const resources = {
       Connect: "Connect",
       "Available 24/7 for your convenience":
         "Available 24/7 for your convenience",
-      "Prefer to Connect": "Prefer to Connect",
+      "Prefer to Connect Us": "Prefer to Connect Us",
       Directly: "Directly",
       "Choose your preferred method of communication for immediate assistance.":
         "Choose your preferred method of communication for immediate assistance.",
@@ -465,7 +469,7 @@ const resources = {
       "Private Concierge S'Clusive": "La conciergerie privée S'Clusive",
       "A life of effortless elegance": "une vie d'élégance sans effort",
       "S'Clusive offers ultra-personalized, discreet, and world-class lifestyle management to those who demand the extraordinary. Our services provide privileged access to a life of seamless elegance.":
-        "S'Clusive offre une gestion de style de vie ultra-personnalisée, discrète et de classe mondiale à ceux qui exigent l'extraordinaire. Nos services offrent un accès privilégié à une vie d'élégance fluide.",
+        "S'Clusive offre un accompagnement personnalisé, discret et de classe mondiale à ceux qui recherchent l'extraordinaire. Nos services offrent un accès privilégié à une vie d'élégance harmonieuse.",
       "Our Services": "Nos Services",
       "Learn More": "En Savoir Plus",
 
@@ -480,16 +484,19 @@ const resources = {
 
       // About Section
       "Our Brand Story": "Notre Histoire de Marque",
-      "Founded on the belief that high-end services should be seamless, S'Clusive brings decades of elite expertise to clients.":
-        "Fondée sur la conviction que les services haut de gamme doivent être fluides, S'Clusive apporte des années d'expertise d'élite à ses clients.",
+      "Founded on the belief that premium services should be seamless, S'Clusive brings decades of elite expertise to its clients.":
+        "Fondée sur la conviction que les services haut de gamme doivent être transparents, S'Clusive apporte des décennies d'expertise d'élite à ses clients.",
       "As dedicated partners, we are more than just a concierge service - we are your privileged access to a life without limits.":
         "En tant que partenaires dévoués, nous sommes plus qu'un simple service de conciergerie - nous sommes votre accès privilégié à une vie sans limites.",
       "At S'Clusive, we don't just plan, we anticipate. We don't just serve, we orchestrate. Our mission is to simplify the extraordinary.":
         "Chez S'Clusive, nous ne faisons pas que planifier, nous anticipons. Nous ne faisons pas que servir, nous orchestrons. Notre mission est de simplifier l'extraordinaire.",
       "Our Vision": "Notre Vision",
       "Our Values": "Nos Valeurs",
+      "Become a S'CLUSIVE Member": "Devenez Membre de S'CLUSIVE",
+      "Our Bespoke Services": "Nos Services Sur Mesure",
+      "We'd Love to Hear From You": "Nous aimerions avoir de vos Nouvelles",
       Story: "Histoire",
-      "Our team is committed to anticipating your needs, ensuring discretion, and turning every request into an exceptional experience.":
+      "Our team is committed to anticipating your needs, ensuring discretion, and transforming every request into an exceptional experience.":
         "Notre équipe s'engage à anticiper vos besoins, assurer la discrétion et transformer chaque demande en une expérience exceptionnelle.",
       "Your privileged access to a life without limits.":
         "Votre accès privilégié à une vie sans limites.",
@@ -498,6 +505,8 @@ const resources = {
       "The Co-Founders of S'clusive": "Les Co-Fondateurs de S'clusive",
       "These principles guide every interaction and decision we make, ensuring excellence in all aspects of our service.":
         "Ces principes guident chaque interaction et décision que nous prenons, assurant l'excellence dans tous les aspects de notre service.",
+      "As dedicated lifestyle partners, we're more than just a concierge service—we're your gateway to a life without limits.":
+        "En tant que partenaires de style de vie dévoués, nous sommes plus qu'un simple service de conciergerie - nous sommes votre porte d'entrée vers une vie sans limites.",
 
       // Values
       "Total Discretion": "Discrétion Totale",
@@ -528,7 +537,7 @@ const resources = {
       "Send Us a Message": "Envoyez-nous un Message",
       "Please use the form below for general inquiries or partnership opportunities. We aim to respond within 24 hours.":
         "Veuillez utiliser le formulaire ci-dessous pour les demandes générales ou les opportunités de partenariat. Nous visons à répondre dans les 24 heures.",
-      "Full Name *": "Nom Complet *",
+      "Full Name *": "Nom et prénom *",
       "Enter your full name": "Entrez votre nom complet",
       "Email Address *": "Adresse Email *",
       "Enter your email address": "Entrez votre adresse email",
@@ -571,10 +580,13 @@ const resources = {
         "Accédez à votre compte client privé",
       "Submit and track your requests with your dedicated concierge.":
         "Soumettez et suivez vos demandes avec votre concierge dédié.",
-      "Access your exclusive lifestyle management dashboard.":
-        "Accédez à votre tableau de bord de gestion de style de vie exclusif.",
+      "Access your dashboard": "Accédez à votre tableau de bord",
       "Submit and track your service needs with your lifestyle manager.":
         "Soumettez et suivez vos besoins de service avec votre gestionnaire de style de vie.",
+      "At S'Clusive, we don't just plan, we anticipate. We don't just add comments, we organize actions, we organize. Our mission is to simplify the extraordinary.":
+        "Chez S'Clusive, nous ne nous contentons pas de planifier, nous anticipons. Nous ne nous contentons pas d'ajouter des commentaires, nous organisons des actions, nous organisons. Notre mission est de simplifier l'extraordinaire.",
+      "Discover how S'CLUSIVE can simplify the extraordinary for you. Your journey to a life without limits starts here.":
+        "Découvrez comment S'CLUSIVE peut simplifier l'extraordinaire pour vous. Votre voyage vers une vie sans limites commence ici.",
 
       // Company Info
       "Private Concierge": "Conciergerie Privée",
@@ -590,7 +602,7 @@ const resources = {
       Services: "Services",
       Bespoke: "Sur Mesure",
       "We take pride in offering bespoke services tailored to your unique needs. Whether you require a restaurant reservation, a ticket to an exclusive event, a VIP transfer by car or private jet, or even full vacation planning, we are here to assist you.":
-        "Nous sommes fiers d'offrir des services sur mesure adaptés à vos besoins uniques. Que vous ayez besoin d'une réservation de restaurant, d'un billet pour un événement exclusif, d'un transfert VIP en voiture ou en jet privé, ou même d'une planification complète de vacances, nous sommes là pour vous aider.",
+        "Nous sommes fiers de vous proposer des services sur mesure, adaptés à vos besoins spécifiques. Que vous ayez besoin d'une réservation de restaurant, d'un billet pour un événement exclusif, d'un transfert VIP en voiture ou en jet privé, ou même d'une planification complète de vos vacances, nous sommes là pour vous accompagner.",
       "Discover the art of exclusive living with S'CLUSIVE.":
         "Découvrez l'art de vivre exclusif avec S'CLUSIVE.",
       "A World of Possibilities at Your":
@@ -602,7 +614,7 @@ const resources = {
       // Service Categories
       "Lifestyle Management": "Gestion de Style de Vie",
       "From daily essentials to rare requests, we make the impossible feel effortless with our comprehensive lifestyle management services.":
-        "Des essentiels quotidiens aux demandes rares, nous rendons l'impossible sans effort avec nos services complets de gestion de style de vie.",
+        "Des besoins quotidiens essentiels aux demandes rares, nous faisons en sorte que l'impossible semble sans effort grâce à nos services complets de gestion du style de vie.",
       "Personal Shopping (gifting, sourcing rare items)":
         "Personal Shopping (cadeaux, recherche d'articles rares)",
       "Reservations (restaurants, events, transportation)":
@@ -614,7 +626,7 @@ const resources = {
       "Interior Design & Architecture": "Design Intérieur et Architecture",
 
       "Exclusive Villas & Hotels, Private Jet Charter, curated journeys — we handle every detail of your travel experience.":
-        "Villas et Hôtels Exclusifs, Affrètement de Jets Privés, voyages sur mesure — nous gérons chaque détail de votre expérience de voyage.",
+        "Villas et hôtels exclusifs, location de jet privé, voyages organisés : nous gérons chaque détail de votre expérience de voyage.",
       "Reservations (flights, hotel, transportation)":
         "Réservations (vols, hôtel, transport)",
       "Tailored Trip Planning (work or personal)":
@@ -627,10 +639,10 @@ const resources = {
 
       "Event Planning": "Organisation d'Événements",
       "Whether it's a private dinner or a corporate gala, we plan moments to remember with flawless execution.":
-        "Qu'il s'agisse d'un dîner privé ou d'un gala d'entreprise, nous planifions des moments mémorables avec une exécution parfaite.",
+        "Qu'il s'agisse d'un dîner privé ou d'un gala d'entreprise, nous planifions des moments inoubliables avec une exécution sans faille.",
 
       "Elevate executive life with regular support, from business travel to personalized gifting and corporate event planning.":
-        "Élevez la vie des dirigeants avec un soutien régulier, des voyages d'affaires aux cadeaux personnalisés et à la planification d'événements d'entreprise.",
+        "Améliorez la vie des cadres grâce à un soutien régulier, des voyages d’affaires aux cadeaux personnalisés et à la planification d’événements d’entreprise.",
 
       // Service Features
       "What's Included:": "Ce qui est Inclus :",
@@ -641,7 +653,7 @@ const resources = {
       Beyond: "Au-delà des",
       Expectations: "Attentes",
       "Our services extend far beyond the ordinary. From arranging private museum viewings to securing last-minute reservations at the world's most exclusive restaurants, we turn the impossible into reality.":
-        "Nos services s'étendent bien au-delà de l'ordinaire. De l'organisation de visites privées de musées à l'obtention de réservations de dernière minute dans les restaurants les plus exclusifs du monde, nous transformons l'impossible en réalité.",
+        "Nos services vont bien au-delà de l'ordinaire. De l'organisation de visites privées de musées à la réservation de dernière minute dans les restaurants les plus exclusifs du monde, nous transformons l'impossible en réalité.",
       "Global Support": "Support Mondial",
       "Countries Served": "Pays Desservis",
       "Success Rate": "Taux de Réussite",
@@ -659,7 +671,7 @@ const resources = {
       "EXCLUSIVE MEMBERSHIP": "ADHÉSION EXCLUSIVE",
       "Become a": "Devenez",
       Member: "Membre",
-      "Unlock a world of unparalleled luxury and personalized service. Experience the ultimate in convenience, access, and discretion.":
+      "Access a world of unparalleled luxury and personalized service. Experience the ultimate in convenience, access, and discretion.":
         "Débloquez un monde de luxe inégalé et de service personnalisé. Vivez le summum de la commodité, de l'accès et de la discrétion.",
       "View Membership Tiers": "Voir les Niveaux d'Adhésion",
       "Why Choose": "Pourquoi Choisir",
@@ -667,7 +679,7 @@ const resources = {
         "L'adhésion S'Clusive ouvre la porte à un univers d'expériences sur mesure, de connexions mondiales et de soutien dévoué qui transforme votre façon de vivre.",
 
       // Membership Benefits
-      "Dedicated Lifestyle Manager": "Gestionnaire de Style de Vie Dédié",
+      "Dedicated Concierge": "Gestionnaire de Style de Vie Dédié",
       "A single point of contact available to anticipate and fulfill your every need, 24/7 worldwide support.":
         "Un point de contact unique disponible pour anticiper et répondre à tous vos besoins, support mondial 24h/24 et 7j/7.",
       "Exclusive Access": "Accès Exclusif",
@@ -748,7 +760,7 @@ const resources = {
       Connect: "Vous Connecter",
       "Available 24/7 for your convenience":
         "Disponible 24h/24 et 7j/7 pour votre commodité",
-      "Prefer to Connect": "Vous Préférez Vous Connecter",
+      "Prefer to Connect Us": "Vous Préférez Vous Connecter",
       Directly: "Directement",
       "Choose your preferred method of communication for immediate assistance.":
         "Choisissez votre méthode de communication préférée pour une assistance immédiate.",
@@ -872,7 +884,7 @@ const resources = {
         "Échec de l'envoi du message. Veuillez réessayer.",
       "Manage your personal information and preferences.":
         "Gérez vos informations personnelles et préférences.",
-      "Full Name": "Nom Complet",
+      "Full Name": "Nom et prénom",
       Email: "Email",
       "Email cannot be changed. Contact support if you need to update your email.":
         "L'email ne peut pas être modifié. Contactez le support si vous devez mettre à jour votre email.",
