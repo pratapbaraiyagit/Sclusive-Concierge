@@ -87,17 +87,17 @@ const AboutUs = () => {
               </h2>
               <p className="section-subtitle">
                 {t(
-                  "Founded on the belief that high-end services should be seamless, S'Clusive brings decades of elite expertise to clients."
+                  "Founded on the belief that premium services should be seamless, S'Clusive brings decades of elite expertise to its clients."
                 )}
               </p>
               <p className="section-text">
                 {t(
-                  "As devoted partners in your lifestyle, we are more than just a concierge service — we are your privileged access to a life without limits."
+                  "As dedicated lifestyle partners, we're more than just a concierge service—we're your gateway to a life without limits."
                 )}
               </p>
               <p className="section-text">
                 {t(
-                  "Our team is committed to anticipating your needs, ensuring discretion, and turning every request into an exceptional experience."
+                  "Our team is committed to anticipating your needs, ensuring discretion, and transforming every request into an exceptional experience."
                 )}
               </p>
             </div>
@@ -131,7 +131,7 @@ const AboutUs = () => {
               <blockquote className="founder-quote">
                 "
                 {t(
-                  "At S'Clusive, we don't just plan — we anticipate. We don't just add comment more actions serve — we curate. Our mission is to simplify the extraordinary."
+                  "At S'Clusive, we don't just plan, we anticipate. We don't just add comments, we organize actions, we organize. Our mission is to simplify the extraordinary."
                 )}
                 "
               </blockquote>
@@ -148,7 +148,8 @@ const AboutUs = () => {
         <div className="about-container">
           <div className="text-center mb-4">
             <h2 className="section-title-about">
-              {t("Our")} <span className="hero-highlight">{t("Values")}</span>
+              {t("Our Values")}{" "}
+              {/* <span className="hero-highlight">{t("Values")}</span> */}
             </h2>
             <p className="section-description-about">
               {t(
@@ -174,13 +175,11 @@ const AboutUs = () => {
         <div className="about-container">
           <div className="max-width-700 margin-auto">
             <h2 className="cta-title">
-              {t("Ready to Experience")}
-              <span className="hero-highlight"> {t("Unparalleled")}</span>{" "}
-              {t("Luxury?")}
+              {t("Ready to Experience Unparalleled Luxury?")}
             </h2>
             <p className="cta-description">
               {t(
-                "Learn more about how S'CLUSIVE can simplify the extraordinary for add comment more actions you. Your journey to a life without limits begins here."
+                "Discover how S'CLUSIVE can simplify the extraordinary for you. Your journey to a life without limits starts here."
               )}
             </p>
             <div className="cta-buttons">
