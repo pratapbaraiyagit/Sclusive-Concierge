@@ -253,9 +253,7 @@ const ServicesPage = () => {
         <div className="services-container">
           <div className="max-width-700 margin-auto">
             <h2 className="services-cta-title">
-              {t("Ready to Experience")}{" "}
-              <span className="services-highlight">{t("Unparalleled")}</span>{" "}
-              {t("Luxury?")}
+              {t("Ready to Experience Unparalleled Luxury?")}{" "}
             </h2>
             <p className="services-cta-description">
               {t(
