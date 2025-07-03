@@ -127,11 +127,6 @@ const MembershipPage = () => {
       >
         <div className="membership-container">
           <div className="max-width-800 margin-auto">
-            <div className="membership-hero-badge">
-              <span className="membership-hero-badge-text">
-                {t("EXCLUSIVE MEMBERSHIP")}
-              </span>
-            </div>
             <h1 className="membership-hero-title">
               {t("Become a S'CLUSIVE Member")}{" "}
               {/* <span className="membership-highlight">S'CLUSIVE</span>{" "}
