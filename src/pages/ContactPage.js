@@ -293,8 +293,7 @@ const ContactPage = () => {
         <div className="contact-container">
           <div className="text-center mb-3">
             <h2 className="contact-section-title">
-              {t("Prefer to Connect Us")}{" "}
-              <span className="contact-highlight">{t("Directly")}</span>?
+              {t("Prefer to Contact Us Directly?")}
             </h2>
             <p className="contact-section-description">
               {t(
