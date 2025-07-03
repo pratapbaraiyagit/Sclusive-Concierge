@@ -216,7 +216,6 @@ const resources = {
       "Speak to an Advisor": "Speak to an Advisor",
 
       // Membership Page
-      "EXCLUSIVE MEMBERSHIP": "EXCLUSIVE MEMBERSHIP",
       "Become a": "Become a",
       Member: "Member",
       "Access a world of unparalleled luxury and personalized service. Experience the ultimate in convenience, access, and discretion.":
@@ -308,8 +307,7 @@ const resources = {
       Connect: "Connect",
       "Available 24/7 for your convenience":
         "Available 24/7 for your convenience",
-      "Prefer to Connect Us": "Prefer to Connect Us",
-      Directly: "Directly",
+      "Prefer to Contact Us Directly?": "Prefer to Contact Us Directly?",
       "Choose your preferred method of communication for immediate assistance.":
         "Choose your preferred method of communication for immediate assistance.",
       "Email Support": "Email Support",
@@ -668,18 +666,17 @@ const resources = {
       "Speak to an Advisor": "Parler à un Conseiller",
 
       // Membership Page
-      "EXCLUSIVE MEMBERSHIP": "ADHÉSION EXCLUSIVE",
       "Become a": "Devenez",
       Member: "Membre",
       "Access a world of unparalleled luxury and personalized service. Experience the ultimate in convenience, access, and discretion.":
-        "Débloquez un monde de luxe inégalé et de service personnalisé. Vivez le summum de la commodité, de l'accès et de la discrétion.",
+        "Accédez à un univers de luxe inégalé et de services personnalisés. Vivez une expérience ultime en matière de confort, d'accessibilité et de discrétion.",
       "View Membership Tiers": "Voir les Niveaux d'Adhésion",
       "Why Choose": "Pourquoi Choisir",
       "S'Clusive membership opens the door to a universe of tailored experiences, global connections, and dedicated support that transforms how you live.":
         "L'adhésion S'Clusive ouvre la porte à un univers d'expériences sur mesure, de connexions mondiales et de soutien dévoué qui transforme votre façon de vivre.",
 
       // Membership Benefits
-      "Dedicated Concierge": "Gestionnaire de Style de Vie Dédié",
+      "Dedicated Concierge": "Concierge dédié",
       "A single point of contact available to anticipate and fulfill your every need, 24/7 worldwide support.":
         "Un point de contact unique disponible pour anticiper et répondre à tous vos besoins, support mondial 24h/24 et 7j/7.",
       "Exclusive Access": "Accès Exclusif",
@@ -760,8 +757,8 @@ const resources = {
       Connect: "Vous Connecter",
       "Available 24/7 for your convenience":
         "Disponible 24h/24 et 7j/7 pour votre commodité",
-      "Prefer to Connect Us": "Vous Préférez Vous Connecter",
-      Directly: "Directement",
+      "Prefer to Contact Us Directly?":
+        "Préférez-vous nous contacter directement?",
       "Choose your preferred method of communication for immediate assistance.":
         "Choisissez votre méthode de communication préférée pour une assistance immédiate.",
       "Email Support": "Support par Email",
