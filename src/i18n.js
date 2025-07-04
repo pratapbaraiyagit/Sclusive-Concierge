@@ -36,8 +36,8 @@ const resources = {
       "Luxury Travel & Stay": "Luxury Travel & Stay",
       "Corporate Concierge": "Corporate Concierge",
       "Wellness & Lifestyle Management": "Wellness & Lifestyle Management",
-      "At S'Clusive, we don't just plan, we anticipate. We don't just add comments, we organize actions, we organize. Our mission is to simplify the extraordinary.":
-        "At S'Clusive, we don't just plan, we anticipate. We don't just add comments, we organize actions, we organize. Our mission is to simplify the extraordinary.",
+      "At S’Clusive, we don’t just plan, we anticipate your every desire. Our mission is to simplify the extraordinary!":
+        "At S’Clusive, we don’t just plan, we anticipate your every desire. Our mission is to simplify the extraordinary!",
 
       // About Section
       "Our Brand Story": "Our Brand Story",
@@ -581,8 +581,8 @@ const resources = {
       "Access your dashboard": "Accédez à votre tableau de bord",
       "Submit and track your service needs with your lifestyle manager.":
         "Soumettez et suivez vos besoins de service avec votre gestionnaire de style de vie.",
-      "At S'Clusive, we don't just plan, we anticipate. We don't just add comments, we organize actions, we organize. Our mission is to simplify the extraordinary.":
-        "Chez S'Clusive, nous ne nous contentons pas de planifier, nous anticipons. Nous ne nous contentons pas d'ajouter des commentaires, nous organisons des actions, nous organisons. Notre mission est de simplifier l'extraordinaire.",
+      "At S’Clusive, we don’t just plan, we anticipate your every desire. Our mission is to simplify the extraordinary!":
+        "Chez S’Clusive, nous ne faisons pas que planifier, nous anticipons chacun de vos désirs. Notre mission est de simplifier l’extraordinaire !",
       "Discover how S'CLUSIVE can simplify the extraordinary for you. Your journey to a life without limits starts here.":
         "Découvrez comment S'CLUSIVE peut simplifier l'extraordinaire pour vous. Votre voyage vers une vie sans limites commence ici.",
 
