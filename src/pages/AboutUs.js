@@ -131,7 +131,7 @@ const AboutUs = () => {
               <blockquote className="founder-quote">
                 "
                 {t(
-                  "At S'Clusive, we don't just plan, we anticipate. We don't just add comments, we organize actions, we organize. Our mission is to simplify the extraordinary."
+                  "At S’Clusive, we don’t just plan, we anticipate your every desire. Our mission is to simplify the extraordinary!"
                 )}
                 "
               </blockquote>
