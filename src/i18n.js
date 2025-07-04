@@ -492,7 +492,7 @@ const resources = {
       "Our Values": "Nos Valeurs",
       "Become a S'CLUSIVE Member": "Devenez Membre de S'CLUSIVE",
       "Our Bespoke Services": "Nos Services Sur Mesure",
-      "We'd Love to Hear From You": "Nous aimerions avoir de vos Nouvelles",
+      "We'd Love to Hear From You": "Nous Aimerions Avoir De Vos Nouvelles",
       Story: "Histoire",
       "Our team is committed to anticipating your needs, ensuring discretion, and transforming every request into an exceptional experience.":
         "Notre équipe s'engage à anticiper vos besoins, assurer la discrétion et transformer chaque demande en une expérience exceptionnelle.",
@@ -758,7 +758,7 @@ const resources = {
       "Available 24/7 for your convenience":
         "Disponible 24h/24 et 7j/7 pour votre commodité",
       "Prefer to Contact Us Directly?":
-        "Préférez-vous nous contacter directement?",
+        "Préférez-Vous Nous Contacter Directement?",
       "Choose your preferred method of communication for immediate assistance.":
         "Choisissez votre méthode de communication préférée pour une assistance immédiate.",
       "Email Support": "Support par Email",
