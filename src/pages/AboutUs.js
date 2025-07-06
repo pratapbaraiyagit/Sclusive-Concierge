@@ -2,16 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./AboutUs.css"; // Import the CSS file
-
+import luxuryServiceImg from "../assets/images/A14.jpg"; // Update with your actual hero image path
+import aboutHero from "../assets/images/A9.jpg"; // Update with your actual hero image path
+import founderImg from "../assets/images/A5.JPG"; // Update with your actual founder image path
 // Updated premium images
-const aboutHero =
-  "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80";
-const founderImg =
-  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80";
-const teamWorkImg =
-  "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
-const luxuryServiceImg =
-  "https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
 
 const AboutUs = () => {
   const { t } = useTranslation();
