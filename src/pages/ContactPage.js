@@ -11,7 +11,7 @@ import {
   FaPhone,
 } from "react-icons/fa";
 import "./ContactPage.css"; // Import the CSS file
-import contactHero from "../assets/images/A7.JPG"; // Import the hero image
+import contactHero from "../assets/images/A14.jpg"; // Import the hero image
 
 const ContactPage = () => {
   const { t } = useTranslation();
@@ -19,7 +19,7 @@ const ContactPage = () => {
     fullName: "",
     email: "",
     phone: "",
-    message: "",
+    message: "",  
     attachment: null,
   });
 
