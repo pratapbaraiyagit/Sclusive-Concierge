@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import "./AboutUs.css"; // Import the CSS file
 import luxuryServiceImg from "../assets/images/A14.jpg"; // Update with your actual hero image path
 import aboutHero from "../assets/images/A9.jpg"; // Update with your actual hero image path
-import founderImg from "../assets/images/A5.JPG"; // Update with your actual founder image path
+import founderImg from "../assets/images/founder_img.JPG"; // Update with your actual founder image path
 // Updated premium images
 
 const AboutUs = () => {
