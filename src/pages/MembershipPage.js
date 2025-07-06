@@ -2,19 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./MembershipPage.css"; // Import the CSS file
-
-// Updated images for better visual appeal
-const membershipHero =
-  "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80";
-const membershipBenefitsImg =
-  "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
-const exclusiveAccessImg =
-  "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
-const globalNetworkImg =
-  "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
-const discretionImg =
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
-
+import membershipHero from "../assets/images/A8.jpg";
+import membershipBenefitsImg from "../assets/images/A7.JPG"; // Update with your actual hero image path
+import exclusiveAccessImg from "../assets/images/A6.JPG";
+import globalNetworkImg from "../assets/images/A5.JPG"; // Update with your actual hero image path
+import discretionImg from "../assets/images/A4.JPG"; // Update with your actual hero image path
 const MembershipPage = () => {
   const { t } = useTranslation();
 
