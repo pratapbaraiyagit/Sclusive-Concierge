@@ -2,18 +2,11 @@ import React, { useState } from "react";
 import "./ServicesPage.css"; // Import the CSS file
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
-// Updated premium images
-const servicesHero =
-  "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80";
-const lifestyleManagementImg =
-  "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
-const luxuryTravelImg =
-  "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
-const eventPlanningImg =
-  "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
-const corporateConciergeImg =
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
+import luxuryTravelImg from "../assets/images/A1.JPG"; // Update with your actual hero image path
+import lifestyleManagementImg from "../assets/images/A10.jpg"; // Update with your actual hero image path
+import eventPlanningImg from "../assets/images/A12.jpg"; // Update with your actual hero image path
+import corporateConciergeImg from "../assets/images/A11.jpg";
+import servicesHero from "../assets/images/A9.jpg"; // Update with your actual hero image path
 
 const ServicesPage = () => {
   const { t } = useTranslation();
