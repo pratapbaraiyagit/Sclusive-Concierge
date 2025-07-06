@@ -2,24 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./Homepage.css"; // Import the CSS file
+import heroBg from "../assets/images/A13.jpg"; // Update with your actual hero image path
 
 // Mock images - replace with your actual asset paths
-const heroBg =
-  "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80";
-const corporateMembershipImg =
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
-const brandEventsImg =
-  "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
-const privateEventsImg =
-  "https://images.unsplash.com/photo-1519167758481-83f29ba5fe83?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
-const appScreenshot =
-  "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
-const travelService =
-  "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
-const restaurantService =
-  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
-const exclusiveAccessService =
-  "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
 
 const Homepage = () => {
   const { t } = useTranslation();
