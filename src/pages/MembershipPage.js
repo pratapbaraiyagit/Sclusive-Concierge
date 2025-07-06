@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./MembershipPage.css"; // Import the CSS file
-import membershipHero from "../assets/images/A8.jpg";
+import membershipHero from "../assets/images/A14.jpg";
 import membershipBenefitsImg from "../assets/images/A7.JPG"; // Update with your actual hero image path
 import exclusiveAccessImg from "../assets/images/A6.JPG";
-import globalNetworkImg from "../assets/images/A5.JPG"; // Update with your actual hero image path
+import globalNetworkImg from "../assets/images/A15.jpg"; // Update with your actual hero image path
 import discretionImg from "../assets/images/A4.JPG"; // Update with your actual hero image path
 const MembershipPage = () => {
   const { t } = useTranslation();
