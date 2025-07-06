@@ -11,10 +11,7 @@ import {
   FaPhone,
 } from "react-icons/fa";
 import "./ContactPage.css"; // Import the CSS file
-
-// Hero image
-const contactHero =
-  "https://images.unsplash.com/photo-1577495508048-b635879837f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80";
+import contactHero from "../assets/images/A7.JPG"; // Import the hero image
 
 const ContactPage = () => {
   const { t } = useTranslation();
