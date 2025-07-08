@@ -3,10 +3,10 @@ import "./ServicesPage.css"; // Import the CSS file
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import luxuryTravelImg from "../assets/images/A15.jpg"; // Update with your actual hero image path
-import lifestyleManagementImg from "../assets/images/A10.jpg"; // Update with your actual hero image path
-import eventPlanningImg from "../assets/images/A12.jpg"; // Update with your actual hero image path
+import lifestyleManagementImg from "../assets/images/A18.JPG"; // Update with your actual hero image path
+import eventPlanningImg from "../assets/images/A19.jpeg"; // Update with your actual hero image path
 import corporateConciergeImg from "../assets/images/founder_img.JPG";
-import servicesHero from "../assets/images/A9.jpg"; // Update with your actual hero image path
+import servicesHero from "../assets/images/A17.JPG"; // Update with your actual hero image path
 
 const ServicesPage = () => {
   const { t } = useTranslation();
