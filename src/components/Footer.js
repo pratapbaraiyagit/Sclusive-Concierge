@@ -177,7 +177,7 @@ const Footer = () => {
             </h5>
             <div className="social-icons d-flex justify-content-center justify-content-md-end gap-3">
               <a
-                href="https://instagram.com/your_sclusive_instagram"
+                href="https://www.instagram.com/sclusive_conciergerie?igsh=MXg3eHN4M3c0MXNpOQ%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
