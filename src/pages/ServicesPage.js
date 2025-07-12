@@ -128,7 +128,7 @@ const ServicesPage = () => {
                       className="services-card-img"
                     />
                     {/* Icon Overlay */}
-                    <div className="services-card-icon">{service.icon}</div>
+                    {/* <div className="services-card-icon">{service.icon}</div> */}
                   </div>
 
                   {/* Content Section */}
