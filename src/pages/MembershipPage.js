@@ -175,9 +175,9 @@ const MembershipPage = () => {
                       alt={benefit.title}
                       className="membership-benefit-img"
                     />
-                    <div className="membership-benefit-icon">
+                    {/* <div className="membership-benefit-icon">
                       {benefit.icon}
-                    </div>
+                    </div> */}
                   </div>
                   <div className="membership-benefit-content">
                     <h4 className="membership-benefit-title">
