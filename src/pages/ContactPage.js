@@ -12,16 +12,18 @@ import {
 } from "react-icons/fa";
 import "./ContactPage.css"; // Import the CSS file
 import contactHero from "../assets/images/A14.jpg"; // Import the hero image
+import emailjs from 'emailjs-com';
 
 const ContactPage = () => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    message: "",  
-    attachment: null,
-  });
+  fullName: "",
+  email: "",
+  phone: "",
+  message: "",
+  attachment: null,
+});
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -31,20 +33,77 @@ const ContactPage = () => {
     }));
   };
 
-  const handleFileChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      attachment: e.target.files[0],
-    }));
-  };
+const handleFileChange = (e) => {
+  setFormData((prev) => ({
+    ...prev,
+    attachment: e.target.files[0],
+  }));
+};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Contact form submitted:", formData);
-    alert(
-      t("Thank you for your message! We will get back to you within 24 hours.")
+
+const uploadToCloudinary = async (file) => {
+  const cloudName = "dckgzepgd";
+  const uploadPreset = "sc_upload";
+
+  const url = `https://api.cloudinary.com/v1_1/${cloudName}/auto/upload`;
+
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", uploadPreset);
+
+  const response = await fetch(url, {
+    method: "POST",
+    body: formData,
+  });
+
+  if (!response.ok) throw new Error("Upload failed");
+
+  const data = await response.json();
+  return data.secure_url;
+};
+
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    let fileUrl = "";
+
+    if (formData.attachment) {
+      if (formData.attachment.size > 5 * 1024 * 1024) {
+        alert("File too large. Max 5MB.");
+        return;
+      }
+      fileUrl = await uploadToCloudinary(formData.attachment);
+    }
+
+    await emailjs.send(
+      "service_jyqf4ja",
+      "template_1y43o48",
+      {
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+        fileUrl: fileUrl,
+      },
+      "X-6RxoYx7s1cF1QmR"
     );
-  };
+
+    alert("Message sent!");
+    setFormData({
+      fullName: "",
+      email: "",
+      phone: "",
+      message: "",
+      attachment: null,
+    });
+  } catch (error) {
+    console.error(error);
+    alert("Failed to send message.");
+  }
+};
+
 
   return (
     <div style={{ fontFamily: "Poppins, sans-serif", lineHeight: 1.6 }}>
@@ -158,7 +217,7 @@ const ContactPage = () => {
                       id="contactFileAttachment"
                       name="attachment"
                       onChange={handleFileChange}
-                      accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                        accept=".pdf,.doc,.docx,.txt,.rtf,.odt,.jpg,.jpeg,.png,.gif,.bmp,.webp,.xlsx,.csv,.ppt,.zip,.rar"
                       style={{ display: "none" }}
                       className="contact-form-control contact-file-input"
                     />

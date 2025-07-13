@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./Homepage.css"; // Import the CSS file
 import heroBg from "../assets/images/A13.jpg"; // Update with your actual hero image path
+import emailjs from 'emailjs-com';
+
 
 // Mock images - replace with your actual asset paths
 
@@ -53,12 +55,98 @@ const Homepage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission here
+  const uploadToCloudinary = async (file) => {
+  const cloudName = "dckgzepgd"; // 🔁 replace this
+  const unsignedUploadPreset = "sc_upload"; // 🔁 replace this with your preset
+
+  const url = `https://api.cloudinary.com/v1_1/${cloudName}/auto/upload`;
+
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", unsignedUploadPreset);
+
+  const response = await fetch(url, {
+    method: "POST",
+    body: formData,
+  });
+
+  if (!response.ok) throw new Error("Upload failed");
+
+  const data = await response.json();
+  return data.secure_url; // ✅ this is the public URL to send via EmailJS
+};
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const sendEmail = async (fileUrl = "") => {
+    const templateParams = {
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      message: formData.message,
+      fileUrl: fileUrl, // must match your EmailJS template variable
+    };
+
+    try {
+      await emailjs.send(
+        "service_jyqf4ja",       // ✅ replace with your EmailJS service ID
+        "template_1y43o48",      // ✅ replace with your EmailJS template ID
+        templateParams,
+        "X-6RxoYx7s1cF1QmR"      // ✅ replace with your EmailJS public key
+      );
+      alert("Message sent successfully!");
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        message: "",
+        attachment: null,
+      });
+    } catch (error) {
+      console.error("Email error:", error);
+      alert("Failed to send message. Please try again later.");
+    }
   };
 
+  const uploadToCloudinary = async (file) => {
+    const cloudName = "dckgzepgd";          // ✅ your Cloudinary cloud name
+    const uploadPreset = "sc_upload";       // ✅ your unsigned upload preset
+
+    const url = `https://api.cloudinary.com/v1_1/${cloudName}/auto/upload`;
+
+    const uploadData = new FormData();
+    uploadData.append("file", file);
+    uploadData.append("upload_preset", uploadPreset);
+
+    const res = await fetch(url, {
+      method: "POST",
+      body: uploadData,
+    });
+
+    if (!res.ok) throw new Error("File upload failed");
+    const data = await res.json();
+    return data.secure_url;
+  };
+
+  try {
+    let fileUrl = "";
+
+    if (formData.attachment) {
+      if (formData.attachment.size > 5 * 1024 * 1024) {
+        alert("File too large. Max size is 5MB.");
+        return;
+      }
+
+      fileUrl = await uploadToCloudinary(formData.attachment);
+    }
+
+    await sendEmail(fileUrl);
+  } catch (err) {
+    console.error("Submission error:", err);
+    alert("There was an issue. Please try again.");
+  }
+};
   return (
     <div style={{ fontFamily: "Poppins, sans-serif", lineHeight: 1.6 }}>
       {/* Hero Section */}
@@ -286,7 +374,8 @@ const Homepage = () => {
                     id="fileAttachment"
                     name="attachment"
                     onChange={handleFileChange}
-                    accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                    accept=".pdf,.doc,.docx,.txt,.rtf,.odt,.jpg,.jpeg,.png,.gif,.bmp,.webp,.xlsx,.csv,.ppt,.zip,.rar"
+
                     style={{ display: "none" }}
                   />
 
