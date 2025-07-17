@@ -44,9 +44,9 @@ const Header = () => {
             <Nav.Link as={Link} to="/services" onClick={closeMenu}>
               {t("Services")}
             </Nav.Link>
-            <Nav.Link as={Link} to="/membership" onClick={closeMenu}>
+            {/* <Nav.Link as={Link} to="/membership" onClick={closeMenu}>
               {t("Membership")}
-            </Nav.Link>
+            </Nav.Link> */}
             <Nav.Link as={Link} to="/contact" onClick={closeMenu}>
               {t("Contact")}
             </Nav.Link>
