@@ -103,12 +103,12 @@ const Footer = () => {
               >
                 {t("Services")}
               </Link>
-              <Link
+              {/* <Link
                 to="/membership"
                 className="nav-link text-light-text-color p-0 mb-2 footer-nav-link"
               >
                 {t("Membership")}
-              </Link>
+              </Link> */}
               <Link
                 to="/contact"
                 className="nav-link text-light-text-color p-0 mb-2 footer-nav-link"
