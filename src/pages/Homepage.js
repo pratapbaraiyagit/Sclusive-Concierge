@@ -90,10 +90,10 @@ const handleSubmit = async (e) => {
 
     try {
       await emailjs.send(
-        "service_jyqf4ja",       // ✅ replace with your EmailJS service ID
-        "template_1y43o48",      // ✅ replace with your EmailJS template ID
+        "service_sxxtklq",       // ✅ replace with your EmailJS service ID
+        "template_mi9juwt",      // ✅ replace with your EmailJS template ID
         templateParams,
-        "X-6RxoYx7s1cF1QmR"      // ✅ replace with your EmailJS public key
+        "28lElSVZaHLwBLeCJ"      // ✅ replace with your EmailJS public key
       );
       alert("Message sent successfully!");
       setFormData({
