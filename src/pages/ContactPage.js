@@ -78,8 +78,8 @@ const handleSubmit = async (e) => {
     }
 
     await emailjs.send(
-      "service_jyqf4ja",
-      "template_1y43o48",
+      "service_sxxtklq",
+      "template_mi9juwt",
       {
         fullName: formData.fullName,
         email: formData.email,
@@ -87,7 +87,7 @@ const handleSubmit = async (e) => {
         message: formData.message,
         fileUrl: fileUrl,
       },
-      "X-6RxoYx7s1cF1QmR"
+      "28lElSVZaHLwBLeCJ"
     );
 
     alert("Message sent!");
